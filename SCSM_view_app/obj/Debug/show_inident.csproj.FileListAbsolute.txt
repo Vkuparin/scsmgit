@@ -1,0 +1,54 @@
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\show_inident.dll.config
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\show_inident.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\show_inident.pdb
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Antlr3.Runtime.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.Core.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\EntityFramework.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\System.Web.Optimization.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\System.Web.Providers.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\WebGrease.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\EntityFramework.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.Core.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Microsoft.AspNet.Membership.OpenAuth.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\obj\Debug\show_inident.csprojResolveAssemblyReference.cache
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\obj\Debug\show_inident.dll
+C:\Users\slahdeti\Desktop\visual studio 2013\Projects\show_incident\show_inident\show_inident\obj\Debug\show_inident.pdb
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\show_inident.dll.config
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\show_inident.dll
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\show_inident.pdb
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\EntityFramework.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\DotNetOpenAuth.Core.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\Microsoft.AspNet.Membership.OpenAuth.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\obj\Debug\show_inident.csprojResolveAssemblyReference.cache
+C:\Users\vkuparin\Desktop\SCSM_view_app\obj\Debug\show_inident.dll
+C:\Users\vkuparin\Desktop\SCSM_view_app\obj\Debug\show_inident.pdb
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\Mono.Math.dll
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\vkuparin\Desktop\SCSM_view_app\bin\Mono.Math.xml
