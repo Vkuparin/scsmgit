@@ -1,0 +1,3 @@
+# scsmgit
+
+muokattu versio
