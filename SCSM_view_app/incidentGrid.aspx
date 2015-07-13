@@ -161,7 +161,7 @@
         });
     </script>
     <hgroup class="title">
-        <h1> Title  <asp:Label ID="parametri" runat="server"/></h1>
+        <h1> Omat työpyynnöt  <asp:Label ID="parametri" runat="server"/></h1>
     </hgroup>
 
     <table id="Grid1" class="scroll" align="center" width="100%"></table>

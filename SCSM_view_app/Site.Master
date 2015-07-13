@@ -72,12 +72,8 @@
                         </LoggedInTemplate>
                     </asp:LoginView> 
                 </section> -->
-                <nav>
-                    <ul id="menu">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
+               <nav>
+                        <h2 id="menu"><a runat="server" href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a></h2>
                 </nav>
             </div>
         </div>
