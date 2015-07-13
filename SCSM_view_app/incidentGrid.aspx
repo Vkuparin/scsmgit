@@ -15,7 +15,8 @@
                         showButtonPanel: true,
                         showWeek: true
                     });
-                },
+                },
+
                 numberTemplate = {formatter: "number", align: "right", sorttype: "number",
                 editrules: {number: true, required: true},
                 searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
@@ -48,7 +49,8 @@
                             $self.find(">tbody>tr.jqgrow>td:nth-child(" + (iCol + 1) + ")").highlight(rule.data);
                         }
                     }
-                };
+                };
+
                   $.extend($.jgrid.defaults,
                       {
                           datatype: 'json',
@@ -86,8 +88,8 @@
                       datatype: 'json',
                       mtype: 'POST',
                       colNames: ['Title', 'Id', 'ClosedDate', 'CreatedDate', 'Id1', 'WorkItemDimKey', 'WorkItemDimKey1', 'WorkItemAffectedUser_UserDimKey', 'UserName', 'UserDimKey'],
-                      colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250 },
-                       { name: 'Id', index: 'Id', width: 100, editrules: { required: true } },
+                      colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, sorttype: 'string' },
+                       { name: 'Id', index: 'Id', width: 100, editrules: { required: true }, sorttype: 'string' },
                       {
                           name: 'ClosedDate', index: 'ClosedDate', width: 150, align: "center", sorttype: "date",
                           formatter: "date", formatoptions: { newformat: "d-M-Y" },
@@ -98,19 +100,20 @@
                           formatter: "date", formatoptions: { newformat: "d-M-Y" },
                           searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                       },
-                      { name: 'Id1', index: 'Id1', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] } },
-                      { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] } },
-                      { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] } },
-                      { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', width: 250, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] } },
-                      { name: 'UserName', index: 'UserName', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] } },
-                      { name: 'UserDimKey', index: 'UserDimKey', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] } }, ],
+                      { name: 'Id1', index: 'Id1', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
+                      { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
+                      { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
+                      { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', width: 250, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
+                      { name: 'UserName', index: 'UserName', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
+                      { name: 'UserDimKey', index: 'UserDimKey', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' }, ],
                       pager: '#pager', sortname: 'CreatedDate', sortorder: 'desc',
                       rowNum: 50,
                       rowTotal: 10000,
                       rowList: [20, 50, 100],
                       rownumbers: true,
                       gridview: true,
-                      loadonce: true,
+                      //loadonce: true,
+                      ignoreCase: true,
                       viewrecoreds: true,
                       imgpath: 'Content/images',
                       serializeGridData: function (data) {
@@ -123,11 +126,13 @@
                   jQuery($Grid1).jqGrid("navGrid", "#pager", {add: false, edit: false, del: false, search: false});
                   //Fill top bar
                   $('#t_' + $.jgrid.jqID($Grid1[0].id))
-                 .append($("<div><label for=\"globalSearchText\">Etsi taulukosta:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));                  $("#globalSearchText").keypress(function (e) {
+                 .append($("<div><label for=\"globalSearchText\">Etsi taulukosta:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
+                  $("#globalSearchText").keypress(function (e) {
                       var key = e.charCode || e.keyCode || 0;
                       if (key === $.ui.keyCode.ENTER) { // 13
                           $("#globalSearch").click();
-                      }                  });
+                      }
+                  });
                   $("#globalSearch").button({
                       icons: { primary: "ui-icon-search" },
                       text: false
@@ -157,6 +162,7 @@
                       $Grid1.trigger("reloadGrid", [{page: 1, current: true}]);
                       return false;
                   });
+                  jQuery($Grid1).jqGrid('filterToolbar', { stringResult: true, searchOnEnter: false, defaultSearch: "cn" });
             });
         });
     </script>
