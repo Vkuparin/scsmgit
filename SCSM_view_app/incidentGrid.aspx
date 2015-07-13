@@ -4,7 +4,10 @@
     <script type="text/javascript">
               $(document).ready(function () {
                   $.extend($.jgrid.defaults,
-                      { datatype: 'json' },
+                      {
+                          datatype: 'json',
+                          height: 'auto'
+                      },
                       {
                           ajaxGridOptions: {
                               contentType: "application/json",
@@ -46,7 +49,12 @@
                       { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', width: 250 },
                       { name: 'UserName', index: 'UserName', width: 100 },
                       { name: 'UserDimKey', index: 'UserDimKey', width: 100 }, ],
-                      pager: '#pager', sortname: 'CreatedDate',
+                      pager: '#pager', sortname: 'CreatedDate', sortorder: 'desc',
+                      rowNum: 50,
+                      rowTotal: 10000,
+                      rowList: [20, 50, 100],
+                      rownumbers: true,
+                      gridview: true,
                       viewrecoreds: true,
                       imgpath: 'Content/images',
                       serializeGridData: function (data) {
@@ -55,7 +63,7 @@
 
 
                   });
-              });
+              });//.navGrid('#pager', {search:true, edit: false, add:false, del:false, searchtext:"Search"});
     </script>
     <hgroup class="title">
         <h1> Title  <asp:Label ID="parametri" runat="server"/></h1>
