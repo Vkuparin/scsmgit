@@ -85,7 +85,7 @@
                       url: 'incidentGrid.aspx/GetDataTable', //Osuukohan tämä oikeaan. funktio GetDataTable tiedostossa incidentGrid.aspx.cs
                       datatype: 'json',
                       mtype: 'POST',
-                      colNames: ['Title', 'Id', 'ClosedDate', 'CreatedDate', 'Id1', 'WorkItemDimKey', 'WorkItemDimKey1', 'WorkItemAffectedUser_UserDimKey', 'UserName', 'UserDimKey'],
+                      colNames: ['Otsikko', 'Id', 'SulkemisPvm', 'LuomisPvm', 'Id1', 'WorkItemDimKey', 'WorkItemDimKey1', 'WorkItemAffectedUser_UserDimKey', 'UserName', 'UserDimKey'],
                       colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250 },
                        { name: 'Id', index: 'Id', width: 100, editrules: { required: true } },
                       {
