@@ -88,8 +88,8 @@
                       url: 'incident.aspx/GetIncidentTable', //Osuukohan tämä oikeaan. funktio GetDataTable tiedostossa incidentGrid.aspx.cs
                       datatype: 'json',
                       mtype: 'POST',
-                      colNames: ['Prioriteetti', 'SulkemisPvm', 'InsertedBatchId', 'incidentId', 'Otsikko', 'Kuvaus', 'LuomisPvm', 'Kuukausi', 'Päivä', 'Vuosi', 'FirstAssignedDay', 'ticket_DisplayName', 'IsDeleted',
-                                    'IncidentTierQueuesValue', 'IncidentStatusValue', 'IncidentUrgencyValue', 'IncidentImpactValue', 'IncidentClassificationValue', 'IncidentSourceValue'],
+                      colNames: ['Prioriteetti', 'SulkemisPvm', 'InsertedBatchId', 'Id', 'Otsikko', 'Kuvaus', 'LuomisPvm', 'Kuukausi', 'Päivä', 'Vuosi', 'FirstAssignedDay', 'Näyttönimi', 'IsDeleted',
+                                    'IncidentTierQueuesValue', 'Tila', 'Kiireellisyys', 'Vaikutus', 'Tyyppi', 'Lähde'],
                       colModel: [{ name: 'I.Priority', index: 'I.Priority', width: 250, sorttype: 'string' },
                        {
                            name: 'I.ClosedDate', index: 'I.ClosedDate', width: 100, editable: true, formatter: function (cellvalue, options, rowObject) {
