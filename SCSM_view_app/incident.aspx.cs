@@ -16,11 +16,8 @@ namespace show_incident
 {
     public partial class incident : System.Web.UI.Page
     {
+        public static string v = "";
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
         public struct s_GridResult
         {
             public int page;
@@ -34,10 +31,18 @@ namespace show_incident
             public int id;
             public string[] cell;
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+           // Read in parameters
+           v = Request.QueryString["id"];
+           if (v != null){
+                parametri.Text = v;
+           }
+        }
         [WebMethod]
         public static s_GridResult GetIncidentTable(string _search, string nd, int rows, int page, string sidx, string sord)
         {
-
             int startindex = (page - 1);
             int endindex = page;
             string sql = @" SELECT I.Priority,
@@ -66,7 +71,7 @@ namespace show_incident
                                 INNER JOIN DWRepository.dbo.IncidentImpactvw as II on II.ID = I.Impact
                                 INNER JOIN DWRepository.dbo.IncidentClassificationvw as IC on IC.ID = I.Classification
                                 INNER JOIN DWRepository.dbo.IncidentSourcevw as ISo on Iso.ID = I.Source
-                                WHERE I.Id = '" + "IRTKU5019" + "';";
+                                WHERE I.Id = '" + v + "';";
 
             Debug.WriteLine("tällänen teksti"); //Ei näy missään
             DataTable dt = new DataTable();
@@ -91,15 +96,15 @@ namespace show_incident
                 newrow.cell[7] = row[7].ToString();
                 newrow.cell[8] = row[8].ToString();
                 newrow.cell[9] = row[9].ToString();
-                newrow.cell[10] = row[10}.ToString();
-                newrow.cell[11] = row[11}.ToString();
-                newrow.cell[12] = row[12}.ToString();
-                newrow.cell[13] = row[13}.ToString();
-                newrow.cell[14] = row[14}.ToString();
-                newrow.cell[15] = row[15}.ToString();
-                newrow.cell[16] = row[16}.ToString();
-                newrow.cell[17] = row[17}.ToString();
-                newrow.cell[18] = row[18}.ToString();
+                newrow.cell[10] = row[10].ToString();
+                newrow.cell[11] = row[11].ToString();
+                newrow.cell[12] = row[12].ToString();
+                newrow.cell[13] = row[13].ToString();
+                newrow.cell[14] = row[14].ToString();
+                newrow.cell[15] = row[15].ToString();
+                newrow.cell[16] = row[16].ToString();
+                newrow.cell[17] = row[17].ToString();
+                newrow.cell[18] = row[18].ToString();
                 rowsadded.Add(newrow);
             }
             result.rows = rowsadded.ToArray();

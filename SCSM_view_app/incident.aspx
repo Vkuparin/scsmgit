@@ -1,6 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="incidentGrid.aspx.cs" Inherits="show_incident.incidentGrid" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="incident.aspx.cs" Inherits="show_incident.incident" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    
+    <hgroup class="title">
+        <h1>Työpyyntö: <%: Title %> <asp:Label ID="parametri" runat="server"/></h1>
+    </hgroup>
+
     <script type="text/javascript">
             $(function () {
                 $Grid1 = $("#Grid1"),
@@ -182,10 +187,6 @@
                   });
             });
     </script>
-
-    <hgroup class="title">
-        <h1> Työpyyntö <asp:Label ID="parametri" runat="server"/></h1>
-    </hgroup>
 
     <table id="Grid1" class="scroll" align="center" width="100%"></table>
     <div id="pager" class="scroll" style="text-align:center;">
