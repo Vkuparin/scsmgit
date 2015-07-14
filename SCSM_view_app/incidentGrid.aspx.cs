@@ -57,7 +57,6 @@ namespace show_incident
                                WorkItemAffectedUserFactvw.WorkItemDimKey = WorkItemDimvw.WorkItemDimKey AND 
                                IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.UserName='slahdeti'));";
 
-            Debug.WriteLine("tällänen teksti"); //Ei näy missään
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["tkuscsm-dwsConnectionString"].ConnectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);

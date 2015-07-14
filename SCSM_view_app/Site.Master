@@ -83,7 +83,8 @@
                     </asp:LoginView> 
                 </section> -->
                <nav>
-                    <h2 id="menu"><a runat="server" href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a></h2>
+                    <h1 id="menu"><a runat="server" href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a></h1>
+                   <h2 id="menu"><a runat="server" href="incidentGrid.aspx">Omat työpyynnöt</a></h2>
                </nav>
         </div>
     </header>

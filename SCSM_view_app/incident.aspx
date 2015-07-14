@@ -61,6 +61,8 @@
                       {
                           datatype: 'json',
                           height: 'auto',
+                          autowidth: true,
+                          shrinkToFit: true,
                           toolbar: ['true',"top"]
                       },
                       {
@@ -90,46 +92,32 @@
 
                   //Rakennetaan jqgrid
                   $Grid1.jqGrid({
-                      url: 'incident.aspx/GetIncidentTable', //Osuukohan tämä oikeaan. funktio GetDataTable tiedostossa incidentGrid.aspx.cs
+                      url: 'incident.aspx/GetIncidentTable',
                       datatype: 'json',
                       mtype: 'POST',
                       colNames: ['Prioriteetti', 'SulkemisPvm', 'InsertedBatchId', 'Id', 'Otsikko', 'Kuvaus', 'LuomisPvm', 'Kuukausi', 'Päivä', 'Vuosi', 'FirstAssignedDay', 'Näyttönimi', 'IsDeleted',
                                     'IncidentTierQueuesValue', 'Tila', 'Kiireellisyys', 'Vaikutus', 'Tyyppi', 'Lähde'],
-                      colModel: [{ name: 'I.Priority', index: 'I.Priority', width: 250, sorttype: 'string' },
-                       {
-                           name: 'I.ClosedDate', index: 'I.ClosedDate', width: 100, editable: true, formatter: function (cellvalue, options, rowObject) {
-                               var val = '<a href = "incident.aspx?id=' + cellvalue + '">' + cellvalue + '</a>';
-                               console.log(val);
-                               return val;
-                           },
-                       },
-                      {
-                          name: 'I.InsertedBatchId', index: 'I.InsertedBatchId', width: 150, align: "center", sorttype: "date",
-                          formatter: "date", formatoptions: { newformat: "d-M-Y" },
-                          searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
-                      },
-                      {
-                          name: 'I.Id as incidentId', index: 'I.Id as incidentId', width: 150, align: "center", sorttype: "date",
-                          formatter: "date", formatoptions: { newformat: "d-M-Y" },
-                          searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
-                      },
-                      { name: 'I.Title', index: 'I.Title', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'I.Description', index: 'I.Description', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'I.CreatedDate', index: 'I.CreatedDate', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
-                      { name: 'month(I.CreatedDate) as slahdeti_month', index: 'month(I.CreatedDate) as slahdeti_month', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
-                      { name: 'day(I.CreatedDate) as slahdeti_day', index: 'day(I.CreatedDate) as slahdeti_day', width: 250, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
-                      { name: 'year(I.CreatedDate) as slahdeti_year', index: 'year(I.CreatedDate) as slahdeti_year', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'I.FirstAssignedDate', index: 'I.FirstAssignedDate', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
-                      { name: 'I.DisplayName as ticket_DisplayName', index: 'I.DisplayName as ticket_DisplayName', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'I.IsDeleted', index: 'I.IsDeleted', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'itq.IncidentTierQueuesValue', index: 'itq.IncidentTierQueuesValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'ISt.IncidentStatusValue', index: 'ISt.IncidentStatusValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'IU.IncidentUrgencyValue', index: 'IU.IncidentUrgencyValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'II.IncidentImpactValue', index: 'II.IncidentImpactValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'IC.IncidentClassificationValue,', index: 'IC.IncidentClassificationValue,', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'ISo.IncidentSourceValue', index: 'ISo.IncidentSourceValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' }, ],
+                      colModel: [{ name: 'I.Priority', index: 'I.Priority', width: 50},
+                                { name: 'I.ClosedDate', index: 'I.ClosedDate', width: 100},
+                                { name: 'I.InsertedBatchId', index: 'I.InsertedBatchId', width: 150, align: "center"},
+                                { name: 'incidentId', index: 'incidentId', width: 150, align: "center"},
+                                { name: 'I.Title', index: 'I.Title', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'I.Description', index: 'I.Description', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'I.CreatedDate', index: 'I.CreatedDate', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'slahdeti_month', index: 'slahdeti_month', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'slahdeti_day', index: 'slahdeti_day', width: 250, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'slahdeti_year', index: 'slahdeti_year', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'I.FirstAssignedDate', index: 'I.FirstAssignedDate', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'ticket_DisplayName', index: 'ticket_DisplayName', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'I.IsDeleted', index: 'I.IsDeleted', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'itq.IncidentTierQueuesValue', index: 'itq.IncidentTierQueuesValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'ISt.IncidentStatusValue', index: 'ISt.IncidentStatusValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'IU.IncidentUrgencyValue', index: 'IU.IncidentUrgencyValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'II.IncidentImpactValue', index: 'II.IncidentImpactValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'IC.IncidentClassificationValue,', index: 'IC.IncidentClassificationValue,', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'ISo.IncidentSourceValue', index: 'ISo.IncidentSourceValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }}, ],
 
-                      pager: '#pager', sortname: 'CreatedDate', sortorder: 'desc',
+                      pager: '#pager', sortname: 'I.CreatedDate', sortorder: 'desc',
                       rowNum: 50,
                       rowTotal: 10000,
                       rowList: [20, 50, 100],

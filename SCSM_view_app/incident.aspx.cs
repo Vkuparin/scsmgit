@@ -45,7 +45,7 @@ namespace show_incident
         {
             int startindex = (page - 1);
             int endindex = page;
-            string sql = @" SELECT I.Priority,
+            string sql = @"SELECT I.Priority,
                                 I.ClosedDate,
                                 I.InsertedBatchId,
                                 I.Id as incidentId,
@@ -85,7 +85,7 @@ namespace show_incident
             {
                 s_RowData newrow = new s_RowData();
                 newrow.id = idx++;
-                newrow.cell = new string[10];  //total number of columns  
+                newrow.cell = new string[18];  //total number of columns  
                 newrow.cell[0] = row[0].ToString();
                 newrow.cell[1] = row[1].ToString();
                 newrow.cell[2] = row[2].ToString();
