@@ -2,7 +2,6 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <script type="text/javascript">
-        $(document).ready(function () {
             $(function () {
                 $Grid1 = $("#Grid1"),
 
@@ -19,7 +18,9 @@
 
                 numberTemplate = {formatter: "number", align: "right", sorttype: "number",
                 editrules: {number: true, required: true},
-                searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }
+                },
+
                 highlightFilteredData = function () {
                     var $self = $(this), filters, i, l, rules, rule, iCol,
                         isFiltered = $self.jqGrid("getGridParam", "search"),
@@ -50,6 +51,7 @@
                     }
                 };
 
+                  //jqgridin defaulttien määrittelyä / laajennusta
                   $.extend($.jgrid.defaults,
                       {
                           datatype: 'json',
@@ -88,7 +90,13 @@
                       mtype: 'POST',
                       colNames: ['Title', 'Id', 'ClosedDate', 'CreatedDate', 'Id1', 'WorkItemDimKey', 'WorkItemDimKey1', 'WorkItemAffectedUser_UserDimKey', 'UserName', 'UserDimKey'],
                       colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, sorttype: 'string' },
-                       { name: 'Id', index: 'Id', width: 100, editrules: { required: true }, sorttype: 'string' },
+                       {
+                           name: 'Id', index: 'Id', width: 100, editable: true, formatter: function (cellvalue, options, rowObject) {
+                               var val = '<a href = "incident.aspx?id=' + cellvalue + '">' + cellvalue + '</a>';
+                               console.log(val);
+                               return val;
+                           },
+                       },
                       {
                           name: 'ClosedDate', index: 'ClosedDate', width: 150, align: "center", sorttype: "date",
                           formatter: "date", formatoptions: { newformat: "d-M-Y" },
@@ -163,7 +171,6 @@
                   });
                   jQuery($Grid1).jqGrid('filterToolbar', { stringResult: true, searchOnEnter: false, defaultSearch: "cn" });
             });
-        });
     </script>
 
     <hgroup class="title">
