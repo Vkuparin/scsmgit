@@ -51,6 +51,8 @@
                       {
                           datatype: 'json',
                           height: 'auto',
+                          autowidth: true,
+                          shrinkToFit: true,
                           toolbar: ['true',"top"]
                       },
                       {
@@ -83,7 +85,7 @@
                       url: 'incidentGrid.aspx/GetDataTable', //Osuukohan tämä oikeaan. funktio GetDataTable tiedostossa incidentGrid.aspx.cs
                       datatype: 'json',
                       mtype: 'POST',
-                      colNames: ['Title', 'Id', 'ClosedDate', 'CreatedDate', 'Id1', 'WorkItemDimKey', 'WorkItemDimKey1', 'WorkItemAffectedUser_UserDimKey', 'UserName', 'UserDimKey'],
+                      colNames: ['Otsikko', 'ID / Linkki', 'Suljettu', 'Luotu', 'Id1', 'Työavain', 'WorkItemDimKey1', 'Vaikuttaa käyttäjään (nro)', 'Käyttäjänimi', 'Käyttäjänumero'],
                       colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 300, sorttype: 'string' },
                        {
                            name: 'Id', index: 'Id', width: 100, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
@@ -101,10 +103,10 @@
                           formatter: "date", formatoptions: { newformat: "d-M-Y" },
                           searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                       },
-                      { name: 'Id1', index: 'Id1', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
+                      { name: 'Id1', index: 'Id1', width: 150, hidden: true},
                       { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 80, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
-                      { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
-                      { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
+                      { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', hidden:true},
+                      { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', hidden: true},
                       { name: 'UserName', index: 'UserName', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
                       { name: 'UserDimKey', index: 'UserDimKey', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' }, ],
                       pager: '#pager', sortname: 'CreatedDate', sortorder: 'desc',
