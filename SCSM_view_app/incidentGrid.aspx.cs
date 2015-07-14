@@ -145,4 +145,3 @@ namespace show_inident
     }
 }
 
-*/
