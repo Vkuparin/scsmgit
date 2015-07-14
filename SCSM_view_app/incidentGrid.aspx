@@ -16,11 +16,6 @@
                     });
                 },
 
-                numberTemplate = {formatter: "number", align: "right", sorttype: "number",
-                editrules: {number: true, required: true},
-                searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }
-                },
-
                 highlightFilteredData = function () {
                     var $self = $(this), filters, i, l, rules, rule, iCol,
                         isFiltered = $self.jqGrid("getGridParam", "search"),
@@ -89,28 +84,27 @@
                       datatype: 'json',
                       mtype: 'POST',
                       colNames: ['Title', 'Id', 'ClosedDate', 'CreatedDate', 'Id1', 'WorkItemDimKey', 'WorkItemDimKey1', 'WorkItemAffectedUser_UserDimKey', 'UserName', 'UserDimKey'],
-                      colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, sorttype: 'string' },
+                      colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 300, sorttype: 'string' },
                        {
-                           name: 'Id', index: 'Id', width: 100, editable: true, formatter: function (cellvalue, options, rowObject) {
+                           name: 'Id', index: 'Id', width: 100, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
                                var val = '<a href = "incident.aspx?id=' + cellvalue + '">' + cellvalue + '</a>';
-                               console.log(val);
                                return val;
                            },
                        },
                       {
-                          name: 'ClosedDate', index: 'ClosedDate', width: 150, align: "center", sorttype: "date",
+                          name: 'ClosedDate', index: 'ClosedDate', width: 100, align: "center", sorttype: "date",
                           formatter: "date", formatoptions: { newformat: "d-M-Y" },
                           searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                       },
                       {
-                          name: 'CreatedDate', index: 'CreatedDate', width: 150, align: "center", sorttype: "date",
+                          name: 'CreatedDate', index: 'CreatedDate', width: 100, align: "center", sorttype: "date",
                           formatter: "date", formatoptions: { newformat: "d-M-Y" },
                           searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                       },
                       { name: 'Id1', index: 'Id1', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
+                      { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 80, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
                       { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
-                      { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', width: 250, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
+                      { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
                       { name: 'UserName', index: 'UserName', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
                       { name: 'UserDimKey', index: 'UserDimKey', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' }, ],
                       pager: '#pager', sortname: 'CreatedDate', sortorder: 'desc',
@@ -169,7 +163,6 @@
                       $Grid1.trigger("reloadGrid", [{page: 1, current: true}]);
                       return false;
                   });
-                  jQuery($Grid1).jqGrid('filterToolbar', { stringResult: true, searchOnEnter: false, defaultSearch: "cn" });
             });
     </script>
 
