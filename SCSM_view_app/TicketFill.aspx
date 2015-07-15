@@ -2,10 +2,8 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-form-theme.css" />
-
     <hgroup class="title">
-        <h1>Työpyyntö: <%: Title %> <asp:Label ID="parametri" runat="server"/></h1>
+        <h1>Luo työpyyntö <%: Title %> <asp:Label ID="parametri" runat="server"/></h1>
     </hgroup>
 
 
@@ -15,7 +13,7 @@
 	    });
 	</script>
 	<div id="container">
-		<h1>Create form using jQuery UI</h1>
+		<h1>Uuden työpyynnön lähetys</h1>
 		<form action="" method="post" id="customtheme">
 			<p>
 				<label for="username">Username</label>
@@ -62,10 +60,4 @@
 			</p>
 		</form>
 	</div>
-    <aside>
-        <h3>APUAA</h3>
-        <p>        
-            Hjälp, Hjsdad393
-        </p>
-    </aside>
 </asp:Content>

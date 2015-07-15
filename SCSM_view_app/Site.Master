@@ -4,10 +4,11 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> Työpyynnöt</title>
     <link rel="stylesheet" type="text/css" media="screen" href="Content/Site.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/ui.jqgrid.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-form-theme.css" />
     <style type="text/css">
         html, body { font-size: 75%; }
         .ui-jqgrid .ui-userdata { height: auto; }
@@ -99,7 +100,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>Työpyynnöt</p>
             </div>
         </div>
     </footer>

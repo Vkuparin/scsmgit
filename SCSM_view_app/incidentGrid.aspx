@@ -178,15 +178,11 @@
     <hgroup class="title">
         <h1> Omat työpyynnöt <asp:Label ID="parametri" runat="server"/></h1>
     </hgroup>
+    <div id="gridcontainer">
 
-    <table id="Grid1" class="scroll" align="center" width="100%"></table>
-    <div id="pager" class="scroll" style="text-align:center;">
+        <table id="Grid1" class="scroll" align="center" width="100%"></table>
+        <div id="pager" class="scroll" style="text-align:center;">
+        </div>
     </div>
         
-    <aside>
-        <h3>APUAA</h3>
-        <p>        
-            Hjälp, Hjsdad393
-        </p>
-    </aside>
 </asp:Content>

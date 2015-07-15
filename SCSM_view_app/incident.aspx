@@ -187,14 +187,10 @@
             });
     </script>
 
-    <table id="Grid1" class="scroll" align="center" width="100%"></table>
-    <div id="pager" class="scroll" style="text-align:center;">
-    </div>
-        
-    <aside>
-        <h3>APUAA</h3>
-        <p>        
-            Hjälp, Hjsdad393
-        </p>
-    </aside>
+    <div id="gridcontainer">
+        <table id="Grid1" class="scroll" align="center" width="100%"></table>
+        <div id="pager" class="scroll" style="text-align:center;">
+        </div>
+    </div>    
+
 </asp:Content>
