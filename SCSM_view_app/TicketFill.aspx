@@ -16,7 +16,7 @@
 		<h1>Uuden työpyynnön lähetys</h1>
 		<form action="" method="post" id="customtheme">
 			<p>
-				<label for="username">Username</label>
+				<label for="username">Otsikko</label>
 				<input type="text" name="username" id="username" />
 			</p>
 			

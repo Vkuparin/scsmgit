@@ -98,11 +98,6 @@
         </section>
     </div>
     <footer>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p>Työpyynnöt</p>
-            </div>
-        </div>
     </footer>
     </form>
 </body>
