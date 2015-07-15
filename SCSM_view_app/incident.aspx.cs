@@ -85,7 +85,7 @@ namespace show_incident
             {
                 s_RowData newrow = new s_RowData();
                 newrow.id = idx++;
-                newrow.cell = new string[18];  //total number of columns  
+                newrow.cell = new string[19];  //total number of columns  
                 newrow.cell[0] = row[0].ToString();
                 newrow.cell[1] = row[1].ToString();
                 newrow.cell[2] = row[2].ToString();
