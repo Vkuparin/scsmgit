@@ -1,6 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="TicketFill.aspx.cs" Inherits="show_incident.incident" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-form-theme.css" />
 
     <hgroup class="title">
         <h1>Työpyyntö: <%: Title %> <asp:Label ID="parametri" runat="server"/></h1>
@@ -12,8 +14,6 @@
 	        $("form").form();
 	    });
 	</script>
-</head>
-<body>
 	<div id="container">
 		<h1>Create form using jQuery UI</h1>
 		<form action="" method="post" id="customtheme">

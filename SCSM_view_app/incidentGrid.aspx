@@ -3,7 +3,8 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <style type="text/css">
         .myAltRowClass { background-color: #e4f0fa; background-image: none; }
-    </style>
+    </style>
+
     <script type="text/javascript">
             $(function () {
                 $Grid1 = $("#Grid1"),
