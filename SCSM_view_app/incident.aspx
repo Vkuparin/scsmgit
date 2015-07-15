@@ -63,6 +63,7 @@
                           height: '100%',
                           autowidth: true,
                           shrinkToFit: true,
+                          sortable: true,
                           toolbar: ['true',"top"]
                       },
                       {
@@ -102,7 +103,7 @@
                                 { name: 'I.InsertedBatchId', index: 'I.InsertedBatchId', width: 150, align: "center"},
                                 { name: 'incidentId', index: 'incidentId', width: 150, align: "center"},
                                 { name: 'I.Title', index: 'I.Title', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
-                                { name: 'I.Description', index: 'I.Description', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'I.Description', index: 'I.Description', width: 350, height: 500, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'I.CreatedDate', index: 'I.CreatedDate', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'slahdeti_month', index: 'slahdeti_month', width: 150, hidden:true, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'slahdeti_day', index: 'slahdeti_day', width: 250, hidden:true, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},

@@ -57,6 +57,7 @@
                           autowidth: true,
                           shrinkToFit: true,
                           altRows: true,
+                          sortable: true,
                           altclass:'myAltRowClass',
                           toolbar: ['true',"top"]
                       },
