@@ -1,7 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="incident.aspx.cs" Inherits="show_incident.incident" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    
+    <style>
+        .ui-jqgrid tr.jqgrow td {
+        white-space: normal !important;
+        height:auto;
+        vertical-align:text-top;
+        padding-top:2px;
+        }
+    </style>
     <hgroup class="title">
         <h1>Työpyyntö: <%: Title %> <asp:Label ID="parametri" runat="server"/></h1>
     </hgroup>
@@ -64,7 +71,8 @@
                           autowidth: true,
                           shrinkToFit: true,
                           sortable: true,
-                          toolbar: ['true',"top"]
+                          toolbar: ['true', "top"]
+
                       },
                       {
                           ajaxGridOptions: {
@@ -98,35 +106,37 @@
                       mtype: 'POST',
                       colNames: ['Prioriteetti', 'SulkemisPvm', 'InsertedBatchId', 'Id', 'Otsikko', 'Kuvaus', 'LuomisPvm', 'Kuukausi', 'Päivä', 'Vuosi', 'FirstAssignedDay', 'Näyttönimi', 'IsDeleted',
                                     'IncidentTierQueuesValue', 'Tila', 'Kiireellisyys', 'Vaikutus', 'Tyyppi', 'Lähde'],
-                      colModel: [{ name: 'I.Priority', index: 'I.Priority', width: 50},
-                                { name: 'I.ClosedDate', index: 'I.ClosedDate', width: 100},
-                                { name: 'I.InsertedBatchId', index: 'I.InsertedBatchId', width: 150, align: "center"},
-                                { name: 'incidentId', index: 'incidentId', width: 150, align: "center"},
+                      colModel: [{ name: 'I.Priority', index: 'I.Priority', width: 75, align: "center"},
+                                { name: 'I.ClosedDate', index: 'I.ClosedDate', width: 150, align: "center"},
+                                { name: 'I.InsertedBatchId', index: 'I.InsertedBatchId', width: 50, align: "center"},
+                                { name: 'incidentId', index: 'incidentId', width: 100, align: "center"},
                                 { name: 'I.Title', index: 'I.Title', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'I.Description', index: 'I.Description', width: 350, height: 500, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
-                                { name: 'I.CreatedDate', index: 'I.CreatedDate', width: 150, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'I.CreatedDate', index: 'I.CreatedDate', width: 150, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'slahdeti_month', index: 'slahdeti_month', width: 150, hidden:true, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'slahdeti_day', index: 'slahdeti_day', width: 250, hidden:true, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'slahdeti_year', index: 'slahdeti_year', width: 100, hidden:true, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'I.FirstAssignedDate', index: 'I.FirstAssignedDate', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'ticket_DisplayName', index: 'ticket_DisplayName', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
-                                { name: 'I.IsDeleted', index: 'I.IsDeleted', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'I.IsDeleted', index: 'I.IsDeleted', width: 75, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'itq.IncidentTierQueuesValue', index: 'itq.IncidentTierQueuesValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
-                                { name: 'ISt.IncidentStatusValue', index: 'ISt.IncidentStatusValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
-                                { name: 'IU.IncidentUrgencyValue', index: 'IU.IncidentUrgencyValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
-                                { name: 'II.IncidentImpactValue', index: 'II.IncidentImpactValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
-                                { name: 'IC.IncidentClassificationValue,', index: 'IC.IncidentClassificationValue,', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
-                                { name: 'ISo.IncidentSourceValue', index: 'ISo.IncidentSourceValue', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }}, ],
+                                { name: 'ISt.IncidentStatusValue', index: 'ISt.IncidentStatusValue', width: 100, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'IU.IncidentUrgencyValue', index: 'IU.IncidentUrgencyValue', width: 100, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'II.IncidentImpactValue', index: 'II.IncidentImpactValue', width: 100, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'IC.IncidentClassificationValue,', index: 'IC.IncidentClassificationValue,', width: 100, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
+                                { name: 'ISo.IncidentSourceValue', index: 'ISo.IncidentSourceValue', width: 100, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }}, ],
 
                       pager: '#pager', sortname: 'I.CreatedDate', sortorder: 'desc',
                       rowNum: 50,
                       rowTotal: 10000,
-                      rowList: [20, 50, 100],
+                      rowList: [],
                       rownumbers: true,
+                      pgbuttons: false,
+                      pgtext: false,
                       gridview: true,
                       loadonce: true,
                       ignoreCase: true,
-                      viewrecoreds: true,
+                      viewrecoreds: false,
                       imgpath: 'Content/images',
                       serializeGridData: function (data) {
                           return JSON.stringify(data);
