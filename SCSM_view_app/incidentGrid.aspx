@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="incidentGrid.aspx.cs" Inherits="show_incident.incidentGrid" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <style type="text/css">
+        .myAltRowClass { background-color: #e4f0fa; background-image: none; }
+    </style>
     <script type="text/javascript">
             $(function () {
                 $Grid1 = $("#Grid1"),
@@ -45,7 +48,7 @@
                         }
                     }
                 };
-
+           
                   //jqgridin defaulttien määrittelyä / laajennusta
                   $.extend($.jgrid.defaults,
                       {
@@ -53,6 +56,8 @@
                           height: 'auto',
                           autowidth: true,
                           shrinkToFit: true,
+                          altRows: true,
+                          altclass:'myAltRowClass',
                           toolbar: ['true',"top"]
                       },
                       {

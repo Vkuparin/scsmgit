@@ -60,7 +60,7 @@
                   $.extend($.jgrid.defaults,
                       {
                           datatype: 'json',
-                          height: 'auto',
+                          height: '100%',
                           autowidth: true,
                           shrinkToFit: true,
                           toolbar: ['true',"top"]
