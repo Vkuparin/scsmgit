@@ -71,7 +71,9 @@
                           autowidth: true,
                           shrinkToFit: true,
                           sortable: true,
-                          toolbar: ['true', "top"]
+                          toolbar: ['true', "top"],
+                          scrollerbar: true,
+                          height: "620"
 
                       },
                       {
