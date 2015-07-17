@@ -110,8 +110,8 @@
                                     'IncidentTierQueuesValue', 'Tila', 'Kiireellisyys', 'Vaikutus', 'Tyyppi', 'Lähde'],
                       colModel: [{ name: 'I.Priority', index: 'I.Priority', width: 75, align: "center"},
                                 { name: 'I.ClosedDate', index: 'I.ClosedDate', width: 150, align: "center"},
-                                { name: 'I.InsertedBatchId', index: 'I.InsertedBatchId', width: 50, align: "center"},
-                                { name: 'incidentId', index: 'incidentId', width: 100, align: "center"},
+                                { name: 'I.InsertedBatchId', index: 'I.InsertedBatchId', width: 50, align: "center", hidden:true},
+                                { name: 'incidentId', index: 'incidentId', width: 120, align: "center"},
                                 { name: 'I.Title', index: 'I.Title', width: 150, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'I.Description', index: 'I.Description', width: 350, height: 500, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
                                 { name: 'I.CreatedDate', index: 'I.CreatedDate', width: 150, align: "center", searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }},
@@ -132,7 +132,6 @@
                       rowNum: 50,
                       rowTotal: 10000,
                       rowList: [],
-                      rownumbers: true,
                       pgbuttons: false,
                       pgtext: false,
                       gridview: true,
@@ -157,6 +156,9 @@
                           $("#globalSearch").click();
                       }
                   });
+                //Reorder columns
+                  $Grid1.remapColumns([3,4,5,0,1,2,6,7,8,9,10,11,12,13,14,15,16,17,18], true, false);
+                //Search
                   $("#globalSearch").button({
                       icons: { primary: "ui-icon-search" },
                       text: false

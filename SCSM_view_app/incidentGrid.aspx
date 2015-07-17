@@ -133,7 +133,7 @@
                       highlightFilteredData.call(this);
                       }
                   });
-                  jQuery($Grid1).jqGrid("navGrid", "#pager", {add: false, edit: false, del: false, search: false});
+                  jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false });
                   //Fill top bar
                   $('#t_' + $.jgrid.jqID($Grid1[0].id))
                  .append($("<div><label for=\"globalSearchText\">Etsi taulukosta:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
