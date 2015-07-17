@@ -16,11 +16,13 @@
 		<h1>Uuden työpyynnön lähetys</h1>
 		<form action="" method="post" id="customtheme">
             <p>
-				<label for="gender">Toimiala/yksikkö</label>
+				<label for="gender">Toimiala</label> <!---ei vaihdettu id:tä-->
 				<select name="gender" id="gender">
-					<option value="">--select--</option>
-					<option value="male">male</option>
-					<option value="female">female</option>
+					<option value="male">Hyvinvointitoimiala</option>
+					<option value="female">Kiinteistötoimiala</option>
+                    <option value="female">Sivistystoimiala</option>
+                    <option value="female">Vapaa-aikatoimiala</option>
+                    <option value="female">Ympäristötoimiala</option>
 				</select>
             </p>
 
