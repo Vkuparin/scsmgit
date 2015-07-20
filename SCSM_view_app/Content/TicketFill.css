@@ -5,13 +5,7 @@
 * {margin: 0; padding: 0;}
 
 html {
-	height: 100%;
-	/*Image only BG fallback*/
-	background: url('http://thecodeplayer.com/uploads/media/gs.png');
-	/*background = gradient + image pattern combo*/
-	background: 
-		linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
-		url('http://thecodeplayer.com/uploads/media/gs.png');
+   
 }
 
 body {
@@ -25,7 +19,7 @@ body {
 	position: relative;
 }
 #msform fieldset {
-	background: white;
+	background-color: #D5E8F6;
 	border: 0 none;
 	border-radius: 3px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
@@ -57,7 +51,7 @@ body {
 /*buttons*/
 #msform .action-button {
 	width: 100px;
-	background: #27AE60;
+	background: #2EB8E6;
 	font-weight: bold;
 	color: white;
 	border: 0 none;
@@ -86,6 +80,7 @@ body {
 #progressbar {
 	margin-bottom: 30px;
 	overflow: hidden;
+    border-color: black;
 	/*CSS counters to number the steps*/
 	counter-reset: step;
 }
@@ -128,7 +123,7 @@ body {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-	background: #27AE60;
+	background: #2EB8E6;
 	color: white;
 }
 

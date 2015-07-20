@@ -87,7 +87,7 @@
                <nav>
                     <h1 id="menu"><a runat="server" href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a></h1>
                    <h1 id="menu"><a runat="server" href="incidentGrid.aspx">Omat työpyynnöt</a></h1>
-                   <h1 id="menu"><a runat="server" href="TicketFill.aspx">Luo työpyyntö</a></h1>
+                   <h1 id="menu"><a runat="server" href="TicketFill.html">Luo työpyyntö</a></h1>
                </nav>
         </div>
     </header>
