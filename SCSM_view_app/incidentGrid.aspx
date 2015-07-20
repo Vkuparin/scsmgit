@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="incidentGrid.aspx.cs" Inherits="show_incident.incidentGrid" %>
 
+
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <style type="text/css">
         .myAltRowClass { background-color: #e4f0fa; background-image: none; }
@@ -88,34 +89,34 @@
                       });
 
                   //Rakennetaan jqgrid
-                  $Grid1.jqGrid({
-                      url: 'incidentGrid.aspx/GetDataTable', //Osuukohan tämä oikeaan. funktio GetDataTable tiedostossa incidentGrid.aspx.cs
-                      datatype: 'json',
-                      mtype: 'POST',
-                      colNames: ['Otsikko', 'ID / Linkki', 'Suljettu', 'Luotu', 'Id1', 'Työavain', 'WorkItemDimKey1', 'Vaikuttaa käyttäjään (nro)', 'Käyttäjänimi', 'Käyttäjänumero'],
-                      colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 300, sorttype: 'string' },
-                       {
-                           name: 'Id', index: 'Id', width: 100, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
-                               var val = '<a href = "incident.aspx?id=' + cellvalue + '">' + cellvalue + '</a>';
-                               return val;
-                           },
-                       },
-                      {
-                          name: 'ClosedDate', index: 'ClosedDate', width: 100, align: "center", sorttype: "date",
-                          formatter: "date", formatoptions: { newformat: "d-M-Y" },
-                          searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
-                      },
-                      {
-                          name: 'CreatedDate', index: 'CreatedDate', width: 100, align: "center", sorttype: "date",
-                          formatter: "date", formatoptions: { newformat: "d-M-Y" },
-                          searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
-                      },
-                      { name: 'Id1', index: 'Id1', width: 150, hidden: true},
-                      { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 80, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' },
-                      { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', hidden:true},
-                      { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', hidden: true},
-                      { name: 'UserName', index: 'UserName', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'string' },
-                      { name: 'UserDimKey', index: 'UserDimKey', width: 100, searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge", "nu", "nn", "in", "ni"] }, sorttype: 'integer' }, ],
+                $Grid1.jqGrid({
+                    url: 'incidentGrid.aspx/GetDataTable', //Osuukohan tämä oikeaan. funktio GetDataTable tiedostossa incidentGrid.aspx.cs
+                    datatype: 'json',
+                    mtype: 'POST',
+                    colNames: ['Otsikko', 'ID / Linkki', 'Suljettu', 'Luotu', 'Id1', 'Työavain', 'WorkItemDimKey1', 'Vaikuttaa käyttäjään (nro)', 'Käyttäjänimi', 'Käyttäjänumero'],
+                    colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 300, sorttype: 'string' },
+                     {
+                         name: 'Id', index: 'Id', width: 100, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
+                             var val = '<a href = "incident.aspx?id=' + cellvalue + '">' + cellvalue + '</a>';
+                             return val;
+                         },
+                     },
+                    {
+                        name: 'ClosedDate', index: 'ClosedDate', width: 100, align: "center", sorttype: "date",
+                        formatter: "date", formatoptions: { newformat: "d-M-Y" },
+                        searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
+                    },
+                    {
+                        name: 'CreatedDate', index: 'CreatedDate', width: 100, align: "center", sorttype: "date",
+                        formatter: "date", formatoptions: { newformat: "d-M-Y" },
+                        searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
+                    },
+                    { name: 'Id1', index: 'Id1', width: 150, hidden: true},
+                    { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 80, hidden:true},
+                    { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', hidden:true},
+                    { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', hidden: true},
+                    { name: 'UserName', index: 'UserName', width: 100, hidden:true},
+                      { name: 'UserDimKey', index: 'UserDimKey', width: 100, hidden:true } ],
                       pager: '#pager', sortname: 'CreatedDate', sortorder: 'desc',
                       rowNum: 50,
                       rowTotal: 10000,
