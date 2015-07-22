@@ -96,7 +96,7 @@
             return false;
         });
         $("span.question").hover(function () {
-            var tooltipText = $(this).attr('title');
+            var tooltipText = $(this).attr('value');
             $(this).append('<div class="tooltip"><p>'+tooltipText+'</p></div>');
         }, function () {
             $("div.tooltip").remove();
@@ -119,8 +119,8 @@
 	        <!-- progressbar -->
 	        <ul id="progressbar">
 	        	<li class="active">Perustiedot</li>
-        		<li>Social Profiles</li>
-        		<li>Personal Details</li>
+        		<li>Ongelman kuvaus</li>
+        		<li>Yhteenveto ja tietojen tarkistus</li>
         	</ul>
         	<!-- fieldsets -->
          <fieldset>
@@ -134,13 +134,13 @@
              <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
              <option value="ympäristötoimiala">Ympäristötoimiala</option>
              </select>
-             <span class="question" title="eka tooltip">?</span>
+             <span class="question" value="Valitse oma toimialasi viiden vaihtoehdon joukosta">?</span>
              <input type="text" name="katuosoite" placeholder="Työpisteen katuosoite" required />
-             <span class="question" title="toka tooltip">?</span>
-             <input type="text" name="työhuone" placeholder="Työhuone (vapaaehtoinen)" />
-             <span class="question" title="kolmas tooltip">?</span>
+             <span class="question" value="Kirjoita tähän työpisteesi katuosoite. Malli: Ruukinkatu 4">?</span>
+             <input type="text" name="työhuone" placeholder="Työpisteen nimi (vapaaehtoinen)" />
+             <span class="question" value="Kirjoita tähän työpisteesi nimi. Malli: M1">?</span>
              <input type="text" name="tietokoneenNimi" placeholder="Tietokoneen nimi" required />
-             <span class="question" title="neljäs tooltip">?</span>
+             <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikkoa painaessa Ohjauspaneeli-valinnan yläpuolelta. Tietokoneet on myös nimetty tarroilla, jotka löytyvät useimmiten näppäimistön yläpäästä. Malli: VARA1">?</span>
              <input type="button" name="next" class="next action-button" value="Seuraava" />
          </fieldset>
          <fieldset>
@@ -154,11 +154,11 @@
              <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
              <option value="ympäristötoimiala">Ympäristötoimiala</option>
              </select>
-             <span class="question">?</span>
+             <span class="question" value="Valitse ongelmaasi sopiva kategoria. Mikäli et osaa nimetä kategoriaa, voit jättää tämän kentän tyhjäksi">?</span>
              <input type="text" name="ongelmanOtsikko" placeholder="Otsikko" />
-             <span class="question">?</span>
+             <span class="question" value="Anna ongelmallesi kuvaava nimi">?</span>
              <textarea name="kuvaus" placeholder="Kuvaus"></textarea>
-             <span class="question">?</span>
+             <span class="question" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="button" name="next" class="next action-button" value="Seuraava" />
          </fieldset>
