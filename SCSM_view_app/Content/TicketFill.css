@@ -42,7 +42,7 @@ body {
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 10px;
-	width: 100%;
+	width: 90%;
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;
@@ -131,12 +131,12 @@ body {
 span.question {
   cursor: pointer;
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background-color: #2EB8E6;
   line-height: 16px;
   color: White;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
   border-radius: 8px;
   text-align: center;

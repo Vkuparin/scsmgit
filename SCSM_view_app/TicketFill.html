@@ -102,7 +102,7 @@
             return false;
         });
         $("span.question").hover(function () {
-            $(this).append('<div class="tooltip"><p>This is a tooltip. It is typically used to explain something to a user without taking up space on the page.</p></div>');
+            $(this).append('<div class="tooltip"><p>Tars saada yksilölliseksi, joka tooltipille oma id?</p></div>');
         }, function () {
             $("div.tooltip").remove();
         });
@@ -145,10 +145,13 @@
 	        </fieldset>
 	        <fieldset>
 	    	    <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
-	     	    <h3 class="fs-subtitle">Your presence on the social network</h3>
-	    	    <input type="text" name="twitter" placeholder="Twitter" />
+	     	    <h3 class="fs-subtitle">Ongelman kuvaus</h3>
+	    	    <input type="text" name="ongelmanOtsikko" placeholder="Otsikko"  />
+                <span class="question">?</span>
 	    	    <input type="text" name="facebook" placeholder="Facebook" />
-	    	    <input type="text" name="gplus" placeholder="Google Plus" />
+                <span class="question">?</span>
+	    	    <textarea name="kuvaus" placeholder="Kuvaus"></textarea>
+                <span class="question">?</span>
 	    	    <input type="button" name="previous" class="previous action-button" value="Edellinen" />
 	    	    <input type="button" name="next" class="next action-button" value="Seuraava" />
 	        </fieldset>
