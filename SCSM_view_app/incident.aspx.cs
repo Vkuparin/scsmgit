@@ -16,6 +16,7 @@ namespace show_incident
 {
     public partial class incident : System.Web.UI.Page
     {
+        //Incident id parametri
         public static string v = "";
 
         public struct s_GridResult
@@ -73,7 +74,6 @@ namespace show_incident
                                 INNER JOIN DWRepository.dbo.IncidentSourcevw as ISo on Iso.ID = I.Source
                                 WHERE I.Id = '" + v + "';";
 
-            Debug.WriteLine("tällänen teksti"); //Ei näy missään
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["tkuscsm-dwsConnectionString"].ConnectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
