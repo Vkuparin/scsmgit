@@ -133,7 +133,7 @@ span.question {
   display: inline-block;
   width: 16px;
   height: 16px;
-  background-color: #89A4CC;
+  background-color: #2EB8E6;
   line-height: 16px;
   color: White;
   font-size: 13px;
@@ -144,7 +144,7 @@ span.question {
 }
 span.question:hover { background-color: #3D6199; }
 div.tooltip {
-  background-color: #3D6199;
+  background-color: #2EB8E6;
   color: White;
   position: absolute;
   left: 25px;
