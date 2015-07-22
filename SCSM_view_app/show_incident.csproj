@@ -329,7 +329,6 @@
     <Content Include="Scripts\jquery.searchFilter.js" />
     <Content Include="Scripts\jquery.tablednd.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\TicketFill.js" />
     <Content Include="Scripts\ui.multiselect.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />

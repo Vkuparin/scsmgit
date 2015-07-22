@@ -38,6 +38,7 @@ namespace show_incident
         public static s_GridResult GetDataTable(string _search, string nd, int rows, int page, string sidx, string sord)
         {
 
+            string user = Environment.UserName;
             int startindex = (page - 1);
             int endindex = page;
             string sql = @"SELECT IncidentDim.Title, 
@@ -55,7 +56,7 @@ namespace show_incident
                                DWRepository.dbo.WorkItemDimvw WorkItemDimvw
                                WHERE WorkItemAffectedUserFactvw.WorkItemAffectedUser_UserDimKey = UserDimvw.UserDimKey AND 
                                WorkItemAffectedUserFactvw.WorkItemDimKey = WorkItemDimvw.WorkItemDimKey AND 
-                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.UserName='slahdeti'));";
+                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.UserName='"+user+"'));";
 
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["tkuscsm-dwsConnectionString"].ConnectionString);
