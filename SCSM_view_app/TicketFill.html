@@ -123,48 +123,72 @@
         		<li>Personal Details</li>
         	</ul>
         	<!-- fieldsets -->
-         	<fieldset>
-	           	<h2 class="fs-title">Uuden työpyynnön lähetys</h2>
-	           	<h3 class="fs-subtitle">Perustiedot</h3>
-                <select name="toimiala" placeholder="Toimiala" />
-                    <option value="" disabled selected>-Valitse toimiala-</option>
-                    <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
-                    <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
-                    <option value="sivistystoimiala">Sivistystoimiala</option>
-                    <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
-                    <option value="ympäristötoimiala">Ympäristötoimiala</option>   
-                </select>
-                <span class="question">?</span>
-	    	    <input type="text" name="katuosoite" placeholder="Työpisteen katuosoite" required/>
-                <span class="question">?</span>
-	    	    <input type="text" name="työhuone" placeholder="Työhuone (vapaaehtoinen)" />
-                 <span class="question">?</span>
-                <input type="text" name="tietokoneenNimi" placeholder="Tietokoneen nimi" required />
-                <span class="question">?</span>
-	    	    <input type="button" name="next" class="next action-button" value="Seuraava" />
-	        </fieldset>
-	        <fieldset>
-	    	    <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
-	     	    <h3 class="fs-subtitle">Ongelman kuvaus</h3>
-	    	    <input type="text" name="ongelmanOtsikko" placeholder="Otsikko"  />
-                <span class="question">?</span>
-	    	    <input type="text" name="facebook" placeholder="Facebook" />
-                <span class="question">?</span>
-	    	    <textarea name="kuvaus" placeholder="Kuvaus"></textarea>
-                <span class="question">?</span>
-	    	    <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-	    	    <input type="button" name="next" class="next action-button" value="Seuraava" />
-	        </fieldset>
-	        <fieldset>
-		        <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
-	    	    <h3 class="fs-subtitle">We will never sell it</h3>
-	    	    <input type="text" name="fname" placeholder="First Name" />
-	    	    <input type="text" name="lname" placeholder="Last Name" />
-		        <input type="text" name="phone" placeholder="Phone" />
-		        <textarea name="address" placeholder="Address"></textarea>
-	    	    <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-	    	    <input type="submit" name="submit" class="submit action-button" value="Submit" />
-	        </fieldset>
+         <fieldset>
+             <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle">Perustiedot</h3>
+             <select name="toimiala" placeholder="Toimiala" />
+             <option value="" disabled selected>-Valitse toimiala-</option>
+             <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+             <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+             <option value="sivistystoimiala">Sivistystoimiala</option>
+             <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+             <option value="ympäristötoimiala">Ympäristötoimiala</option>
+             </select>
+             <span class="question">?</span>
+             <input type="text" name="katuosoite" placeholder="Työpisteen katuosoite" required />
+             <span class="question">?</span>
+             <input type="text" name="työhuone" placeholder="Työhuone (vapaaehtoinen)" />
+             <span class="question">?</span>
+             <input type="text" name="tietokoneenNimi" placeholder="Tietokoneen nimi" required />
+             <span class="question">?</span>
+             <input type="button" name="next" class="next action-button" value="Seuraava" />
+         </fieldset>
+         <fieldset>
+             <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle">Ongelman kuvaus</h3>
+             <select name="ongelmanLuokittelu" placeholder="Ongelman luokittelu (vapaaehtoinen)" />
+             <option value="" disabled selected>-Valitse luokka (vapaaehtoinen)-</option>
+             <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+             <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+             <option value="sivistystoimiala">Sivistystoimiala</option>
+             <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+             <option value="ympäristötoimiala">Ympäristötoimiala</option>
+             </select>
+             <span class="question">?</span>
+             <input type="text" name="ongelmanOtsikko" placeholder="Otsikko" />
+             <span class="question">?</span>
+             <textarea name="kuvaus" placeholder="Kuvaus"></textarea>
+             <span class="question">?</span>
+             <input type="button" name="previous" class="previous action-button" value="Edellinen" />
+             <input type="button" name="next" class="next action-button" value="Seuraava" />
+         </fieldset>
+         <fieldset>
+             <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle">Yhteenveto ja tietojen tarkistus</h3>
+             <select name="toimiala" placeholder="Toimiala" />
+             <option value="" disabled selected>-Valitse toimiala-</option>
+             <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+             <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+             <option value="sivistystoimiala">Sivistystoimiala</option>
+             <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+             <option value="ympäristötoimiala">Ympäristötoimiala</option>
+             </select>
+             <input type="text" name="katuosoite" placeholder="Työpisteen katuosoite" required />
+             <input type="text" name="työhuone" placeholder="Työhuone (vapaaehtoinen)" />
+             <input type="text" name="tietokoneenNimi" placeholder="Tietokoneen nimi" required />
+             <select name="ongelmanLuokittelu" placeholder="Ongelman luokittelu (vapaaehtoinen)" />
+             <option value="" disabled selected>-Valitse luokka (vapaaehtoinen)-</option>
+             <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+             <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+             <option value="sivistystoimiala">Sivistystoimiala</option>
+             <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+             <option value="ympäristötoimiala">Ympäristötoimiala</option>
+             </select>
+             <input type="text" name="ongelmanOtsikko" placeholder="Otsikko" />
+             <textarea name="kuvaus" placeholder="Kuvaus"></textarea>
+             <input type="button" name="previous" class="previous action-button" value="Edellinen" />
+             <input type="submit" name="submit" class="submit action-button" value="Lähetä" />
+         </fieldset>
         </form>
         </div>
         </body>
