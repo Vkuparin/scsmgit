@@ -19,6 +19,9 @@ public partial class TicketFill : System.Web.UI.Page
 {
         private string _userAccountName = Environment.UserName;
         protected string userAccountName { get { return this._userAccountName; } }
+
+        private string _computerName = Environment.MachineName;
+        protected string computerName { get { return this._computerName; } }
         
         protected void Page_Load(object sender, EventArgs e)
         {
