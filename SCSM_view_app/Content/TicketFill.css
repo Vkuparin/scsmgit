@@ -48,6 +48,19 @@ body {
 	color: #2C3E50;
 	font-size: 13px;
 }
+/*kuvauskentät*/
+textarea#kuvausk {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 90%;
+	height: 180px;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
 /*buttons*/
 #msform .action-button {
 	width: 100px;
@@ -143,16 +156,33 @@ body {
 span.question {
   cursor: pointer;
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   background-color: #2EB8E6;
-  line-height: 16px;
+  line-height: 24px;
   color: White;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
-  position: relative;
+  position:relative;
+  left: 14px;
+}
+#questionHankala {
+  cursor: pointer;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: #2EB8E6;
+  line-height: 24px;
+  color: White;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  text-align: center;
+  position:relative;
+  left: 14px;
+  top: -160px;
 }
 span.question:hover { background-color: #3D6199; }
 div.tooltip {
