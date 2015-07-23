@@ -115,9 +115,9 @@
     
     <body>
         <!-- linkit relevantteihin sivuihin -->
-        <h1 id="menu"><a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a></h1>
+        <h1 id="linkki"><a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a></h1>
         <br />
-        <h1 id="menu"><a href="incidentGrid.aspx">Omat työpyynnöt</a></h1>
+        <h1 id="linkki"><a href="incidentGrid.aspx">Omat työpyynnöt</a></h1>
 
 	    <div id="container" align="center">
 	    	<!-- multistep form -->
@@ -178,7 +178,7 @@
              <span class="question" value="Valitse ongelmaasi sopiva kategoria. Mikäli et osaa nimetä kategoriaa, voit jättää tämän kentän tyhjäksi">?</span>
              <h4 class="formheader1">Ongelman otsikko</h4>
              <input type="text" name="ongelmanOtsikko" placeholder="Otsikko" />
-             <span class="question" value="Anna ongelmallesi kuvaava nimi">?</span>
+             <span class="question" value="Anna ongelmallesi kuvaava nimi. Malli: Tietokoneeni ei saa yhteyttä verkkoon">?</span>
              <h4 class="formheader1">Ongelman kuvaus</h4>
              <textarea name="kuvaus" id="kuvausk" placeholder="Kuvaus"></textarea>
              <span id="questionHankala" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>

@@ -11,6 +11,13 @@ html {
 body {
 	font-family: montserrat, arial, verdana;
 }
+/*linkkien muotoilut*/
+#linkki {
+    text-align: center;
+    font-size: 150%;
+    padding-bottom: 10px;
+    font-family:Verdana;
+}
 /*form styles*/
 #msform {
 	width: 450px;
@@ -213,3 +220,4 @@ div.tooltip p {
   margin: 10px;
   color: White;
 }
+
