@@ -127,8 +127,6 @@
          <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Perustiedot</h3>
-             <p>Käyttäjänimi: <%=userAccountName%></p><br />
-             <p>Tietokoneen nimi: <%=computerName%></p>
              <h4 class="formheader1">Toimiala</h4>
              <select name="toimiala" placeholder="Toimiala" />
                  <option value="" disabled selected>-Valitse toimiala-</option>
@@ -139,15 +137,24 @@
                  <option value="ympäristötoimiala">Ympäristötoimiala</option>
              </select>
              <span class="question" value="Valitse oma toimialasi viiden vaihtoehdon joukosta">?</span>
+             <h4 class="formheader1">Henkilö, jota työpyyntö koskee</h4>
+             <input type="text" name="nimi" placeholder="Etu- ja sukunimi" required />
+             <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee">?</span>
              <h4 class="formheader1">Työpisteen katuosoite</h4>
              <input type="text" name="katuosoite" placeholder="Työpisteen katuosoite" required />
-             <span class="question" value="Kirjoita tähän työpisteesi katuosoite. Malli: Ruukinkatu 4">?</span>
+             <span class="question" value="Kirjoita tähän työpisteen katuosoite. Malli: Ruukinkatu 4">?</span>
              <h4 class="formheader1">Työpisteen nimi (vapaaehtoinen)</h4>
              <input type="text" name="työhuone" placeholder="Työpisteen nimi (vapaaehtoinen)" />
              <span class="question" value="Kirjoita tähän työpisteesi nimi. Malli: M1">?</span>
-             <h4 class="formheader1">Tietokoneen nimi</h4>
-             <input type="text" name="tietokoneenNimi" placeholder="Tietokoneen nimi" required />
+             <h4 class="formheader1">Käyttäjänimi</h4>
+             <input type="text" name="käyttäjänimi" value="<%=userAccountName%>" />
+             <span class="question" value="Kirjoita tähän käyttäjänimi, jota työpyyntö koskee">?</span>
+             <h4 class="formheader1">Tietokone, jota työpyyntö koskee</h4>
+             <input type="text" name="tietokoneenNimi" value="<%=computerName%>" required />
              <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikkoa painaessa Ohjauspaneeli-valinnan yläpuolelta. Tietokoneet on myös nimetty tarroilla, jotka löytyvät useimmiten näppäimistön yläpäästä. Malli: VARA1">?</span>
+             <h4 class="formheader1">Tietokoneen käyttöjärjestelmä</h4>
+             <input type="text" name="osNimi" value="<%=osName%>" required />
+             <span class="question" value="Käyttöjärjestelmän tiedot löytyvät painamalla tietokoneen nimen kohdalta hiiren oikeaa nappia ja valitsemalla 'Ominaisuudet'">?</span>
              <input type="button" name="next" class="next action-button" value="Seuraava" />
          </fieldset>
          <fieldset>
