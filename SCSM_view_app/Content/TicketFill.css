@@ -20,7 +20,7 @@ body {
 }
 /*form styles*/
 #msform {
-	width: 450px;
+	width: 750px;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
@@ -55,14 +55,26 @@ body {
 	color: #2C3E50;
 	font-size: 13px;
 }
-/*kuvauskentät*/
-textarea#kuvausk {
+/*kuvaus- ja koontikentät*/
+textarea#ongelmakuvaus {
 	padding: 15px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 10px;
 	width: 90%;
 	height: 180px;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+textarea#koonti {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 90%;
+	height: 380px;
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;

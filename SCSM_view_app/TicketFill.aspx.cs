@@ -54,12 +54,12 @@ public partial class TicketFill : System.Web.UI.Page
                 {
                     adSearch.PropertiesToLoad.Add("cn");  // Kokonimi
                     adSearch.PropertiesToLoad.Add("mail");  // Sähköposti
-                    //adSearch.PropertiesToLoad.Add("telephoneNumber");  // Puhelinnumero
+                    adSearch.PropertiesToLoad.Add("telephoneNumber");  // Puhelinnumero
                     //adSearch.PropertiesToLoad.Add("Company");  // Toimiala
                     //adSearch.PropertiesToLoad.Add("Department");  // Yksikkö
-                    //adSearch.PropertiesToLoad.Add("office");  // Toimipiste
+                    adSearch.PropertiesToLoad.Add("streetaddress");  // Toimipiste
                     //adSearch.PropertiesToLoad.Add("City");  // kaupunki
-                    adSearch.Filter = "(sAMAccountName=slahdeti)"; //+ userAccountName+
+                    adSearch.Filter = "(sAMAccountName="+ userAccountName+")"; //haku käyttäjänimellä
                     SearchResult adSearchResult = adSearch.FindOne();
                     var searchPropCollection = adSearchResult.Properties;
                     string[] info = new string[15];
@@ -88,7 +88,7 @@ public partial class TicketFill : System.Web.UI.Page
                         {
                             infoRivi = 4;
                         }
-                        if (tulos.Equals("office"))
+                        if (tulos.Equals("streetaddress"))
                         {
                             infoRivi = 5;
                         }
@@ -106,12 +106,12 @@ public partial class TicketFill : System.Web.UI.Page
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
                 {
-                    adSearch.PropertiesToLoad.Add("telephoneNumber");  // Puhelinnumero
+                    //adSearch.PropertiesToLoad.Add("telephoneNumber");  // Puhelinnumero
                     adSearch.PropertiesToLoad.Add("Company");  // Toimiala
                     adSearch.PropertiesToLoad.Add("Department");  // Yksikkö
                     //adSearch.PropertiesToLoad.Add("Office");  // Toimipiste
                     //adSearch.PropertiesToLoad.Add("City");  // kaupunki
-                    adSearch.Filter = "(sAMAccountName=slahdeti)"; //+ userAccountName+
+                    adSearch.Filter = "(sAMAccountName=kkolima)"; //+ userAccountName+
                     SearchResult adSearchResult = adSearch.FindOne();
                     var searchPropCollection = adSearchResult.Properties;
                     string[] info = new string[15];
@@ -132,10 +132,6 @@ public partial class TicketFill : System.Web.UI.Page
                         {
                             infoRivi = 4;
                         }
-                        if (tulos.Equals("office"))
-                        {
-                            infoRivi = 5;
-                        }
 
                         foreach (Object myCollection in searchPropCollection[tulos])
                         {
@@ -144,7 +140,6 @@ public partial class TicketFill : System.Web.UI.Page
                     }
                     _userInfoAD[3] = info[3];
                     _userInfoAD[4] = info[4];
-                    _userInfoAD[5] = info[5];
                 }
             }
 
