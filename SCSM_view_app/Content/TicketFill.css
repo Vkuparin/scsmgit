@@ -76,6 +76,18 @@ body {
 	color: #666;
 	margin-bottom: 20px;
 }
+/* Lomakkeen headereiden muotoilua*/
+.formheader1 {
+    text-align:left;
+    font-size:12px;
+    padding-left:7px;
+}
+
+.formheader2 {
+    text-align:left;
+    font-size:12px;
+    padding-left:16px;
+}
 /*progressbar*/
 #progressbar {
 	margin-bottom: 30px;
@@ -171,4 +183,3 @@ div.tooltip p {
   margin: 10px;
   color: White;
 }
-

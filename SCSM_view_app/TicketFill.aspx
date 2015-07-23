@@ -129,19 +129,23 @@
              <h3 class="fs-subtitle">Perustiedot</h3>
              <p>Käyttäjänimi: <%=userAccountName%></p><br />
              <p>Tietokoneen nimi: <%=computerName%></p>
+             <h4 class="formheader1">Toimiala</h4>
              <select name="toimiala" placeholder="Toimiala" />
-             <option value="" disabled selected>-Valitse toimiala-</option>
-             <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
-             <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
-             <option value="sivistystoimiala">Sivistystoimiala</option>
-             <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
-             <option value="ympäristötoimiala">Ympäristötoimiala</option>
+                 <option value="" disabled selected>-Valitse toimiala-</option>
+                 <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+                 <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+                 <option value="sivistystoimiala">Sivistystoimiala</option>
+                 <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+                 <option value="ympäristötoimiala">Ympäristötoimiala</option>
              </select>
              <span class="question" value="Valitse oma toimialasi viiden vaihtoehdon joukosta">?</span>
+             <h4 class="formheader1">Työpisteen katuosoite</h4>
              <input type="text" name="katuosoite" placeholder="Työpisteen katuosoite" required />
              <span class="question" value="Kirjoita tähän työpisteesi katuosoite. Malli: Ruukinkatu 4">?</span>
+             <h4 class="formheader1">Työpisteen nimi (vapaaehtoinen)</h4>
              <input type="text" name="työhuone" placeholder="Työpisteen nimi (vapaaehtoinen)" />
              <span class="question" value="Kirjoita tähän työpisteesi nimi. Malli: M1">?</span>
+             <h4 class="formheader1">Tietokoneen nimi</h4>
              <input type="text" name="tietokoneenNimi" placeholder="Tietokoneen nimi" required />
              <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikkoa painaessa Ohjauspaneeli-valinnan yläpuolelta. Tietokoneet on myös nimetty tarroilla, jotka löytyvät useimmiten näppäimistön yläpäästä. Malli: VARA1">?</span>
              <input type="button" name="next" class="next action-button" value="Seuraava" />
@@ -149,17 +153,20 @@
          <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Ongelman kuvaus</h3>
+             <h4 class="formheader1">Ongelman luokittelu</h4>
              <select name="ongelmanLuokittelu" placeholder="Ongelman luokittelu (vapaaehtoinen)" />
-             <option value="" disabled selected>-Valitse luokka (vapaaehtoinen)-</option>
-             <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
-             <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
-             <option value="sivistystoimiala">Sivistystoimiala</option>
-             <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
-             <option value="ympäristötoimiala">Ympäristötoimiala</option>
+                 <option value="" disabled selected>-Valitse luokka (vapaaehtoinen)-</option>
+                 <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+                 <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+                 <option value="sivistystoimiala">Sivistystoimiala</option>
+                 <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+                 <option value="ympäristötoimiala">Ympäristötoimiala</option>
              </select>
              <span class="question" value="Valitse ongelmaasi sopiva kategoria. Mikäli et osaa nimetä kategoriaa, voit jättää tämän kentän tyhjäksi">?</span>
+             <h4 class="formheader1">Ongelman otsikko</h4>
              <input type="text" name="ongelmanOtsikko" placeholder="Otsikko" />
              <span class="question" value="Anna ongelmallesi kuvaava nimi">?</span>
+             <h4 class="formheader1">Ongelman kuvaus</h4>
              <textarea name="kuvaus" placeholder="Kuvaus"></textarea>
              <span class="question" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
@@ -168,26 +175,33 @@
          <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Yhteenveto ja tietojen tarkistus</h3>
+             <h4 class="formheader2">Toimiala</h4>
              <select name="toimiala" placeholder="Toimiala" />
-             <option value="" disabled selected>-Valitse toimiala-</option>
-             <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
-             <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
-             <option value="sivistystoimiala">Sivistystoimiala</option>
-             <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
-             <option value="ympäristötoimiala">Ympäristötoimiala</option>
+                 <option value="" disabled selected>-Valitse toimiala-</option>
+                 <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+                 <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+                 <option value="sivistystoimiala">Sivistystoimiala</option>
+                 <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+                 <option value="ympäristötoimiala">Ympäristötoimiala</option>
              </select>
+             <h4 class="formheader2">Työpisteen katuosoite</h4>
              <input type="text" name="katuosoite" placeholder="Työpisteen katuosoite" required />
-             <input type="text" name="työhuone" placeholder="Työhuone (vapaaehtoinen)" />
+             <h4 class="formheader2">Työpisteen nimi (vapaaehtoinen)</h4>
+             <input type="text" name="työhuone" placeholder="Työpisteen nimi (vapaaehtoinen)" />
+             <h4 class="formheader2">Tietokoneen nimi</h4>
              <input type="text" name="tietokoneenNimi" placeholder="Tietokoneen nimi" required />
+             <h4 class="formheader2">Ongelman luokittelu (vapaaehtoinen)</h4>
              <select name="ongelmanLuokittelu" placeholder="Ongelman luokittelu (vapaaehtoinen)" />
-             <option value="" disabled selected>-Valitse luokka (vapaaehtoinen)-</option>
-             <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
-             <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
-             <option value="sivistystoimiala">Sivistystoimiala</option>
-             <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
-             <option value="ympäristötoimiala">Ympäristötoimiala</option>
+                 <option value="" disabled selected>-Valitse luokka (vapaaehtoinen)-</option>
+                 <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+                 <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+                 <option value="sivistystoimiala">Sivistystoimiala</option>
+                 <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+                 <option value="ympäristötoimiala">Ympäristötoimiala</option>
              </select>
+             <h4 class="formheader2">Ongelman otsikko</h4>
              <input type="text" name="ongelmanOtsikko" placeholder="Otsikko" />
+             <h4 class="formheader2">Ongelman kuvaus</h4>
              <textarea name="kuvaus" placeholder="Kuvaus"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="submit" name="submit" class="submit action-button" value="Lähetä" />
