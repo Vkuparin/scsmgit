@@ -102,7 +102,12 @@
             }, function () {
                 $("div.tooltip").remove();
             });
-
+            $("span#questionHankala").hover(function () {
+                var tooltipText2 = $(this).attr('value');
+                $(this).append('<div class="tooltip"><p>' + tooltipText2 + '</p></div>');
+            }, function () {
+                $("div.tooltip").remove();
+            });
         });
     </script>
 
