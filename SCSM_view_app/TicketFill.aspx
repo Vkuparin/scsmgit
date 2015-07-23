@@ -127,6 +127,7 @@
          <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Perustiedot</h3>
+             <p><%=testi%></p>
              <h4 class="formheader1">Toimiala</h4>
              <select name="toimiala" placeholder="Toimiala" />
                  <option value="" disabled selected>-Valitse toimiala-</option>

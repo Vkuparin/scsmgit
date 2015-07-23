@@ -27,6 +27,9 @@ public partial class TicketFill : System.Web.UI.Page
         private string _osName = getOsName() + ", Käyttöjärjestelmän versio: "+Environment.OSVersion.ToString();
         protected string osName { get { return this._osName; } }
 
+        private string _testi = "";
+        protected string testi { get { return this._testi; } }
+
         private static string getOsName()
         {
             var name = (from x in new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem").Get().OfType<ManagementObject>()
@@ -58,12 +61,21 @@ public partial class TicketFill : System.Web.UI.Page
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
                 {
-                    adSearch.PropertiesToLoad.Add("sn");  // surname = last name
-                    adSearch.PropertiesToLoad.Add("givenName");  // given (or first) name
+                    adSearch.PropertiesToLoad.Add("Name");  // given (or first) name
                     adSearch.PropertiesToLoad.Add("mail");  // e-mail addresse
                     adSearch.PropertiesToLoad.Add("telephoneNumber");  // phone number
                     adSearch.Filter = "(sAMAccountName=" + userAccountName+")";
                     SearchResult adSearchResult = adSearch.FindOne();
+                    var searchPropCollection = adSearchResult.Properties;
+                    foreach (string tulos in searchPropCollection.PropertyNames)
+                    {
+                        string tab = "    ";
+                        _testi += tulos + " = ";
+                        foreach (Object myCollection in searchPropCollection[tulos])
+                        {
+                            _testi += tab + myCollection.ToString();
+                        }
+                    }
                 }
             }
 
