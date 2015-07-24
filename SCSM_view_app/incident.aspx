@@ -8,6 +8,16 @@
         vertical-align:text-top;
         padding-top:2px;
         }
+        body {
+                font-family: montserrat, arial, verdana;
+                background: rgb(243, 253, 255);
+                background: -moz-linear-gradient(90deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
+                background: -webkit-linear-gradient(90deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
+                background: -o-linear-gradient(90deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
+                background: -ms-linear-gradient(90deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
+                background: linear-gradient(180deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
+                background-size: 20px 1200px;
+        }
     </style>
     <hgroup class="title">
         <h1>Työpyyntö: <%: Title %> <asp:Label ID="parametri" runat="server"/></h1>
