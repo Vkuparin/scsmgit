@@ -142,22 +142,22 @@
                  <option value="ympäristötoimiala">Ympäristötoimiala</option>
                  <option value="ympäristötoimiala">Palvelukeskukset</option>
              </select>
-             <span class="question" value="Valitse oma toimialasi viiden vaihtoehdon joukosta">?</span>
+             <span class="question" value="Valitse oma toimialasi kuuden vaihtoehdon joukosta, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Osasto</h4>
              <input type="text" name="osasto" id="osasto" value="<%=userDepartment%>" required />
-             <span class="question" value="Kirjoita tähän osastosi">?</span>
+             <span class="question" value="Kirjoita tähän osastosi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Yksikkö</h4>
              <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" required />
-             <span class="question" value="Kirjoita tähän yksikkösi nimi">?</span>
+             <span class="question" value="Kirjoita tähän yksikkösi nimi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Toimipisteen osoite ja työhuone</h4>
              <input type="text" name="työhuone" id="työhuone" placeholder="Toimipisteen osoite ja työhuone" required />
              <span class="question" value="Kirjoita tähän työpisteesi osoite ja nimi. Malli: Ruukinkatu 4, M1">?</span>
              <h4 class="formheader1">Henkilö, jota työpyyntö koskee</h4>
              <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" required />
-             <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee">?</span>
+             <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee. Oletuksena on, että pyyntö koskee kirjautuneena olevaa käyttäjää">?</span>
              <h4 class="formheader1">Sähköpostiosoite</h4>
              <input type="text" name="sähköposti" id="sähköposti" value="<%=userEmail%>" />
-             <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä sähköpostiosoite">?</span>
+             <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä sähköpostiosoite. Oletuksena käytetään kirjautuneena olevan käyttäjän sähköpostiosoitetta">?</span>
              <h4 class="formheader1">Puhelinnumero</h4>
              <input type="text" name="puhelinnumero" id="puhelinnumero" value="<%=userPhone%>" />
              <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä puhelinnumero">?</span>
