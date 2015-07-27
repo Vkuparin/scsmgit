@@ -150,8 +150,8 @@
              <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" required />
              <span class="question" value="Kirjoita tähän yksikkösi nimi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Toimipisteen osoite ja työpisteen nimi</h4>
-             <input type="text" name="työhuone" id="työhuone" placeholder="Toimipisteen osoite ja työpisteen nimi" required />
-             <span class="question" value="Kirjoita tähän toimipisteesi osoite ja nimi. Malli: Ruukinkatu 4, M1">?</span>
+             <input type="text" name="työhuone" id="työhuone" placeholder="Toimipisteen osoite ja työaseman nimi" required />
+             <span class="question" value="Kirjoita tähän toimipisteesi osoite ja työaseman nimi. Malli: Ruukinkatu 4, M1">?</span>
              <h4 class="formheader1">Henkilö, jota työpyyntö koskee</h4>
              <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" required />
              <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee. Oletuksena on, että pyyntö koskee kirjautuneena olevaa käyttäjää">?</span>
