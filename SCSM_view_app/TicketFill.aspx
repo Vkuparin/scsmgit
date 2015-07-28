@@ -11,6 +11,51 @@
             padding: 10px;
             text-align: center;
         }
+        .dropdown-menu>li
+{	position:relative;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+	cursor:pointer;
+}
+.dropdown-menu .sub-menu {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    display:none;
+    margin-top: -1px;
+	border-top-left-radius:0;
+	border-bottom-left-radius:0;
+	border-left-color:#fff;
+	box-shadow:none;
+}
+.right-caret:after
+ {	content:"";
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-left: 4px solid orange;
+    display: inline-block;
+    height: 0;
+    opacity: 0.8;
+    vertical-align: middle;
+    width: 0;
+	margin-left:5px;
+}
+.left-caret:after
+{	content:"";
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-right: 4px solid orange;
+    display: inline-block;
+    height: 0;
+    opacity: 0.8;
+    vertical-align: middle;
+    width: 0;
+	margin-left:5px;
+}
      </style>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
      <script src="Scripts/jquery.json.min.js" type="text/javascript"></script>
@@ -108,6 +153,22 @@
             }, function () {
                 $("div.tooltip").remove();
             });
+
+            $(".dropdown-menu > li > a.trigger").on("click", function (e) {
+                var current = $(this).next();
+                var grandparent = $(this).parent().parent();
+                if ($(this).hasClass('left-caret') || $(this).hasClass('right-caret'))
+                    $(this).toggleClass('right-caret left-caret');
+                grandparent.find('.left-caret').not(this).toggleClass('right-caret left-caret');
+                grandparent.find(".sub-menu:visible").not(current).hide();
+                current.toggle();
+                e.stopPropagation();
+            });
+            $(".dropdown-menu > li > a:not(.trigger)").on("click", function () {
+                var root = $(this).closest('.dropdown');
+                root.find('.left-caret').toggleClass('right-caret left-caret');
+                root.find('.sub-menu:visible').hide();
+            });
         });
     </script>
 
@@ -120,6 +181,35 @@
         <h1 id="linkki"><a href="incidentGrid.aspx">Omat työpyynnöt</a></h1>
 
 	    <div id="container" align="center">
+            <div class="dropdown" style="position:relative">
+	<a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Click Here <span class="caret"></span></a>
+	<ul class="dropdown-menu">
+		<li>
+			<a class="trigger right-caret">Level 1</a>
+			<ul class="dropdown-menu sub-menu">
+				<li><a href="#">Level 2</a></li>
+				<li>
+					<a class="trigger right-caret">Level 2</a>
+					<ul class="dropdown-menu sub-menu">
+						<li><a href="#">Level 3</a></li>
+						<li><a href="#">Level 3</a></li>
+						<li>
+							<a class="trigger right-caret">Level 3</a>
+							<ul class="dropdown-menu sub-menu">
+								<li><a href="#">Level 4</a></li>
+								<li><a href="#">Level 4</a></li>
+								<li><a href="#">Level 4</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="#">Level 2</a></li>
+			</ul>
+		</li>
+		<li><a href="#">Level 1</a></li>
+		<li><a href="#">Level 1</a></li>
+	</ul>
+</div>
 	    	<!-- multistep form -->
      <form id="msform" runat="server">
 	        <!-- progressbar -->
