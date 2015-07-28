@@ -171,7 +171,7 @@
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Ongelman kuvaus</h3>
              <h4 class="formheader1">Ongelman luokittelu</h4>
-             <select>
+             <select id="ongelmaluokka">
                <option selected="selected" disabled="disabled">-Valitse pudotusvalikosta sopiva ongelmatyyppi-</option>
                <optgroup label="Dotku-tuki">
                    <option value="Dotku-tuki_Dokumenttikirjastot">Dokumenttikirjastot</option>
@@ -421,6 +421,8 @@
                          koonti.val(koonti.val() + 'Ongelman otsikko: ' + document.getElementById("ongelmaotsikko").value);
                          koonti.val(koonti.val() + '\n\n');
                          koonti.val(koonti.val() + 'Ongelman kuvaus: ' + document.getElementById("ongelmakuvaus").value);
+                         koonti.val(koonti.val() + '\n\n');
+                         koonti.val(koonti.val() + 'Käyttöjärjestelmän nimi: <%=osName%> \n');
                          koonti.val(koonti.val() + '\n\n');
                      });
                  });
