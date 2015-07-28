@@ -15,6 +15,8 @@ using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
 using System.DirectoryServices.AccountManagement;
 using System.Management;
+using System.Net;
+using System.Net.Mail;
 
 public partial class TicketFill : System.Web.UI.Page
 {
@@ -144,5 +146,22 @@ public partial class TicketFill : System.Web.UI.Page
             }
 
         }
+
+        //Send mail
+        public void mail()
+        {
+            SmtpClient smtpClient = new SmtpClient("exchange.adturku.fi", 465);
+            smtpClient.EnableSsl = true;
+            smtpClient.Credentials = new NetworkCredential("", "");
+            
+            MailMessage mail = new MailMessage();
+
+            //Setting From , To and CC
+            mail.From = new MailAddress("ville.kuparinen@turku.fi", "Testi testi");
+            mail.To.Add(new MailAddress("ville.kuparinen@turku.fi"));
+            mail.Body =  @"Testaillaan tätäkin bodya";
+            smtpClient.Send(mail);
+        }
+
 
 }
