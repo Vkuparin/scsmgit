@@ -129,6 +129,7 @@
         		<li>Yhteenveto ja tietojen tarkistus</li>
         	</ul>
         	<!-- fieldsets -->
+
          <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Perustiedot</h3>
@@ -172,141 +173,211 @@
              <h4 class="formheader1">Ongelman luokittelu</h4>
              <select>
                <option selected="selected" disabled="disabled">-Valitse pudotusvalikosta sopiva ongelmatyyppi-</option>
-               <option value="Dotku-tuki_Dokumenttikirjastot">Dotku-tuki_Dokumenttikirjastot</option>
-               <option value="Dotku-tuki_Extranet">Dotku-tuki_Extranet</option>
-               <option value="Dotku-tuki_Käyttöoikeudet">Dotku-tuki_Käyttöoikeudet</option>
-               <option value="Dotku-tuki_Tukipyyntö">Dotku-tuki_Tukipyyntö</option>
-               <option value="Dotku-tuki_Työtilat">Dotku-tuki_Työtilat</option>
-               <option value="HPK-tuki_Kuntarekry_Käyttöoikeudet">HPK-tuki_Kuntarekry_Käyttöoikeudet</option>
-               <option value="HPK-tuki_Kuntarekry_Tukipyyntö">HPK-tuki_Kuntarekry_Tukipyyntö</option>
-               <option value="HPK-tuki_Muut asiat_Koulutuspyynnöt">HPK-tuki_Muut asiat_Koulutuspyynnöt</option>
-               <option value="HPK-tuki_Muut asiat_Palaute">HPK-tuki_Muut asiat_Palaute</option>
-               <option value="HPK-tuki_Muut asiat_Raportti-ja tilastopyynnöt">HPK-tuki_Muut asiat_Raportti-ja tilastopyynnöt</option>
-               <option value="HPK-tuki_Muut asiat_Yhteydenottopyyntö">HPK-tuki_Muut asiat_Yhteydenottopyyntö</option>
-               <option value="HPK-tuki_Palvelussuhdeasiat_Eläkeasiat">HPK-tuki_Palvelussuhdeasiat_Eläkeasiat</option>
-               <option value="HPK-tuki_Palvelussuhdeasiat_Muut asiat">HPK-tuki_Palvelussuhdeasiat_Muut asiat</option>
-               <option value="HPK-tuki_Palvelussuhdeasiat_Palvelu-ja työtodistukset">HPK-tuki_Palvelussuhdeasiat_Palvelu-ja työtodistukset</option>
-               <option value="HPK-tuki_Palvelussuhdeasiat_Palvelussuhdeneuvonta">HPK-tuki_Palvelussuhdeasiat_Palvelussuhdeneuvonta</option>
-               <option value="HPK-tuki_Palvelussuhdeasiat_Työkokemuslisät">HPK-tuki_Palvelussuhdeasiat_Työkokemuslisät</option>
-               <option value="HPK-tuki_Palvelussuhdeasiat_Vuosilomat">HPK-tuki_Palvelussuhdeasiat_Vuosilomat</option>
-               <option value="HPK-tuki_Rekrytointi_Rekrytoinnin suunnittelu ja valmistelu">HPK-tuki_Rekrytointi_Rekrytoinnin suunnittelu ja valmistelu</option>
-               <option value="HPK-tuki_Rekrytointi_Rekrytointi">HPK-tuki_Rekrytointi_Rekrytointi</option>
-               <option value="HPK-tuki_Rekrytointi_Sijaistilaus (Hyto)">HPK-tuki_Rekrytointi_Sijaistilaus (Hyto)</option>
-               <option value="HPK-tuki_SAP HR_Käyttöoikeudet">HPK-tuki_SAP HR_Käyttöoikeudet</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Henkilön omat tiedot">HPK-tuki_SAP HR_Tukipyyntö_Henkilön omat tiedot</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Kehityskeskustelut ja arvioinnit">HPK-tuki_SAP HR_Tukipyyntö_Kehityskeskustelut ja arvioinnit</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Koulutus ja kurssit">HPK-tuki_SAP HR_Tukipyyntö_Koulutus ja kurssit</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Matkahallinta">HPK-tuki_SAP HR_Tukipyyntö_Matkahallinta</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Organisaatio">HPK-tuki_SAP HR_Tukipyyntö_Organisaatio</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Osaamisen kartoittaminen ja ylläpito">HPK-tuki_SAP HR_Tukipyyntö_Osaamisen kartoittaminen ja ylläpito</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Palvelussuhteen tiedot">HPK-tuki_SAP HR_Tukipyyntö_Palvelussuhteen tiedot</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Poissaolot ja vuosilomat">HPK-tuki_SAP HR_Tukipyyntö_Poissaolot ja vuosilomat</option>
-               <option value="HPK-tuki_SAP HR_Tukipyyntö_Tehtäväluettelo">HPK-tuki_SAP HR_Tukipyyntö_Tehtäväluettelo</option>
-               <option value="HPK-tuki_Vakanssit tai budjetoidut toimet_Budjetoitujen toimien ylläpito">HPK-tuki_Vakanssit tai budjetoidut toimet_Budjetoitujen toimien ylläpito</option>
-               <option value="HPK-tuki_Vakanssit tai budjetoidut toimet_Vakanssien ylläpito päätökseen perustuen">HPK-tuki_Vakanssit tai budjetoidut toimet_Vakanssien ylläpito päätökseen perustuen</option>
-               <option value="HPK-tuki_Vakanssit tai budjetoidut toimet_Vakanssitietojen ylläpito">HPK-tuki_Vakanssit tai budjetoidut toimet_Vakanssitietojen ylläpito</option>
-               <option value="JoutseNet-tuki_Käyttöoikeudet">JoutseNet-tuki_Käyttöoikeudet</option>
-               <option value="JoutseNet-tuki_Salasanan palautus">JoutseNet-tuki_Salasanan palautus</option>
-               <option value="JoutseNet-tuki_Tukipyyntö">JoutseNet-tuki_Tukipyyntö</option>
-               <option value="JoutseNet-tuki_Yhteisöpostilaatikot">JoutseNet-tuki_Yhteisöpostilaatikot</option>
-               <option value="Käyttöopastus_Oheislaitteet">Käyttöopastus_Oheislaitteet</option>
-               <option value="Käyttöopastus_Sovellus">Käyttöopastus_Sovellus</option>
-               <option value="Käyttöopastus_Tietoliikenne_Direct Access">Käyttöopastus_Tietoliikenne_Direct Access</option>
-               <option value="Käyttöopastus_Tietoliikenne_VPN">Käyttöopastus_Tietoliikenne_VPN</option>
-               <option value="Käyttöopastus_Toimintatapa">Käyttöopastus_Toimintatapa</option>
-               <option value="Käyttöopastus_Tulostus">Käyttöopastus_Tulostus</option>
-               <option value="Käyttöopastus_Työasema">Käyttöopastus_Työasema</option>
-               <option value="Pegasos-tuki_Kehitysehdotus">Pegasos-tuki_Kehitysehdotus</option>
-               <option value="Pegasos-tuki_Käyttöoikeus">Pegasos-tuki_Käyttöoikeus</option>
-               <option value="Pegasos-tuki_Käyttöopastus">Pegasos-tuki_Käyttöopastus</option>
-               <option value="Pegasos-tuki_Muu työpyyntö">Pegasos-tuki_Muu työpyyntö</option>
-               <option value="Pegasos-tuki_Ohjelmavirhe">Pegasos-tuki_Ohjelmavirhe</option>
-               <option value="Pegasos-tuki_Ongelma">Pegasos-tuki_Ongelma</option>
-               <option value="Pegasos-tuki_Raportointipyyntö">Pegasos-tuki_Raportointipyyntö</option>
-               <option value="Puhepalveluongelma_Lanka-ja mobiililiittymät">Puhepalveluongelma_Lanka-ja mobiililiittymät</option>
-               <option value="Puhepalveluongelma_Puhelinvaihde">Puhepalveluongelma_Puhelinvaihde</option>
-               <option value="Puhepalveluongelma_TeleQ">Puhepalveluongelma_TeleQ</option>
-               <option value="Roskapostitiketti">Roskapostitiketti</option>
-               <option value="Selvityspyyntö_Muu palvelu">Selvityspyyntö_Muu palvelu</option>
-               <option value="Selvityspyyntö_Puhepalvelu_Lanka-ja mobiililiittymät">Selvityspyyntö_Puhepalvelu_Lanka-ja mobiililiittymät</option>
-               <option value="Selvityspyyntö_Puhepalvelu_TeleQ">Selvityspyyntö_Puhepalvelu_TeleQ</option>
-               <option value="Selvityspyyntö_Sovellus">Selvityspyyntö_Sovellus</option>
-               <option value="Selvityspyyntö_Tietoliikenne">Selvityspyyntö_Tietoliikenne</option>
-               <option value="Selvityspyyntö_Toimintatapa">Selvityspyyntö_Toimintatapa</option>
-               <option value="Selvityspyyntö_Tulostus">Selvityspyyntö_Tulostus</option>
-               <option value="Selvityspyyntö_Työasema">Selvityspyyntö_Työasema</option>
-               <option value="Sovellusongelma_Paikallinen sovellus">Sovellusongelma_Paikallinen sovellus</option>
-               <option value="Sovellusongelma_Palvelinsovellus">Sovellusongelma_Palvelinsovellus</option>
-               <option value="Sovellusongelma_Verkkosovellus">Sovellusongelma_Verkkosovellus</option>
-               <option value="Testitiketti">Testitiketti</option>
-               <option value="Tietoliikenneongelma_Dataliikenne_Lähiverkko_LAN">Tietoliikenneongelma_Dataliikenne_Lähiverkko_LAN</option>
-               <option value="Tietoliikenneongelma_Dataliikenne_Lähiverkko_WLAN">Tietoliikenneongelma_Dataliikenne_Lähiverkko_WLAN</option>
-               <option value="Tietoliikenneongelma_Dataliikenne_Runkoverkko_Etätyöyhteydet">Tietoliikenneongelma_Dataliikenne_Runkoverkko_Etätyöyhteydet</option>
-               <option value="Tietoliikenneongelma_Dataliikenne_Runkoverkko_Mobiililaajakaista">Tietoliikenneongelma_Dataliikenne_Runkoverkko_Mobiililaajakaista</option>
-               <option value="Tietoliikenneongelma_Dataliikenne_Runkoverkko_Ulkoiset toimijat">Tietoliikenneongelma_Dataliikenne_Runkoverkko_Ulkoiset toimijat</option>
-               <option value="Tietoliikenneongelma_Dataliikenne_Ulkoiset yhteydet">Tietoliikenneongelma_Dataliikenne_Ulkoiset yhteydet</option>
-               <option value="Tietoliikenneongelma_Puhelinliikenne">Tietoliikenneongelma_Puhelinliikenne</option>
-               <option value="Tietoliikenneongelma_Tietoliikennepalvelut">Tietoliikenneongelma_Tietoliikennepalvelut</option>
-               <option value="Tietoliikenneongelma_Tietoturva">Tietoliikenneongelma_Tietoturva</option>
-               <option value="Tietoturva_Haittaohjelmat">Tietoturva_Haittaohjelmat</option>
-               <option value="Tietoturva_Muutoshallinta">Tietoturva_Muutoshallinta</option>
-               <option value="Tietoturva_Roskaposti">Tietoturva_Roskaposti</option>
-               <option value="Tietoturva_Virusilmoitukset">Tietoturva_Virusilmoitukset</option>
-               <option value="Trimble-tuki_Käyttöoikeudet">Trimble-tuki_Käyttöoikeudet</option>
-               <option value="Trimble-tuki_Ongelmatilanne">Trimble-tuki_Ongelmatilanne</option>
-               <option value="Tulostusongelma_Oheistulostus_Ajuriongelma">Tulostusongelma_Oheistulostus_Ajuriongelma</option>
-               <option value="Tulostusongelma_Oheistulostus_Laiteongelma">Tulostusongelma_Oheistulostus_Laiteongelma</option>
-               <option value="Tulostusongelma_Verkkotulostus_Laiteongelma">Tulostusongelma_Verkkotulostus_Laiteongelma</option>
-               <option value="Tulostusongelma_Verkkotulostus_Tulostusjono">Tulostusongelma_Verkkotulostus_Tulostusjono</option>
-               <option value="Työasemaongelma_Ajuriongelma">Työasemaongelma_Ajuriongelma</option>
-               <option value="Työasemaongelma_Ajuriongelma (ratkaisuna Lenovo System Update)">Työasemaongelma_Ajuriongelma (ratkaisuna Lenovo System Update)</option>
-               <option value="Työasemaongelma_Komponenttiongelma">Työasemaongelma_Komponenttiongelma</option>
-               <option value="Työasemaongelma_Oheislaiteongelma">Työasemaongelma_Oheislaiteongelma</option>
-               <option value="Työasemaongelma_Muut laitteet_iPad">Työasemaongelma_Muut laitteet_iPad</option>
-               <option value="Työasemaongelma_Uudelleenasennus">Työasemaongelma_Uudelleenasennus</option>
-               <option value="Työasemaongelma_Verkko-ongelma">Työasemaongelma_Verkko-ongelma</option>
-               <option value="Työasemaongelma_Windows-ongelma_Käyttäjän uloskirjaus">Työasemaongelma_Windows-ongelma_Käyttäjän uloskirjaus</option>
-               <option value="Työpyyntö_Asennuspyyntö_Oheislaitteen kytkentä">Työpyyntö_Asennuspyyntö_Oheislaitteen kytkentä</option>
-               <option value="Työpyyntö_Asennuspyyntö_Sovelluksen asennus (käsiasennus)">Työpyyntö_Asennuspyyntö_Sovelluksen asennus (käsiasennus)</option>
-               <option value="Työpyyntö_Asennuspyyntö_Sovelluksen asennus (SCCM)">Työpyyntö_Asennuspyyntö_Sovelluksen asennus (SCCM)</option>
-               <option value="Työpyyntö_Asennuspyyntö_Tietoliikennekytkentä">Työpyyntö_Asennuspyyntö_Tietoliikennekytkentä</option>
-               <option value="Työpyyntö_Asennuspyyntö_Työaseman kytkentä">Työpyyntö_Asennuspyyntö_Työaseman kytkentä</option>
-               <option value="Työpyyntö_Ilmoitus SD:lle">Työpyyntö_Ilmoitus SD:lle</option>
-               <option value="Työpyyntö_Käyttöoikeudet_iPad">Työpyyntö_Käyttöoikeudet_iPad</option>
-               <option value="Työpyyntö_Käyttöoikeudet_Nimenmuutos">Työpyyntö_Käyttöoikeudet_Nimenmuutos</option>
-               <option value="Työpyyntö_Käyttöoikeudet_PUK-koodi">Työpyyntö_Käyttöoikeudet_PUK-koodi</option>
-               <option value="Työpyyntö_Käyttöoikeudet_Salasanan palautus">Työpyyntö_Käyttöoikeudet_Salasanan palautus</option>
-               <option value="Työpyyntö_Käyttöoikeudet_Tunnuksen poisto">Työpyyntö_Käyttöoikeudet_Tunnuksen poisto</option>
-               <option value="Työpyyntö_Käyttöoikeudet_Uusi verkkotunnus">Työpyyntö_Käyttöoikeudet_Uusi verkkotunnus</option>
-               <option value="Työpyyntö_Käyttöoikeudet_Verkko-oikeudet">Työpyyntö_Käyttöoikeudet_Verkko-oikeudet</option>
-               <option value="Työpyyntö_Käyttöoikeudet_Verkkotunnuksen muutos">Työpyyntö_Käyttöoikeudet_Verkkotunnuksen muutos</option>
-               <option value="Työpyyntö_Käyttöoikeudet_VPN">Työpyyntö_Käyttöoikeudet_VPN</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Kaapelointitilaus">Työpyyntö_Muiden palveluiden tilaukset_Kaapelointitilaus</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Laitetilaus (ei työasemaan)">Työpyyntö_Muiden palveluiden tilaukset_Laitetilaus (ei työasemaan)</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Oheistulostintilaus">Työpyyntö_Muiden palveluiden tilaukset_Oheistulostintilaus</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Palvelintilaus">Työpyyntö_Muiden palveluiden tilaukset_Palvelintilaus</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Puhepalvelun tilaus">Työpyyntö_Muiden palveluiden tilaukset_Puhepalvelun tilaus</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Sovellustilaus">Työpyyntö_Muiden palveluiden tilaukset_Sovellustilaus</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Tarviketilaus (ei työasemaan)">Työpyyntö_Muiden palveluiden tilaukset_Tarviketilaus (ei työasemaan)</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Tietoliikennetilaus">Työpyyntö_Muiden palveluiden tilaukset_Tietoliikennetilaus</option>
-               <option value="Työpyyntö_Muiden palveluiden tilaukset_Verkkotulostintilaus">Työpyyntö_Muiden palveluiden tilaukset_Verkkotulostintilaus</option>
-               <option value="Työpyyntö_Raportointi">Työpyyntö_Raportointi</option>
-               <option value="Työpyyntö_Sovelluspaketointipyyntö">Työpyyntö_Sovelluspaketointipyyntö</option>
-               <option value="Työpyyntö_Tiedoston palautus">Työpyyntö_Tiedoston palautus</option>
-               <option value="Työpyyntö_Työasemapalvelu_Asset-tietojen muutospyyntö">Työpyyntö_Työasemapalvelu_Asset-tietojen muutospyyntö</option>
-               <option value="Työpyyntö_Työasemapalvelu_Elinkaarivaihdolla ratkaistava">Työpyyntö_Työasemapalvelu_Elinkaarivaihdolla ratkaistava</option>
-               <option value="Työpyyntö_Työasemapalvelu_Elinkaarivaihtojen tilaus">Työpyyntö_Työasemapalvelu_Elinkaarivaihtojen tilaus</option>
-               <option value="Työpyyntö_Työasemapalvelu_Tablet-tilaus">Työpyyntö_Työasemapalvelu_Tablet-tilaus</option>
-               <option value="Työpyyntö_Työasemapalvelu_Takuuhuoltotilaus">Työpyyntö_Työasemapalvelu_Takuuhuoltotilaus</option>
-               <option value="Työpyyntö_Työasemapalvelu_Tarviketilaus">Työpyyntö_Työasemapalvelu_Tarviketilaus</option>
-               <option value="Työpyyntö_Työasemapalvelu_Työasemapoisto">Työpyyntö_Työasemapalvelu_Työasemapoisto</option>
-               <option value="Työpyyntö_Työasemapalvelu_Työasematilaus, pienet erät">Työpyyntö_Työasemapalvelu_Työasematilaus, pienet erät</option>
-               <option value="Työpyyntö_Työasemapalvelu_Työasematilaus, suuret erät">Työpyyntö_Työasemapalvelu_Työasematilaus, suuret erät</option>
-               <option value="Työpyyntö_Työasemapalvelu_Varalaitetilaus">Työpyyntö_Työasemapalvelu_Varalaitetilaus</option>
-               <option value="Työpyyntö_Työasemapalvelu_Viallinen toimitus: DA/WLAN/Verkko">Työpyyntö_Työasemapalvelu_Viallinen toimitus: DA/WLAN/Verkko</option>
-               <option value="Työpyyntö_Työasemapalvelu_Viallinen toimitus: Sovelluspuutteet">Työpyyntö_Työasemapalvelu_Viallinen toimitus: Sovelluspuutteet</option>
-               <option value="Työpyyntö_Työasemapalvelu_Viallinen toimitus: Työasemavirhe">Työpyyntö_Työasemapalvelu_Viallinen toimitus: Työasemavirhe</option>
-               <option value="Työpyyntö_Työasemapalvelu_Vuokralaitetilaus">Työpyyntö_Työasemapalvelu_Vuokralaitetilaus</option>
+               <optgroup label="Dotku-tuki">
+                   <option value="Dotku-tuki_Dokumenttikirjastot">Dokumenttikirjastot</option>
+                   <option value="Dotku-tuki_Extranet">Extranet</option>
+                   <option value="Dotku-tuki_Käyttöoikeudet">Käyttöoikeudet</option>
+                   <option value="Dotku-tuki_Tukipyyntö">Tukipyyntö</option>
+                   <option value="Dotku-tuki_Työtilat">Työtilat</option>
+               </optgroup>
+               <optgroup label="HPK-tuki">
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Kuntarekry">
+                       <option value="HPK-tuki_Kuntarekry_Käyttöoikeudet">&nbsp;&nbsp;&nbsp;&nbsp;Käyttöoikeudet</option>
+                       <option value="HPK-tuki_Kuntarekry_Tukipyyntö">&nbsp;&nbsp;&nbsp;&nbsp;Tukipyyntö</option>
+                   </optgroup>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Muut asiat"> 
+                       <option value="HPK-tuki_Muut asiat_Koulutuspyynnöt">&nbsp;&nbsp;&nbsp;&nbsp;Koulutuspyynnöt</option>
+                       <option value="HPK-tuki_Muut asiat_Palaute">&nbsp;&nbsp;&nbsp;&nbsp;Palaute</option>
+                       <option value="HPK-tuki_Muut asiat_Raportti-ja tilastopyynnöt">&nbsp;&nbsp;&nbsp;&nbsp;Raportti-ja tilastopyynnöt</option>
+                       <option value="HPK-tuki_Muut asiat_Yhteydenottopyyntö">&nbsp;&nbsp;&nbsp;&nbsp;Yhteydenottopyyntö</option>
+                   </optgroup>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Palvelussuhdeasiat"> 
+                       <option value="HPK-tuki_Palvelussuhdeasiat_Eläkeasiat">&nbsp;&nbsp;&nbsp;&nbsp;Eläkeasiat</option>
+                       <option value="HPK-tuki_Palvelussuhdeasiat_Muut asiat">&nbsp;&nbsp;&nbsp;&nbsp;Muut asiat</option>
+                       <option value="HPK-tuki_Palvelussuhdeasiat_Palvelu-ja työtodistukset">&nbsp;&nbsp;&nbsp;&nbsp;Palvelu-ja työtodistukset</option>
+                       <option value="HPK-tuki_Palvelussuhdeasiat_Palvelussuhdeneuvonta">&nbsp;&nbsp;&nbsp;&nbsp;Palvelussuhdeneuvonta</option>
+                       <option value="HPK-tuki_Palvelussuhdeasiat_Työkokemuslisät">&nbsp;&nbsp;&nbsp;&nbsp;Työkokemuslisät</option>
+                       <option value="HPK-tuki_Palvelussuhdeasiat_Vuosilomat">&nbsp;&nbsp;&nbsp;&nbsp;Vuosilomat</option>
+                   </optgroup>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Rekrytointi">
+                       <option value="HPK-tuki_Rekrytointi_Rekrytoinnin suunnittelu ja valmistelu">&nbsp;&nbsp;&nbsp;&nbsp;Rekrytoinnin suunnittelu ja valmistelu</option>
+                       <option value="HPK-tuki_Rekrytointi_Rekrytointi">&nbsp;&nbsp;&nbsp;&nbsp;Rekrytointi</option>
+                       <option value="HPK-tuki_Rekrytointi_Sijaistilaus (Hyto)">&nbsp;&nbsp;&nbsp;&nbsp;Sijaistilaus (Hyto)</option>
+                   </optgroup>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;SAP HR">
+                       <option value="HPK-tuki_SAP HR_Käyttöoikeudet">&nbsp;&nbsp;&nbsp;&nbsp;Käyttöoikeudet</option>
+                            <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tukipyyntö">
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Henkilön omat tiedot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Henkilön omat tiedot</option>
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Kehityskeskustelut ja arvioinnit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kehityskeskustelut ja arvioinnit</option>
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Koulutus ja kurssit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Koulutus ja kurssit</option>
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Matkahallinta">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matkahallinta</option>
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Organisaatio">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Organisaatio</option>
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Osaamisen kartoittaminen ja ylläpito">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Osaamisen kartoittaminen ja ylläpito</option>
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Palvelussuhteen tiedot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Palvelussuhteen tiedot</option>
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Poissaolot ja vuosilomat">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Poissaolot ja vuosilomat</option>
+                       <option value="HPK-tuki_SAP HR_Tukipyyntö_Tehtäväluettelo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tehtäväluettelo</option>
+                            </optgroup>
+                   </optgroup>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Vakanssit tai budjetoidut toimet">
+                       <option value="HPK-tuki_Vakanssit tai budjetoidut toimet_Budjetoitujen toimien ylläpito">&nbsp;&nbsp;&nbsp;&nbsp;Budjetoitujen toimien ylläpito</option>
+                       <option value="HPK-tuki_Vakanssit tai budjetoidut toimet_Vakanssien ylläpito päätökseen perustuen">&nbsp;&nbsp;&nbsp;&nbsp;Vakanssien ylläpito päätökseen perustuen</option>
+                       <option value="HPK-tuki_Vakanssit tai budjetoidut toimet_Vakanssitietojen ylläpito">&nbsp;&nbsp;&nbsp;&nbsp;Vakanssitietojen ylläpito</option>
+                   </optgroup>
+               </optgroup>
+               <optgroup label="JoutseNet-tuki">
+                   <option value="JoutseNet-tuki_Käyttöoikeudet">Käyttöoikeudet</option>
+                   <option value="JoutseNet-tuki_Salasanan palautus">Salasanan palautus</option>
+                   <option value="JoutseNet-tuki_Tukipyyntö">Tukipyyntö</option>
+                   <option value="JoutseNet-tuki_Yhteisöpostilaatikot">Yhteisöpostilaatikot</option>
+               </optgroup>
+               <optgroup label="Käyttöopastus">
+                   <option value="Käyttöopastus_Oheislaitteet">Oheislaitteet</option>
+                   <option value="Käyttöopastus_Sovellus">Sovellus</option>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Tietoliikenne">
+                       <option value="Käyttöopastus_Tietoliikenne_Direct Access">&nbsp;&nbsp;&nbsp;&nbsp;Direct Access</option>
+                       <option value="Käyttöopastus_Tietoliikenne_VPN">&nbsp;&nbsp;&nbsp;&nbsp;VPN</option>
+                   </optgroup>
+                   <option value="Käyttöopastus_Toimintatapa">&nbsp;&nbsp;&nbsp;&nbsp;Toimintatapa</option>
+                   <option value="Käyttöopastus_Tulostus">&nbsp;&nbsp;&nbsp;&nbsp;Tulostus</option>
+                   <option value="Käyttöopastus_Työasema">&nbsp;&nbsp;&nbsp;&nbsp;Työasema</option>
+               </optgroup>
+               <optgroup label="Pegasos-tuki">
+                   <option value="Pegasos-tuki_Kehitysehdotus">Kehitysehdotus</option>
+                   <option value="Pegasos-tuki_Käyttöoikeus">Käyttöoikeus</option>
+                   <option value="Pegasos-tuki_Käyttöopastus">Käyttöopastus</option>
+                   <option value="Pegasos-tuki_Muu työpyyntö">Muu työpyyntö</option>
+                   <option value="Pegasos-tuki_Ohjelmavirhe">Ohjelmavirhe</option>
+                   <option value="Pegasos-tuki_Ongelma">Ongelma</option>
+                   <option value="Pegasos-tuki_Raportointipyyntö">Raportointipyyntö</option>
+               </optgroup>
+               <optgroup label="Puhepalveluongelma">
+                   <option value="Puhepalveluongelma_Lanka-ja mobiililiittymät">Lanka-ja mobiililiittymät</option>
+                   <option value="Puhepalveluongelma_Puhelinvaihde">Puhelinvaihde</option>
+                   <option value="Puhepalveluongelma_TeleQ">TeleQ</option>
+               </optgroup>
+               <optgroup label="Roskapostitiketti">
+                   <option value="Roskapostitiketti">Roskapostitiketti</option>
+               </optgroup>
+               <optgroup label="Selvityspyyntö">
+                   <option value="Selvityspyyntö_Muu palvelu">Muu palvelu</option>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Puhepalvelu">
+                       <option value="Selvityspyyntö_Puhepalvelu_Lanka-ja mobiililiittymät">&nbsp;&nbsp;&nbsp;&nbsp;Lanka-ja mobiililiittymät</option>
+                       <option value="Selvityspyyntö_Puhepalvelu_TeleQ">&nbsp;&nbsp;&nbsp;&nbsp;TeleQ</option>
+                   </optgroup>
+                   <option value="Selvityspyyntö_Sovellus">&nbsp;&nbsp;&nbsp;&nbsp;Sovellus</option>
+                   <option value="Selvityspyyntö_Tietoliikenne">&nbsp;&nbsp;&nbsp;&nbsp;Tietoliikenne</option>
+                   <option value="Selvityspyyntö_Toimintatapa">&nbsp;&nbsp;&nbsp;&nbsp;Toimintatapa</option>
+                   <option value="Selvityspyyntö_Tulostus">&nbsp;&nbsp;&nbsp;&nbsp;Tulostus</option>
+                   <option value="Selvityspyyntö_Työasema">&nbsp;&nbsp;&nbsp;&nbsp;Työasema</option>
+               </optgroup>
+               <optgroup label="Sovellusongelma">
+                   <option value="Sovellusongelma_Paikallinen sovellus">Paikallinen sovellus</option>
+                   <option value="Sovellusongelma_Palvelinsovellus">Palvelinsovellus</option>
+                   <option value="Sovellusongelma_Verkkosovellus">Verkkosovellus</option>
+               </optgroup>
+               <optgroup label="Testitiketti">
+                   <option value="Testitiketti">Testitiketti</option>
+               </optgroup>
+               <optgroup label="Tietoliikenneongelma">
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Dataliikenne"></optgroup>
+                       <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lähiverkko">
+                           <option value="Tietoliikenneongelma_Dataliikenne_Lähiverkko_LAN">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LAN</option>
+                           <option value="Tietoliikenneongelma_Dataliikenne_Lähiverkko_WLAN">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WLAN</option>
+                       </optgroup>
+                       <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Runkoverkko">
+                           <option value="Tietoliikenneongelma_Dataliikenne_Runkoverkko_Etätyöyhteydet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Etätyöyhteydet</option>
+                           <option value="Tietoliikenneongelma_Dataliikenne_Runkoverkko_Mobiililaajakaista">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobiililaajakaista</option>
+                           <option value="Tietoliikenneongelma_Dataliikenne_Runkoverkko_Ulkoiset toimijat">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ulkoiset toimijat</option>
+                       </optgroup>
+                       <option value="Tietoliikenneongelma_Dataliikenne_Ulkoiset yhteydet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ulkoiset yhteydet</option>
+                   </optgroup>
+                   <option value="Tietoliikenneongelma_Puhelinliikenne">&nbsp;&nbsp;&nbsp;&nbsp;Puhelinliikenne</option>
+                   <option value="Tietoliikenneongelma_Tietoliikennepalvelut">&nbsp;&nbsp;&nbsp;&nbsp;Tietoliikennepalvelut</option>
+                   <option value="Tietoliikenneongelma_Tietoturva">&nbsp;&nbsp;&nbsp;&nbsp;Tietoturva</option>
+               </optgroup>
+               <optgroup label="Tietoturva">
+                   <option value="Tietoturva_Haittaohjelmat">Haittaohjelmat</option>
+                   <option value="Tietoturva_Muutoshallinta">Muutoshallinta</option>
+                   <option value="Tietoturva_Roskaposti">Roskaposti</option>
+                   <option value="Tietoturva_Virusilmoitukset">Virusilmoitukset</option>
+               </optgroup>
+               <optgroup label="Trimble-tuki">
+                   <option value="Trimble-tuki_Käyttöoikeudet">Käyttöoikeudet</option>
+                   <option value="Trimble-tuki_Ongelmatilanne">Ongelmatilanne</option>
+               </optgroup>
+               <optgroup label="Tulostusongelma">
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Oheistulostus">
+                       <option value="Tulostusongelma_Oheistulostus_Ajuriongelma">&nbsp;&nbsp;&nbsp;&nbsp;Ajuriongelma</option>
+                       <option value="Tulostusongelma_Oheistulostus_Laiteongelma">&nbsp;&nbsp;&nbsp;&nbsp;Laiteongelma</option>
+                   </optgroup>
+                   <optgroup label="Verkkotulostus">
+                       <option value="Tulostusongelma_Verkkotulostus_Laiteongelma">&nbsp;&nbsp;&nbsp;&nbsp;Laiteongelma</option>
+                       <option value="Tulostusongelma_Verkkotulostus_Tulostusjono">&nbsp;&nbsp;&nbsp;&nbsp;Tulostusjono</option>
+                   </optgroup>
+               </optgroup>
+               <optgroup label="Työasemaongelma">
+                   <option value="Työasemaongelma_Ajuriongelma">Ajuriongelma</option>
+                   <option value="Työasemaongelma_Ajuriongelma (ratkaisuna Lenovo System Update)">Ajuriongelma (ratkaisuna Lenovo System Update)</option>
+                   <option value="Työasemaongelma_Komponenttiongelma">Komponenttiongelma</option>
+                   <option value="Työasemaongelma_Oheislaiteongelma">Oheislaiteongelma</option>
+                   <option value="Työasemaongelma_Muut laitteet_iPad">Muut laitteet_iPad</option>
+                   <option value="Työasemaongelma_Uudelleenasennus">Uudelleenasennus</option>
+                   <option value="Työasemaongelma_Verkko-ongelma">Verkko-ongelma</option>
+                   <option value="Työasemaongelma_Windows-ongelma_Käyttäjän uloskirjaus">Windows-ongelma, käyttäjän uloskirjaus</option>
+               </optgroup>
+               <optgroup label="Työpyyntö">
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Asennuspyyntö"
+                       <option value="Työpyyntö_Asennuspyyntö_Oheislaitteen kytkentä">&nbsp;&nbsp;&nbsp;&nbsp;Oheislaitteen kytkentä</option>
+                       <option value="Työpyyntö_Asennuspyyntö_Sovelluksen asennus (asennus käsin)">&nbsp;&nbsp;&nbsp;&nbsp;Sovelluksen asennus (asennus käsin)</option>
+                       <option value="Työpyyntö_Asennuspyyntö_Sovelluksen asennus (SCCM)">&nbsp;&nbsp;&nbsp;&nbsp;Sovelluksen asennus (SCCM)</option>
+                       <option value="Työpyyntö_Asennuspyyntö_Tietoliikennekytkentä">&nbsp;&nbsp;&nbsp;&nbsp;Tietoliikennekytkentä</option>
+                       <option value="Työpyyntö_Asennuspyyntö_Työaseman kytkentä">&nbsp;&nbsp;&nbsp;&nbsp;Työaseman kytkentä</option>
+                   </optgroup>
+                   <option value="Työpyyntö_Ilmoitus SD:lle">&nbsp;&nbsp;&nbsp;&nbsp;Ilmoitus SD:lle</option>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Käyttöoikeudet">
+                       <option value="Työpyyntö_Käyttöoikeudet_iPad">&nbsp;&nbsp;&nbsp;&nbsp;iPad</option>
+                       <option value="Työpyyntö_Käyttöoikeudet_Nimenmuutos">&nbsp;&nbsp;&nbsp;&nbsp;Nimenmuutos</option>
+                       <option value="Työpyyntö_Käyttöoikeudet_PUK-koodi">&nbsp;&nbsp;&nbsp;&nbsp;PUK-koodi</option>
+                       <option value="Työpyyntö_Käyttöoikeudet_Salasanan palautus">&nbsp;&nbsp;&nbsp;&nbsp;Salasanan palautus</option>
+                       <option value="Työpyyntö_Käyttöoikeudet_Tunnuksen poisto">&nbsp;&nbsp;&nbsp;&nbsp;Tunnuksen poisto</option>
+                       <option value="Työpyyntö_Käyttöoikeudet_Uusi verkkotunnus">&nbsp;&nbsp;&nbsp;&nbsp;Uusi verkkotunnus</option>
+                       <option value="Työpyyntö_Käyttöoikeudet_Verkko-oikeudet">&nbsp;&nbsp;&nbsp;&nbsp;Verkko-oikeudet</option>
+                       <option value="Työpyyntö_Käyttöoikeudet_Verkkotunnuksen muutos">&nbsp;&nbsp;&nbsp;&nbsp;Verkkotunnuksen muutos</option>
+                       <option value="Työpyyntö_Käyttöoikeudet_VPN">&nbsp;&nbsp;&nbsp;&nbsp;VPN</option>
+                   </optgroup>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Muiden palveluiden tilaukset">
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Kaapelointitilaus">&nbsp;&nbsp;&nbsp;&nbsp;Kaapelointitilaus</option>
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Laitetilaus (ei työasemaan)">&nbsp;&nbsp;&nbsp;&nbsp;Laitetilaus (ei työasemaan)</option>
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Oheistulostintilaus">&nbsp;&nbsp;&nbsp;&nbsp;Oheistulostintilaus</option>
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Palvelintilaus">&nbsp;&nbsp;&nbsp;&nbsp;Palvelintilaus</option>
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Puhepalvelun tilaus">&nbsp;&nbsp;&nbsp;&nbsp;Puhepalvelun tilaus</option>
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Sovellustilaus">&nbsp;&nbsp;&nbsp;&nbsp;Sovellustilaus</option>
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Tarviketilaus (ei työasemaan)">&nbsp;&nbsp;&nbsp;&nbsp;Tarviketilaus (ei työasemaan)</option>
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Tietoliikennetilaus">&nbsp;&nbsp;&nbsp;&nbsp;Tietoliikennetilaus</option>
+                       <option value="Työpyyntö_Muiden palveluiden tilaukset_Verkkotulostintilaus">&nbsp;&nbsp;&nbsp;&nbsp;Verkkotulostintilaus</option>
+                   </optgroup>
+                   <option value="Työpyyntö_Raportointi">&nbsp;&nbsp;&nbsp;&nbsp;Raportointi</option>
+                   <option value="Työpyyntö_Sovelluspaketointipyyntö">&nbsp;&nbsp;&nbsp;&nbsp;Sovelluspaketointipyyntö</option>
+                   <option value="Työpyyntö_Tiedoston palautus">&nbsp;&nbsp;&nbsp;&nbsp;Tiedoston palautus</option>
+                   <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;Työasemapalvelu">
+                       <option value="Työpyyntö_Työasemapalvelu_Asset-tietojen muutospyyntö">&nbsp;&nbsp;&nbsp;&nbsp;Asset-tietojen muutospyyntö</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Elinkaarivaihdolla ratkaistava">&nbsp;&nbsp;&nbsp;&nbsp;Elinkaarivaihdolla ratkaistava</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Elinkaarivaihtojen tilaus">&nbsp;&nbsp;&nbsp;&nbsp;Elinkaarivaihtojen tilaus</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Tablet-tilaus">&nbsp;&nbsp;&nbsp;&nbsp;Tablet-tilaus</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Takuuhuoltotilaus">&nbsp;&nbsp;&nbsp;&nbsp;Takuuhuoltotilaus</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Tarviketilaus">&nbsp;&nbsp;&nbsp;&nbsp;Tarviketilaus</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Työasemapoisto">&nbsp;&nbsp;&nbsp;&nbsp;Työasemapoisto</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Työasematilaus, pienet erät">&nbsp;&nbsp;&nbsp;&nbsp;Työasematilaus, pienet erät</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Työasematilaus, suuret erät">&nbsp;&nbsp;&nbsp;&nbsp;Työasematilaus, suuret erät</option>
+                       <option value="Työpyyntö_Työasemapalvelu_Varalaitetilaus">&nbsp;&nbsp;&nbsp;&nbsp;Varalaitetilaus</option>
+                       <optgroup label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Viallinen toimitus">
+                           <option value="Työpyyntö_Työasemapalvelu_Viallinen toimitus: DA/WLAN/Verkko">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DA/WLAN/Verkko</option>
+                           <option value="Työpyyntö_Työasemapalvelu_Viallinen toimitus: Sovelluspuutteet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sovelluspuutteet</option>
+                           <option value="Työpyyntö_Työasemapalvelu_Viallinen toimitus: Työasemavirhe">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Työasemavirhe</option>
+                       </optgroup>
+                       <option value="Työpyyntö_Työasemapalvelu_Vuokralaitetilaus">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vuokralaitetilaus</option>
+                  </optgroup>
+               </optgroup>
              </select>
              <span class="question" value="Valitse ongelmaasi sopiva ongelmatyyppi. Mikäli et osaa nimetä kategoriaa, voit jättää tämän kentän tyhjäksi">?</span>
              <h4 class="formheader1">Ongelman otsikko</h4>
