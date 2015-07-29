@@ -2,7 +2,9 @@
 
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <!-- Kaikki koodi asp-sivun Content (body) kohdassa. Ks. Site.Master perityt tiedot -->
     <style type="text/css">
+        /*CSS-muotoilua: tekee taulukon riveille vuorotellen vaihtelevat taustat (sininen ja valkoinen)*/
         .myAltRowClass { background-color: #e4f0fa; background-image: none; }
         body {
                 font-family: montserrat, arial, verdana;
@@ -17,9 +19,11 @@
     </style>
 
     <script type="text/javascript">
-            $(function () {
+        $(function () {
+                //Määritetään gridi viittaamaan vastaavaan html-taulukkoon (id: Grid1)
                 $Grid1 = $("#Grid1"),
-
+                
+                //Päivänvalitsemisfunktio, tuo esiin kutsuttaessa perus jquery kalenterin
                 initDatepicker = function (elem) {
                     $(elem).datepicker({
                         dateFormat: "dd-M-yy",
@@ -30,7 +34,7 @@
                         showWeek: true
                     });
                 },
-
+                //Funktio korostaa (highlight) taulukossa tekstin, joka on syötetty hakukenttään
                 highlightFilteredData = function () {
                     var $self = $(this), filters, i, l, rules, rule, iCol,
                         isFiltered = $self.jqGrid("getGridParam", "search"),
@@ -73,7 +77,7 @@
                           altclass:'myAltRowClass',
                           toolbar: ['true',"top"]
                       },
-                      {
+                      {//Ajax valinnat. mm. näyttää / piilottaa loading-palkin
                           ajaxGridOptions: {
                               contentType: "application/json",
                               success: function (data, textStatus) {
@@ -98,54 +102,68 @@
 
                       });
 
-                  //Rakennetaan jqgrid
+                //Itse gridin luonti. 
                 $Grid1.jqGrid({
-                    url: 'incidentGrid.aspx/GetDataTable', //Osuukohan tämä oikeaan. funktio GetDataTable tiedostossa incidentGrid.aspx.cs
+                    url: 'incidentGrid.aspx/GetDataTable', //kutsuu funktiota GetDataTable tiedostossa incidentGrid.aspx.cs, joka hakee SQL:llä serveriltä käyttäjän tikettien tiedot
                     datatype: 'json',
                     mtype: 'POST',
                     colNames: ['Otsikko', 'ID / Linkki', 'Suljettu', 'Luotu', 'Id1', 'Työavain', 'WorkItemDimKey1', 'Vaikuttaa käyttäjään (nro)', 'Käyttäjänimi', 'Käyttäjänumero'],
-                    colModel: [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 300, sorttype: 'string' },
+                    colModel:
+                     //Tiketin otsikko
+                     [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 300, sorttype: 'string' },
+                     //Tiketin ID. Custom formatter, joka luo linkin yksittäisen tiketin incident-sivulle
                      {
                          name: 'Id', index: 'Id', width: 100, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
                              var val = '<a href = "incident.aspx?id=' + cellvalue + '">' + cellvalue + '</a>';
                              return val;
                          },
                      },
+                     //Milloin tiketti on suljettu
                     {
                         name: 'ClosedDate', index: 'ClosedDate', width: 100, align: "center", sorttype: "date",
                         formatter: "date", formatoptions: { newformat: "d-M-Y" },
                         searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                     },
+                    //Milloin tiketi on luotu
                     {
                         name: 'CreatedDate', index: 'CreatedDate', width: 100, align: "center", sorttype: "date",
                         formatter: "date", formatoptions: { newformat: "d-M-Y" },
                         searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                     },
-                    { name: 'Id1', index: 'Id1', width: 150, hidden: true},
-                    { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 80, hidden:true},
-                    { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', hidden:true},
-                    { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', hidden: true},
-                    { name: 'UserName', index: 'UserName', width: 100, hidden:true},
-                      { name: 'UserDimKey', index: 'UserDimKey', width: 100, hidden:true } ],
-                      pager: '#pager', sortname: 'CreatedDate', sortorder: 'desc',
-                      rowNum: 50,
-                      rowTotal: 10000,
-                      rowList: [20, 50, 100],
-                      rownumbers: true,
-                      gridview: true,
-                      loadonce: true,
-                      ignoreCase: true,
-                      viewrecoreds: true,
-                      imgpath: 'Content/images',
-                      serializeGridData: function (data) {
-                          return JSON.stringify(data);
-                      },
-                      gridComplete: function () {
-                      highlightFilteredData.call(this);
-                      }
+                    //Taas tiketin ID. Turha? Piilotettu
+                    { name: 'Id1', index: 'Id1', width: 150, hidden: true, search: false },
+                    //Työavain, ei oleellinen käyttäjälle, piilotettu
+                    { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 80, hidden:true, search:false},
+                    //Työavain, ei oleellinen käyttäjälle, piilotettu
+                    { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', hidden: true, search: false },
+                    //Ketä tiketti koskee. Ei oleellinen käyttäjälle, piilotettu.
+                    { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', hidden: true, search: false },
+                    //Käyttäjänimi. Ei oleellinen käyttäjälle, piilotettu.
+                    { name: 'UserName', index: 'UserName', width: 100, hidden:true, search:false},
+                    //Käyttäjäavain. Ei oleellinen käyttäjälle, piilotettu.
+                    { name: 'UserDimKey', index: 'UserDimKey', width: 100, hidden: true, search:false }],
+                    //Lisää gridin määrittelyä
+                    pager: '#pager', sortname: 'CreatedDate', sortorder: 'desc',
+                    rowNum: 50,
+                    rowTotal: 10000,
+                    rowList: [20, 50, 100],
+                    rownumbers: true,
+                    gridview: true,
+                    //loadonce: lataa kerralla kaiken oleellisen datan taulukkoon. Muuttaa sen jälkeen taulukon tyypiksi "local". Muokkaus, kuten haku, tapahtuu lokaalisti
+                    loadonce: true,
+                    ignoreCase: true,
+                    viewrecords: true,
+                    emptyrecords: "Ei hakutuloksia",
+                    imgpath: 'Content/images',
+                    serializeGridData: function (data) {
+                        return JSON.stringify(data);
+                    },
+                    gridComplete: function () {
+                    highlightFilteredData.call(this);
+                    }
                   });
-                  jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false });
-                  //Fill top bar
+                  jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false }); //pager/sivunkääntäjä
+                  //Lisätään top bariin hakukenttä ja -nappi
                   $('#t_' + $.jgrid.jqID($Grid1[0].id))
                  .append($("<div><label for=\"globalSearchText\">Etsi taulukosta:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
                   $("#globalSearchText").keypress(function (e) {
@@ -157,6 +175,7 @@
                   $("#globalSearch").button({
                       icons: { primary: "ui-icon-search" },
                       text: false
+                  //Hakufunktio, joka suoritetaan kun hakunappia on klikattu
                   }).click(function () {
                       var postData = $Grid1.jqGrid("getGridParam", "postData"),
                           colModel = $Grid1.jqGrid("getGridParam", "colModel"),
@@ -180,7 +199,7 @@
                           rules: rules
                       });
                       $Grid1.jqGrid("setGridParam", { search: true });
-                      $Grid1.trigger("reloadGrid", [{page: 1, current: true}]);
+                      $Grid1.trigger("reloadGrid", [{page: 1, current: true}]); //Ladataan grid uudelleen filttereiden kera
                       return false;
                   });
             });
@@ -189,6 +208,7 @@
     <hgroup class="title">
         <h1> Omat työpyynnöt <asp:Label ID="parametri" runat="server"/></h1>
     </hgroup>
+    <!-- Taulukko tulee tänne -->
     <div id="gridcontainer">
 
         <table id="Grid1" class="scroll" align="center" width="100%"></table>
