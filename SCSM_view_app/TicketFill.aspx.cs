@@ -157,8 +157,8 @@ public partial class TicketFill : System.Web.UI.Page
             MailMessage mail = new MailMessage();
 
             //Setting From , To and CC
-            mail.From = new MailAddress("ville.kuparinen@turku.fi", "Testi testi");
-            mail.To.Add(new MailAddress("ville.kuparinen@turku.fi"));
+            mail.From = new MailAddress("ville.kuparinen@turku.fi", "Testi testi"); //userEmail
+            mail.To.Add(new MailAddress("ville.kuparinen@turku.fi")); //helpdesk
             mail.Body =  @"Testaillaan tätäkin bodya";
             smtpClient.Send(mail);
         }

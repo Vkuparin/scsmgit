@@ -56,7 +56,7 @@ namespace show_incident
                                DWRepository.dbo.WorkItemDimvw WorkItemDimvw
                                WHERE WorkItemAffectedUserFactvw.WorkItemAffectedUser_UserDimKey = UserDimvw.UserDimKey AND 
                                WorkItemAffectedUserFactvw.WorkItemDimKey = WorkItemDimvw.WorkItemDimKey AND 
-                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.UserName='"+user+"'));";
+                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.UserName='slahdeti')) ORDER BY IncidentDim.CreatedDate DESC;";
 
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["tkuscsm-dwsConnectionString"].ConnectionString);
