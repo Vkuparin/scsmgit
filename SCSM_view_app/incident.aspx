@@ -194,7 +194,7 @@
                           groupOp: "OR",
                           rules: rules
                       });
-                      $Grid1.jqGrid("setGridParam", { search: true });
+                      $Grid1.jqGrid("setGridParam", { search: true, datatype: "local" });
                       $Grid1.trigger("reloadGrid", [{page: 1, current: true}]);
                       return false;
                   });
