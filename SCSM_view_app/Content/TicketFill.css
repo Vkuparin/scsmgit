@@ -242,3 +242,18 @@ div.tooltip p {
   color: White;
 }
 
+.header1-dropdown {
+    background-color: #C0D1DD;
+}
+/*#AABAC5, #D5E8F6, #F2F8FC*/
+.header2-dropdown {
+    background-color: #D5E8F6;
+}
+
+.header3-dropdown {
+    background-color: #EAF4FA;
+}
+
+.option {
+    background-color: white;
+}
