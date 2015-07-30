@@ -147,12 +147,12 @@
              <h4 class="formheader1">Osasto</h4>
              <input type="text" name="osasto" id="osasto" value="<%=userDepartment%>" required />
              <span class="question" value="Kirjoita tähän osastosi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
-             <h4 class="formheader1">Yksikkö</h4>
+             <h4 class="formheader1">Toimipisteen nimi</h4>
              <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" required />
              <span class="question" value="Kirjoita tähän yksikkösi nimi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
-             <h4 class="formheader1">Toimipisteen osoite ja työpisteen nimi</h4>
-             <input type="text" name="työhuone" id="työhuone" placeholder="Toimipisteen osoite ja työaseman nimi" required />
-             <span class="question" value="Kirjoita tähän toimipisteesi osoite ja työaseman nimi. Malli: Ruukinkatu 4, M1">?</span>
+             <h4 class="formheader1">Toimipisteen osoite</h4>
+             <input type="text" name="osoite" id="osoite" placeholder="Toimipisteen osoite" required />
+             <span class="question" value="Kirjoita tähän toimipisteesi osoite. Malli: Ruukinkatu 4">?</span>
              <h4 class="formheader1">Henkilö, jota työpyyntö koskee</h4>
              <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" required />
              <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee. Oletuksena on, että pyyntö koskee kirjautuneena olevaa käyttäjää">?</span>
@@ -404,9 +404,9 @@
                          koonti.val(koonti.val() + '\n\n');
                          koonti.val(koonti.val() + 'Osasto: ' + document.getElementById("osasto").value);
                          koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Yksikkö: ' + document.getElementById("yksikkö").value);
+                         koonti.val(koonti.val() + 'Toimipisteen nimi: ' + document.getElementById("yksikkö").value);
                          koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Osoite ja työhuone: ' + document.getElementById("työhuone").value);
+                         koonti.val(koonti.val() + 'Toimipisteen osoite: ' + document.getElementById("osoite").value);
                          koonti.val(koonti.val() + '\n\n');
                          koonti.val(koonti.val() + 'Henkilö, jota työpyyntö koskee: ' + document.getElementById("nimi").value);
                          koonti.val(koonti.val() + '\n\n');
