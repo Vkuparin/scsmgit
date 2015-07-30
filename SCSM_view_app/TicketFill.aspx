@@ -388,6 +388,9 @@
              <h4 class="formheader1">Ongelman kuvaus</h4>
              <textarea name="kuvaus" id="ongelmakuvaus" placeholder="Kuvaus"></textarea>
              <span id="questionHankala" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>
+             <h4 class="formheader1">Liite</h4>
+             <input type="file" name="liite" id="liite" style="background-color:white" />
+             <span class="question" value="Liitä tähän haluamasi tiedosto">?</span>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="button" name="next" id ="tokanappi" class="next action-button" value="Seuraava" />
          </fieldset>
@@ -424,8 +427,10 @@
                          koonti.val(koonti.val() + '\n\n');
                          koonti.val(koonti.val() + 'Ongelman kuvaus: ' + document.getElementById("ongelmakuvaus").value);
                          koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Käyttöjärjestelmän nimi: <%=osName%> \n');
+                         koonti.val(koonti.val() + 'Liitetty/liitetyt tiedostot:' + document.getElementById("liite").value);
                          koonti.val(koonti.val() + '\n\n');
+                         koonti.val(koonti.val() + 'Käyttöjärjestelmän nimi: <%=osName%> \n');
+
                      });
                  });
              </script>
