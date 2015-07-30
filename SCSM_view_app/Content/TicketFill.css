@@ -92,7 +92,7 @@ textarea#koonti {
 /*buttons*/
 #msform .action-button {
 	width: 100px;
-	background: #2EB8E6;
+	background: #00aeef;
 	font-weight: bold;
 	color: white;
 	border: 0 none;
@@ -176,7 +176,7 @@ textarea#koonti {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-	background: #2EB8E6;
+	background: #00aeef;
 	color: white;
 }
 
@@ -186,7 +186,7 @@ span.question {
   display: inline-block;
   width: 22px;
   height: 22px;
-  background-color: #2EB8E6;
+  background-color: #00aeef;
   line-height: 24px;
   color: White;
   font-size: 18px;
@@ -201,7 +201,7 @@ span.question {
   display: inline-block;
   width: 22px;
   height: 22px;
-  background-color: #2EB8E6;
+  background-color: #00aeef;
   line-height: 24px;
   color: White;
   font-size: 18px;
@@ -212,9 +212,12 @@ span.question {
   left: 14px;
   top: -160px;
 }
-span.question:hover { background-color: #3D6199; }
+span.question:hover { background-color: #006bb6; }
+
+span#questionHankala:hover { background-color: #006bb6; }
+
 div.tooltip {
-  background-color: #2EB8E6;
+  background-color: #00aeef;
   color: White;
   position: absolute;
   left: 25px;
@@ -223,9 +226,10 @@ div.tooltip {
   width: 250px;
   border-radius: 5px;
 }
+
 div.tooltip:before {
-  border-color: transparent #3D6199 transparent transparent;
-  border-right: 6px solid #3D6199;
+  border-color: transparent #00aeef transparent transparent;
+  border-right: 6px solid #00aeef;
   border-style: solid;
   border-width: 6px 6px 6px 0px;
   content: "";
