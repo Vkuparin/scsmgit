@@ -11,16 +11,20 @@ using System.Configuration;
 using System.Web.Services;
 using System.Web.Script.Services;
 using System.Diagnostics;
+using System.DirectoryServices;
+using System.DirectoryServices.ActiveDirectory;
+using System.DirectoryServices.AccountManagement;
 
 namespace show_incident
 {
     public partial class incidentGrid : System.Web.UI.Page
     {
+        private static string _userAccountName = Environment.UserName;
+        public static string userAccountName { get { return _userAccountName; } }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        private string[] _userInfoAD = null;
+        protected string userFullName { get { return this._userInfoAD[0]; } }
 
-        }
         public struct s_GridResult
         {
             public int page;
@@ -34,11 +38,40 @@ namespace show_incident
             public int id;
             public string[] cell;
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
+            {
+                using (DirectorySearcher adSearch = new DirectorySearcher(de))
+                {
+                    adSearch.PropertiesToLoad.Add("cn");  // Kokonimi
+                    adSearch.Filter = "(sAMAccountName=" + userAccountName + ")"; //haku käyttäjänimellä
+                    SearchResult adSearchResult = adSearch.FindOne();
+                    var searchPropCollection = adSearchResult.Properties;
+                    string[] info = new string[5];
+                    int infoRivi = 0;
+                    foreach (string tulos in searchPropCollection.PropertyNames)
+                    {
+
+                        if (tulos.Equals("cn"))
+                        {
+                            infoRivi = 0;
+                        }
+
+                        foreach (Object myCollection in searchPropCollection[tulos])
+                        {
+                            info[infoRivi] = myCollection.ToString();
+                        }
+                    }
+                    _userInfoAD = info;
+                }
+            }
+        }
         [WebMethod]
         public static s_GridResult GetDataTable(string _search, string nd, int rows, int page, string sidx, string sord)
         {
-
-            string user = Environment.UserName;
+            string user = userAccountName;
             int startindex = (page - 1);
             int endindex = page;
             string sql = @"SELECT IncidentDim.Title, 
@@ -56,7 +89,7 @@ namespace show_incident
                                DWRepository.dbo.WorkItemDimvw WorkItemDimvw
                                WHERE WorkItemAffectedUserFactvw.WorkItemAffectedUser_UserDimKey = UserDimvw.UserDimKey AND 
                                WorkItemAffectedUserFactvw.WorkItemDimKey = WorkItemDimvw.WorkItemDimKey AND 
-                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.UserName='slahdeti')) ORDER BY IncidentDim.CreatedDate DESC;";
+                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.UserName='"+user+"')) ORDER BY IncidentDim.CreatedDate DESC;";
 
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["tkuscsm-dwsConnectionString"].ConnectionString);
@@ -88,7 +121,6 @@ namespace show_incident
             result.record = rowsadded.Count;
             return result;
         }
-
 
     }
 }

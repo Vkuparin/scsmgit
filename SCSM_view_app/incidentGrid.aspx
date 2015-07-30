@@ -219,7 +219,7 @@
     </script>
 
     <hgroup class="title">
-        <h1> Omat työpyynnöt <asp:Label ID="parametri" runat="server"/></h1>
+        <h1> Käyttäjän <%=userFullName%> työpyynnöt</h1>
     </hgroup>
 
     <div id="gridcontainer">
