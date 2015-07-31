@@ -4,7 +4,10 @@
 <html>
     <head runat="server">
     <title>Uuden työpyynnön luominen</title>
+    <!-- main css -->
     <link rel="stylesheet" type="text/css" media="screen" href="Content/TicketFill.css" />
+    <!-- drag-n-drop upload css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="Content/upload.css" />
     <style type="text/css">
         html, body {
             font-size: 75%;
@@ -15,8 +18,10 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
      <script src="Scripts/jquery.json.min.js" type="text/javascript"></script>
      <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-
-    <script>
+     <!--scripti drag-n-drop upload kentälle -->
+     <script src="Scripts/core.js" type="text/javascript"></script>
+     <script src="Scripts/upload.js" type="text/javascript"></script>
+     <script>
         $(function () {
             //jQuery time
             var current_fs, next_fs, previous_fs; //fieldsets
@@ -112,6 +117,10 @@
                 $(this).append('<div class="tooltip"><p>' + tooltipText2 + '</p></div>');
             }, function () {
                 $("div.tooltip").remove();
+            });
+            //Drag-n-drop upload skripti
+            $(".liite").upload({
+                action: "upload.php"
             });
         });
     </script>
@@ -394,7 +403,7 @@
              <textarea name="kuvaus" id="ongelmakuvaus" placeholder="Kuvaus"></textarea>
              <span id="questionHankala" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>
              <h4 class="formheader1">Liite</h4>
-             <input type="file" name="liite" id="liite" style="background-color:white" />
+             <div class="liite" id="liite"></div>
              <span class="question" value="Liitä tähän haluamasi tiedosto">?</span>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="button" name="next" id ="tokanappi" class="next action-button" value="Seuraava" />
