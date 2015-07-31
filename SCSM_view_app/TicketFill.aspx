@@ -65,6 +65,10 @@
                 current_fs = $(this).parent();
                 previous_fs = $(this).parent().prev();
 
+                //Tyhjennetään koontikenttä, jos on painettu previous-nappia
+                var koonti = $('#koonti');
+                koonti.val('');
+
                 //de-activate current step on progressbar
                 $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 
@@ -90,6 +94,7 @@
                     },
                     //this comes from the custom easing plugin
                     easing: 'easeInOutBack'
+
                 });
             });
 
