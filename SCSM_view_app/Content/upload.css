@@ -46,6 +46,8 @@
      -moz-user-select: none !important;
       -ms-user-select: none !important;
           user-select: none !important;
+   width: 96.5%;
+   padding-left:18px;
 }
 .fs-upload-input {
   position: absolute;
@@ -72,9 +74,13 @@
 				border 0.15s linear,
 				opacity 0.15s linear;
 }
+.fs-upload-target:hover{
+    border-color: #00aeef;
+    border-width: 3px;
+}
 .fs-upload.dropping .fs-upload-target,
 .no-touch .fs-upload:hover .fs-upload-target {
-  background: #eeeeee;
+  background: #eeeeee; 
   border-color: #999999;
   color: #333333;
 }

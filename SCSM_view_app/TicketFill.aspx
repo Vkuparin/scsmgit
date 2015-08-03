@@ -8,6 +8,19 @@
     <link rel="stylesheet" type="text/css" media="screen" href="Content/TicketFill.css" />
     <!-- drag-n-drop upload css -->
     <link rel="stylesheet" type="text/css" media="screen" href="Content/upload.css" />
+    <!-- drag-n-drop upload muotoilut tiedostolistalle -->
+	<style type="text/css">
+        .filelists { margin: 20px 0; }
+	    .filelists h5 { margin: 10px 0 0; text-align: left; font-size: 12px; padding-left: 10px }
+	    .filelist { margin: 0; padding: 10px 0; }
+	    .filelist li { background: #fff; border-bottom: 1px solid #eee; font-size: 14px; list-style: none; padding: 5px; }
+	    .filelist li:before { display: none; }
+	    .filelist li .file { color: #333; }
+	    .filelist li .progress { color: #666; float: right; font-size: 10px; text-transform: uppercase; }
+	    .filelist li .delete { color: red; cursor: pointer; float: right; font-size: 10px; text-transform: uppercase; }
+	    .filelist li.complete .progress { color: green; }
+	    .filelist li.error .progress { color: red; }
+    </style>
     <style type="text/css">
         html, body {
             font-size: 75%;
@@ -22,8 +35,37 @@
      <script src="Scripts/core.js" type="text/javascript"></script>
      <script src="Scripts/upload.js" type="text/javascript"></script>
      <script>
+        //muuttujat drag-n-drop upload kentälle
+        var $filequeue,
+		$filelist;
+         //document.ready
         $(function () {
-            //jQuery time
+
+            /*
+            * Drag-n-drop upload kenttää
+            * 
+            */
+            $.upload("defaults", {
+
+                label: "Pudota tiedostot tähän tai napsauta tästä valitaksesi tiedostot tietokoneeltasi"
+            });
+
+            $filequeue = $(".filelist.queue");
+            $filelist = $(".filelist.complete");
+
+            $(".liite").upload({
+                maxSize: 1048576
+            }).on("start.upload", onStart)
+              .on("complete.upload", onComplete)
+              .on("filestart.upload", onFileStart)
+              .on("fileprogress.upload", onFileProgress)
+              .on("filecomplete.upload", onFileComplete)
+              .on("fileerror.upload", onFileError);
+
+            /*
+            * Funktiot lomakkeen toiminnallisuudelle, navigoimiselle ja
+            * animoinnille
+            */
             var current_fs, next_fs, previous_fs; //fieldsets
             var left, opacity, scale; //fieldset properties which we will animate
             var animating; //flag to prevent quick multi-click glitches
@@ -117,12 +159,56 @@
                 $(this).append('<div class="tooltip"><p>' + tooltipText2 + '</p></div>');
             }, function () {
                 $("div.tooltip").remove();
-            });
-            //Drag-n-drop upload skripti
-            $(".liite").upload({
-                action: "upload.php"
-            });
+            }); 
         });
+       /*
+        * Funktiot drag-n-drop upload kentän
+        * toiminnallisuudelle
+        */
+        function onStart(e, files) {
+            console.log("Start");
+            var html = '';
+            for (var i = 0; i < files.length; i++) {
+                html += '<li data-index="' + files[i].index + '"><span class="file">' + files[i].name + '</span><span class="progress">Queued</span></li>';
+            }
+            $filequeue.append(html);
+        }
+
+        function onComplete(e) {
+            console.log("Complete");
+            // All done!
+        }
+
+        function onFileStart(e, file) {
+            console.log("File Start");
+            $filequeue.find("li[data-index=" + file.index + "]")
+                      .find(".progress").text("0%");
+        }
+
+        function onFileProgress(e, file, percent) {
+            console.log("File Progress");
+            $filequeue.find("li[data-index=" + file.index + "]")
+                      .find(".progress").text(percent + "%");
+        }
+
+        function onFileComplete(e, file, response) {
+            console.log("File Complete");
+            if (response.trim() === "" || response.toLowerCase().indexOf("error") > -1) {
+                $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
+                          .find(".progress").text(response.trim());
+            } else {
+                var $target = $filequeue.find("li[data-index=" + file.index + "]");
+                $target.find(".file").text(file.name);
+                $target.find(".progress").remove();
+                $target.appendTo($filelist);
+            }
+        }
+
+        function onFileError(e, file, error) {
+            console.log("File Error");
+            $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
+                      .find(".progress").text("Error: " + error);
+        }
     </script>
 
     </head>
@@ -404,7 +490,14 @@
              <span id="questionHankala" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>
              <h4 class="formheader1">Liite</h4>
              <div class="liite" id="liite"></div>
-             <span class="question" value="Liitä tähän haluamasi tiedosto">?</span>
+             <div class="filelists">
+		        <h5>Valmiina</h5><hr />
+		        <ol class="filelist complete">
+		        </ol>
+		        <h5>Jonossa</h5><hr />
+		        <ol class="filelist queue">
+		        </ol>
+	        </div>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="button" name="next" id ="tokanappi" class="next action-button" value="Seuraava" />
          </fieldset>
