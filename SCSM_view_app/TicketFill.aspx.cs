@@ -160,7 +160,7 @@ public partial class TicketFill : System.Web.UI.Page
             client.EnableSsl = true;
             client.Host = "smtp.turku.fi";
             mail.Subject = "this is a test email.";
-            mail.Body = "this is my test email body";
+            mail.Body = "this is my test email body"; //maildata
             client.Send(mail);
 
             return("Kyllä onnistuu");
