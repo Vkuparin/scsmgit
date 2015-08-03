@@ -148,19 +148,22 @@ public partial class TicketFill : System.Web.UI.Page
         }
 
         //Send mail
-        public void mail()
+        [WebMethod]
+        public static string sendMail(string maildata)
         {
-            SmtpClient smtpClient = new SmtpClient("exchange.adturku.fi", 465);
-            smtpClient.EnableSsl = true;
-            smtpClient.Credentials = new NetworkCredential("", "");
-            
-            MailMessage mail = new MailMessage();
+            MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi");
+            SmtpClient client = new SmtpClient();
+            client.Port = 25;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = true;
+            //client.Credentials = new NetworkCredential("", "");
+            client.EnableSsl = true;
+            client.Host = "smtp.turku.fi";
+            mail.Subject = "this is a test email.";
+            mail.Body = "this is my test email body";
+            client.Send(mail);
 
-            //Setting From , To and CC
-            mail.From = new MailAddress("ville.kuparinen@turku.fi", "Testi testi"); //userEmail
-            mail.To.Add(new MailAddress("ville.kuparinen@turku.fi")); //helpdesk
-            mail.Body =  @"Testaillaan tätäkin bodya";
-            smtpClient.Send(mail);
+            return("Kyllä onnistuu");
         }
 
 

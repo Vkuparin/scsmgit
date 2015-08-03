@@ -38,6 +38,8 @@
         //muuttujat drag-n-drop upload kentälle
         var $filequeue,
 		$filelist;
+        //muuttuja koontikentälle
+        var $koontidata;
          //document.ready
         $(function () {
 
@@ -208,6 +210,29 @@
             console.log("File Error");
             $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
                       .find(".progress").text("Error: " + error);
+        }
+        //Kutsuu mailin lähetysfunktiota
+        function sendMail() {
+            var dataToSend = $koontidata;
+            console.log(dataToSend)
+            var options =
+                       {
+                           url: 'TicketFill.aspx/sendMail',
+                           data: JSON.stringify(dataToSend),
+                           contentType:'application/json; charset=utf-8',
+                           dataType: 'JSON',
+                           type: 'POST',
+                           success: function (data) {
+                               alert(data.d)
+                               console.log("success")
+                           },
+                           failure: function (data) {
+                               alert("Error");
+                               console.log("failure")
+                           }
+                       }
+            $.ajax(options);
+            console.log("lähetetty");
         }
     </script>
 
@@ -507,7 +532,9 @@
              <script>
                  $(function () {
                      $('#tokanappi').on('click', function () {
+                         //muuttuja koontikentälle
                          var koonti = $('#koonti');
+                         //Päivitetään koontikentän arvoa
                          koonti.val(koonti.val() + '---------- Perustiedot ----------');
                          koonti.val(koonti.val() + '\n\n');
                          koonti.val(koonti.val() + 'Toimiala: ' + document.getElementById("toimiala").value);
@@ -538,12 +565,14 @@
                          koonti.val(koonti.val() + '\n\n');
                          koonti.val(koonti.val() + 'Käyttöjärjestelmän nimi: <%=osName%> \n');
 
+                         //Sijoitetaan koontikentän tiedot koontidata-muuttujaan
+                         $koontidata = koonti.val();
                      });
                  });
              </script>
              <textarea id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-             <input type="button" name="next" class="next action-button" value="Lähetä" />
+             <input type="button" name="next" class="next action-button" onclick="sendMail()" value="Lähetä" />
          </fieldset>
         </form>
         </div>
