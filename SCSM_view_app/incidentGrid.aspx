@@ -116,7 +116,7 @@
                  //Tiketin ID. Custom formatter, joka luo linkin yksittäisen tiketin incident-sivulle
                  {
                      name: 'Id', index: 'Id', width: 100, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
-                         var val = '<a href = "incident.aspx?id=' + cellvalue + '">' + cellvalue + '</a>';
+                         var val = '<a href = "https://it-itsepalvelu.turku.fi/SMportal/SitePages/My%20Requests.aspx?RequestId=' + cellvalue + '">' + cellvalue + '</a>';
                          return val;
                      },
                  },
