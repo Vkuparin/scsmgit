@@ -120,11 +120,11 @@
                          return val;
                      },
                  },
-                 //Milloin tiketti on suljettu
+                 //Milloin tiketti on suljettu. Piilotettu
                 {
                     name: 'ClosedDate', index: 'ClosedDate', width: 100, align: "center", sorttype: "date",
                     formatter: "date", formatoptions: { newformat: "d.m / Y" },
-                    searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
+                    search: false, hidden:true
                 },
                 //Milloin tiketi on luotu
                 {
