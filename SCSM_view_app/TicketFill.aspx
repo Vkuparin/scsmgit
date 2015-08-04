@@ -240,10 +240,12 @@
     </head>
     
     <body>
+        <nav>
         <!-- linkit relevantteihin sivuihin -->
-        <h1 id="linkki"><a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a></h1>
-        <br />
-        <h1 id="linkki"><a href="incidentGrid.aspx">Omat työpyynnöt</a></h1>
+            <a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
+            <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+            <a href="incidentGrid.aspx">Omat työpyynnöt</a>
+        </nav>
 
 <div id="container" align="center">
 	    	<!-- multistep form -->

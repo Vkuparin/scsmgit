@@ -12,15 +12,31 @@ body {
     font-family: montserrat, arial, verdana;
     background-color: #404040;
 }
-}
 
 /*linkkien muotoilut*/
-#linkki {
-    text-align: center;
-    font-size: 150%;
-    padding-bottom: 10px;
-    font-family:Verdana;
+
+a:link {
+    color: #ffffff;
+    display: inline;
+    font-size:x-large;
 }
+
+a:visited {
+    color: #c3c4b7;
+    display: inline;
+    font-size:x-large;
+}
+
+a {
+    color: #c3c4b7;
+    font-size:x-large;
+}
+/* li:visited {
+    color: #c3c4b7;
+    display: inline;
+    font-size:x-large;
+}
+    */
 /*form styles*/
 #msform {
 	width: 750px;
@@ -71,7 +87,6 @@ body {
 #msform #ongelmakuvaus:hover {
     border: 1px solid black;
 }
-
 
 /*kuvaus- ja koontikentät*/
 textarea#ongelmakuvaus {
