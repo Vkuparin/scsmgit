@@ -250,15 +250,15 @@
      <form id="msform" runat="server">
 	        <!-- progressbar -->
 	        <ul id="progressbar">
-	        	<li class="active">Perustiedot</li>
-        		<li>Ongelman kuvaus</li>
-        		<li>Yhteenveto ja tietojen tarkistus</li>
+	        	<li class="active" style="color:white">Perustiedot</li>
+        		<li style="color:white">Ongelman kuvaus</li>
+        		<li style="color:white">Yhteenveto ja tietojen tarkistus</li>
         	</ul>
         	<!-- fieldsets -->
           <fieldset>
-             <h2 class="fs-title" style="color:white;">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle" style="color:white;">Ongelman kuvaus</h3>
-             <h4 class="formheader1" style="color:white;">Asiani koskee:</h4>
+             <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle" style="color:white">Ongelman kuvaus</h3>
+             <h4 class="formheader1" style="color:white">Asiani koskee:<span style="color:#ed0c6e">&ast;</span></h4>
              <select id="tukiryhmä">
                  <option selected="selected" disabled="disabled">-Valitse sopiva vaihtoehto-</option>
                  <option value="servicedesk.dotku@turku.fi">Dotku-tuki</option>
@@ -288,9 +288,9 @@
              <input type="button" name="next" class="next action-button" value="Seuraava" />
          </fieldset>
          <fieldset>
-             <h2 class="fs-title" style="color:white;">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle" style="color:white;">Perustiedot</h3>
-             <h4 class="formheader1" style="color:white;">Toimiala<span style="color:#ed0c6e">&ast;</span></h4>
+             <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle" style="color:white">Perustiedot</h3>
+             <h4 class="formheader1" style="color:white">Toimiala<span style="color:#ed0c6e">&ast;</span></h4>
              <select name="toimiala" id="toimiala" />
                  <option value="<%=userCompany%>" selected><%=userCompany%></option>
                  <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
@@ -326,8 +326,8 @@
              <input type="button" name="next" id ="tokanappi" class="next action-button" value="Seuraava" />
          </fieldset>
          <fieldset>
-             <h2 class="fs-title" style="color:white;">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle" style="color:white;">Yhteenveto ja tietojen tarkistus</h3>
+             <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle" style="color:white">Yhteenveto ja tietojen tarkistus</h3>
              <script>
                  $(function () {
                      $('#tokanappi').on('click', function () {
@@ -354,7 +354,7 @@
                          koonti.val(koonti.val() + '\n\n');
                          koonti.val(koonti.val() + '---------- Ongelman tiedot ----------');
                          koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Ongelman luokittelu: ' + document.getElementById("tukiryhmä").value);
+                         koonti.val(koonti.val() + 'Asiani koskee: ' + document.getElementById("tukiryhmä").value);
                          koonti.val(koonti.val() + '\n\n');
                          koonti.val(koonti.val() + 'Ongelman otsikko: ' + document.getElementById("ongelmaotsikko").value);
                          koonti.val(koonti.val() + '\n\n');
