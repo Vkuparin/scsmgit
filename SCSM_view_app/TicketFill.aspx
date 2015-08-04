@@ -371,7 +371,8 @@
              </script>
              <textarea id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-             <input type="button" name="next" class="next action-button" onclick="sendMail()" value="Lähetä" />
+             <!--<input type="button" name="next" class="next action-button" onclick="sendMail()" value="Lähetä" />-->
+             <asp:Button id="MailButton" class="next action-button" onclick="SendButton_Click" Text="Lähetä" runat="server" />  
          </fieldset>
         </form>
         </div>
