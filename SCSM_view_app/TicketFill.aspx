@@ -254,45 +254,7 @@
         		<li>Yhteenveto ja tietojen tarkistus</li>
         	</ul>
         	<!-- fieldsets -->
-
-         <fieldset>
-             <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle">Perustiedot</h3>
-             <h4 class="formheader1">Toimiala</h4>
-             <select name="toimiala" id="toimiala" />
-                 <option value="<%=userCompany%>" selected><%=userCompany%></option>
-                 <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
-                 <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
-                 <option value="sivistystoimiala">Sivistystoimiala</option>
-                 <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
-                 <option value="ympäristötoimiala">Ympäristötoimiala</option>
-                 <option value="ympäristötoimiala">Palvelukeskukset</option>
-             </select>
-             <span class="question" value="Valitse oma toimialasi kuuden vaihtoehdon joukosta, mikäli oletus ei täsmää tietojesi kanssa">?</span>
-             <h4 class="formheader1">Osasto</h4>
-             <input type="text" name="osasto" id="osasto" value="<%=userDepartment%>" required />
-             <span class="question" value="Kirjoita tähän osastosi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
-             <h4 class="formheader1">Toimipisteen nimi</h4>
-             <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" required />
-             <span class="question" value="Kirjoita tähän yksikkösi nimi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
-             <h4 class="formheader1">Toimipisteen osoite</h4>
-             <input type="text" name="osoite" id="osoite" placeholder="Toimipisteen osoite" required />
-             <span class="question" value="Kirjoita tähän toimipisteesi osoite. Malli: Ruukinkatu 4">?</span>
-             <h4 class="formheader1">Henkilö, jota työpyyntö koskee</h4>
-             <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" required />
-             <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee. Oletuksena on, että pyyntö koskee kirjautuneena olevaa käyttäjää">?</span>
-             <h4 class="formheader1">Sähköpostiosoite</h4>
-             <input type="text" name="sähköposti" id="sähköposti" value="<%=userEmail%>" />
-             <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä sähköpostiosoite. Oletuksena käytetään kirjautuneena olevan käyttäjän sähköpostiosoitetta">?</span>
-             <h4 class="formheader1">Puhelinnumero</h4>
-             <input type="text" name="puhelinnumero" id="puhelinnumero" value="<%=userPhone%>" />
-             <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä puhelinnumero">?</span>
-             <h4 class="formheader1">Tietokone, jota työpyyntö koskee</h4>
-             <input type="text" name="tietokoneenNimi" id="tietokoneenNimi" value="<%=computerName%>" />
-             <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikkoa painaessa Ohjauspaneeli-valinnan yläpuolelta. Tietokoneet on myös nimetty tarroilla, jotka löytyvät useimmiten näppäimistön yläpäästä. Malli: VARA11">?</span>
-             <input type="button" name="next" class="next action-button" value="Seuraava" />
-         </fieldset>
-         <fieldset>
+          <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Ongelman kuvaus</h3>
              <h4 class="formheader1">Ongelman luokittelu</h4>
@@ -507,7 +469,7 @@
                </optgroup>
              </select>
              <span class="question" value="Valitse ongelmaasi sopiva ongelmatyyppi. Mikäli et osaa nimetä kategoriaa, voit jättää tämän kentän tyhjäksi">?</span>
-             <h4 class="formheader1">Ongelman otsikko</h4>
+             <h4 class="formheader1">Ongelman otsikko<span style="color:red">&ast;</span></h4>
              <input type="text" name="ongelmanOtsikko" id="ongelmaotsikko" placeholder="Otsikko" />
              <span class="question" value="Anna ongelmallesi kuvaava nimi. Malli: Tietokoneeni ei saa yhteyttä verkkoon">?</span>
              <h4 class="formheader1">Ongelman kuvaus</h4>
@@ -523,6 +485,43 @@
 		        <ol class="filelist queue">
 		        </ol>
 	        </div>
+             <input type="button" name="next" class="next action-button" value="Seuraava" />
+         </fieldset>
+         <fieldset>
+             <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle">Perustiedot</h3>
+             <h4 class="formheader1">Toimiala<span style="color:red">&ast;</span></h4>
+             <select name="toimiala" id="toimiala" />
+                 <option value="<%=userCompany%>" selected><%=userCompany%></option>
+                 <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
+                 <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+                 <option value="sivistystoimiala">Sivistystoimiala</option>
+                 <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+                 <option value="ympäristötoimiala">Ympäristötoimiala</option>
+                 <option value="ympäristötoimiala">Palvelukeskukset</option>
+             </select>
+             <span class="question" value="Valitse oma toimialasi kuuden vaihtoehdon joukosta, mikäli oletus ei täsmää tietojesi kanssa">?</span>
+             <h4 class="formheader1">Osasto<span style="color:red">&ast;</span></h4>
+             <input type="text" name="osasto" id="osasto" value="<%=userDepartment%>" required />
+             <span class="question" value="Kirjoita tähän osastosi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
+             <h4 class="formheader1">Toimipisteen nimi<span style="color:red">&ast;</span></h4>
+             <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" required />
+             <span class="question" value="Kirjoita tähän yksikkösi nimi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
+             <h4 class="formheader1">Toimipisteen osoite</h4>
+             <input type="text" name="osoite" id="osoite" placeholder="Toimipisteen osoite" required />
+             <span class="question" value="Kirjoita tähän toimipisteesi osoite. Malli: Ruukinkatu 4">?</span>
+             <h4 class="formheader1">Henkilö, jota työpyyntö koskee<span style="color:red">&ast;</span></h4>
+             <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" required />
+             <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee. Oletuksena on, että pyyntö koskee kirjautuneena olevaa käyttäjää">?</span>
+             <h4 class="formheader1">Sähköpostiosoite<span style="color:red">&ast;</span></h4>
+             <input type="text" name="sähköposti" id="sähköposti" value="<%=userEmail%>" />
+             <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä sähköpostiosoite. Oletuksena käytetään kirjautuneena olevan käyttäjän sähköpostiosoitetta">?</span>
+             <h4 class="formheader1">Puhelinnumero</h4>
+             <input type="text" name="puhelinnumero" id="puhelinnumero" value="<%=userPhone%>" />
+             <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä puhelinnumero">?</span>
+             <h4 class="formheader1">Tietokone, jota työpyyntö koskee<span style="color:red">&ast;</span></h4>
+             <input type="text" name="tietokoneenNimi" id="tietokoneenNimi" value="<%=computerName%>" />
+             <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikkoa painaessa Ohjauspaneeli-valinnan yläpuolelta. Tietokoneet on myös nimetty tarroilla, jotka löytyvät useimmiten näppäimistön yläpäästä. Malli: VARA11">?</span>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="button" name="next" id ="tokanappi" class="next action-button" value="Seuraava" />
          </fieldset>
