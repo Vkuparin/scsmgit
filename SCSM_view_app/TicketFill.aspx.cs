@@ -17,6 +17,9 @@ using System.DirectoryServices.AccountManagement;
 using System.Management;
 using System.Net;
 using System.Net.Mail;
+using System.Windows.Forms;
+
+
 
 public partial class TicketFill : System.Web.UI.Page
 {
@@ -49,6 +52,7 @@ public partial class TicketFill : System.Web.UI.Page
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            MailButton.Click += new EventHandler(this.SendButton_Click);
 
             using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
             {
@@ -147,24 +151,46 @@ public partial class TicketFill : System.Web.UI.Page
 
         }
 
-        //Send mail
-        [WebMethod]
-        public static string sendMail(string maildata)
+        protected void SendButton_Click(Object sender, EventArgs e)            
         {
+
             MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi"); //l‰hett‰j‰, vastaanottaja
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.turku.fi";
             client.Port = 25;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = true;
-            //client.Credentials = new NetworkCredential("", "");  //jos UseDefaultCredentials = false, t‰h‰n tulee login ja password
-            //client.EnableSsl = true;                             //en tied‰ onko tarpeellinen meill‰
+            client.UseDefaultCredentials = false;
+            client.EnableSsl = false;
+            client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
             mail.Subject = "this is a test email.";
             mail.Body = "this is my test email body"; //maildata, t‰ss‰ testiss‰ ei viel‰ anneta parametreja vaan l‰hete‰‰n valmis testi maili
             client.Send(mail);
-
-            return("Kyll‰ onnistuu");
         }
 
+        //Send mail
+        /*[WebMethod]
+        public static string sendMail(string maildata)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi"); //l‰hett‰j‰, vastaanottaja
+                SmtpClient client = new SmtpClient();
+                client.Host = "smtp.turku.fi";
+                //client.Port = 25;
+                //client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                //client.UseDefaultCredentials = true;
+                //client.Credentials = new NetworkCredential("", "");  //jos UseDefaultCredentials = false, t‰h‰n tulee login ja password
+                //client.EnableSsl = true;                             //en tied‰ onko tarpeellinen meill‰
+                mail.Subject = "this is a test email.";
+                mail.Body = "this is my test email body"; //maildata, t‰ss‰ testiss‰ ei viel‰ anneta parametreja vaan l‰hete‰‰n valmis testi maili
+                client.Send(mail);
+                MessageBox.Show("mail sent");
+                return ("Kyll‰ onnistuu");   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+    */
 
 }
