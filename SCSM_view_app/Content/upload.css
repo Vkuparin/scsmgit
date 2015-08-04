@@ -75,7 +75,7 @@
 				opacity 0.15s linear;
 }
 .fs-upload-target:hover{
-    border-color: #00aeef;
+    border-color: #ed0c6e;
     border-width: 3px;
 }
 .fs-upload.dropping .fs-upload-target,
