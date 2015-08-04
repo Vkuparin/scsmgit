@@ -67,7 +67,7 @@ a {
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;
-	font-size: 13px;
+	font-size: 14px;
 }
 /*hoverit kenttiin*/
 
@@ -94,7 +94,7 @@ textarea#ongelmakuvaus {
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;
-	font-size: 13px;
+	font-size: 14px;
 }
 textarea#koonti {
 	padding: 15px;
@@ -106,7 +106,7 @@ textarea#koonti {
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;
-	font-size: 13px;
+	font-size: 14px;
 }
 /*buttons*/
 #msform .action-button {
@@ -128,27 +128,27 @@ textarea#koonti {
 /*headings*/
 
 .fs-title {
-	font-size: 15px;
+	font-size: 16px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
 }
 .fs-subtitle {
 	font-weight: normal;
-	font-size: 13px;
+	font-size: 14px;
 	color: #666;
 	margin-bottom: 20px;
 }
 /* Lomakkeen headereiden muotoilua*/
 .formheader1 {
     text-align:left;
-    font-size:12px;
+    font-size:14px;
     padding-left:7px;
 }
 
 .formheader2 {
     text-align:left;
-    font-size:12px;
+    font-size:14px;
     padding-left:16px;
 }
 /*progressbar*/
@@ -163,7 +163,7 @@ textarea#koonti {
 	list-style-type: none;
 	color: black;
 	text-transform: uppercase;
-	font-size: 9px;
+	font-size: 11px;
 	width: 33.33%;
 	float: left;
 	position: relative;
@@ -174,7 +174,7 @@ textarea#koonti {
 	width: 20px;
 	line-height: 20px;
 	display: block;
-	font-size: 10px;
+	font-size: 11px;
 	color: white;
 	background: #c3c4b7;
 	border-radius: 3px;
@@ -201,6 +201,7 @@ textarea#koonti {
 	background: #7dcdc8;
 	color: white;
 }
+
 
 /*Kysymysmerkki-tooltip-muotoilu */
 span.question {
@@ -282,4 +283,27 @@ div.tooltip p {
 
 .option {
     background-color: white;
+}
+
+/*Liitenapin muotoilua*/
+#msform .liitenappi#liitenappi {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background-color: #006bb6;
+  color: White;
+  font-size: 14px;
+  font-weight: bold;
+  border: 0px solid black;
+  border-radius: 25px;
+  padding-bottom:0px;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  position:relative;
+  right: 185px;
+  top:0px;
+}
+#msform .liitenappi#liitenappi:hover{
+        background-color: #00aeef; border: 0px solid  #00aeef;
 }

@@ -44,6 +44,18 @@
          //document.ready
         $(function () {
 
+            //Määritteet liitealueen piilottamiseksi (default) ja toggle nappulalle, joka tuo sen esiin tarvittaessa
+            $(".liiteshowdiv").hide();
+            $("#liitenappi").click(function () {
+                $(".liiteshowdiv").toggle(500)
+                if ($("#liitenappi").val() === "+") {
+                    $("#liitenappi").val("-")
+                }
+                else if ($("#liitenappi").val() === "-") {
+                    $("#liitenappi").val("+")
+                }
+            });
+
             /*
             * Drag-n-drop upload kenttää
             * 
@@ -252,16 +264,16 @@
      <form id="msform" runat="server">
 	        <!-- progressbar -->
 	        <ul id="progressbar">
-	        	<li class="active" style="color:white">Perustiedot</li>
-        		<li style="color:white">Ongelman kuvaus</li>
-        		<li style="color:white">Yhteenveto ja tietojen tarkistus</li>
+	        	<li class="active" style="color:white">Ongelman kuvaus</li>
+        		<li style="color:white">Perustiedot</li>
+        		<li style="color:white">Yhteenveto</li>
         	</ul>
         	<!-- fieldsets -->
           <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle" style="color:white">Ongelman kuvaus</h3>
-             <h4 class="formheader1" style="color:white">Asiani koskee:<span style="color:#ed0c6e">&ast;</span></h4>
-             <select id="tukiryhmä">
+             <h4 class="formheader1" style="color:white">Asiani koskee<span style="color:#ed0c6e">&ast;</span></h4>
+             <select id="tukiryhmä" required>
                  <option selected="selected" disabled="disabled">-Valitse sopiva vaihtoehto-</option>
                  <option value="servicedesk.dotku@turku.fi">Dotku-tuki</option>
                  <option value="servicedesk.hpk@turku.fi">Henkilöstöpalvelukeskus</option>
@@ -272,12 +284,14 @@
              </select>
              <span class="question" value="Valitse asiaasi koskeva tukiryhmä">?</span>
              <h4 class="formheader1">Ongelman otsikko<span style="color:#ed0c6e">&ast;</span></h4>
-             <input type="text" name="ongelmanOtsikko" id="ongelmaotsikko" placeholder="Otsikko" />
+             <input type="text" name="ongelmanOtsikko" id="ongelmaotsikko" placeholder="Otsikko" required />
              <span class="question" value="Anna ongelmallesi kuvaava nimi. Malli: Tietokoneeni ei saa yhteyttä verkkoon">?</span>
              <h4 class="formheader1">Ongelman kuvaus</h4>
              <textarea name="kuvaus" id="ongelmakuvaus" placeholder="Kuvaus"></textarea>
              <span id="questionHankala" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>
-             <h4 class="formheader1">Liite</h4>
+             <h4 class="formheader1">Liitteet</h4>
+             <input type="button" name="liitenappi" class="liitenappi" id="liitenappi" value="+" />
+             <div class ="liiteshowdiv">
              <div class="liite" id="liite"></div>
              <div class="filelists">
 		        <h5>Valmiina</h5><hr />
@@ -287,7 +301,8 @@
 		        <ol class="filelist queue">
 		        </ol>
 	        </div>
-             <input type="button" name="next" class="next action-button" value="Seuraava" />
+            </div>
+             <input type="submit" name="next" class="next action-button" value="Seuraava" />
          </fieldset>
          <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
@@ -329,7 +344,7 @@
          </fieldset>
          <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle" style="color:white">Yhteenveto ja tietojen tarkistus</h3>
+             <h3 class="fs-subtitle" style="color:white">Yhteenveto</h3>
              <script>
                  $(function () {
                      $('#tokanappi').on('click', function () {
