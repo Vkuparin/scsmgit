@@ -151,16 +151,16 @@ public partial class TicketFill : System.Web.UI.Page
         [WebMethod]
         public static string sendMail(string maildata)
         {
-            MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi");
+            MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi"); //l‰hett‰j‰, vastaanottaja
             SmtpClient client = new SmtpClient();
+            client.Host = "smtp.turku.fi";
             client.Port = 25;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = true;
-            //client.Credentials = new NetworkCredential("", "");
-            client.EnableSsl = true;
-            client.Host = "smtp.turku.fi";
+            //client.Credentials = new NetworkCredential("", "");  //jos UseDefaultCredentials = false, t‰h‰n tulee login ja password
+            //client.EnableSsl = true;                             //en tied‰ onko tarpeellinen meill‰
             mail.Subject = "this is a test email.";
-            mail.Body = "this is my test email body"; //maildata
+            mail.Body = "this is my test email body"; //maildata, t‰ss‰ testiss‰ ei viel‰ anneta parametreja vaan l‰hete‰‰n valmis testi maili
             client.Send(mail);
 
             return("Kyll‰ onnistuu");
