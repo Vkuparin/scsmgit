@@ -276,29 +276,6 @@
             $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
                       .find(".progress").text("Error: " + error);
         }
-        /*Kutsuu mailin lähetysfunktiota
-        function sendMail() {
-            var dataToSend = $koontidata;
-            console.log(dataToSend)
-            var options =
-                       {
-                           url: 'TicketFill.aspx/sendMail',
-                           data: JSON.stringify(dataToSend),
-                           contentType:'application/json; charset=utf-8',
-                           dataType: 'JSON',
-                           type: 'POST',
-                           success: function (data) {
-                               alert(data.d)
-                               console.log("success")
-                           },
-                           failure: function (data) {
-                               alert("Error");
-                               console.log("failure")
-                           }
-                       }
-            $.ajax(options);
-            console.log("lähetetty");
-        }*/
     </script>
 
     </head>
@@ -400,8 +377,7 @@
              <h3 class="fs-subtitle" style="color:white">Yhteenveto</h3>
              <textarea id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-             <!--<input type="button" name="next" class="next action-button" onclick="sendmail()" value="Lähetä" />-->
-             <asp:Button id="MailButton" class="next action-button" OnClick="SendButton_Click" Text="Lähetä" runat="server" />
+             <asp:Button id="SendButton" class="next action-button" OnClick="SendButton_Click" Text="Lähetä" runat="server" />
          </fieldset>
         </form>
         </div>

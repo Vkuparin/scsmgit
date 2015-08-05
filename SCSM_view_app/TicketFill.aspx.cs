@@ -51,9 +51,6 @@ public partial class TicketFill : System.Web.UI.Page
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Debug.Write("LOADED!!");
-            MailButton.Click += new EventHandler(this.SendButton_Click);
-
             using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
@@ -152,7 +149,7 @@ public partial class TicketFill : System.Web.UI.Page
         }
         protected void SendButton_Click(Object sender, EventArgs e)            
         {
-            Debug.Write("CLICKED!!");
+            
             MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi"); //lähettäjä, vastaanottaja
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.turku.fi";
@@ -163,24 +160,8 @@ public partial class TicketFill : System.Web.UI.Page
             mail.Subject = "this is a test email.";
             mail.Body = "this is my test email body"; //maildata, tässä testissä ei vielä anneta parametreja vaan läheteään valmis testi maili
             client.Send(mail);
+            Debug.Write("MAIL LÄHETETTY!!");
         }
-        //Send mail
-        /*[WebMethod]
-        public static string sendMail(string maildata)
-        {
-                MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi"); //lähettäjä, vastaanottaja
-                SmtpClient client = new SmtpClient();
-                client.Host = "smtp.turku.fi";
-                //client.Port = 25;
-                //client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                //client.UseDefaultCredentials = true;
-                //client.Credentials = new NetworkCredential("", "");  //jos UseDefaultCredentials = false, tähän tulee login ja password
-                //client.EnableSsl = true;                             //en tiedä onko tarpeellinen meillä
-                mail.Subject = "this is a test email.";
-                mail.Body = "this is my test email body"; //maildata, tässä testissä ei vielä anneta parametreja vaan läheteään valmis testi maili
-                client.Send(mail);
-                return ("Kyllä onnistuu");   
-        }
-    */
+
 
 }
