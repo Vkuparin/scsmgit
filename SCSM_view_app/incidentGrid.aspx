@@ -8,13 +8,7 @@
         .myAltRowClass { background-color: #e4f0fa; background-image: none; }
         body {
                 font-family: montserrat, arial, verdana;
-                background: rgb(243, 253, 255);
-                background: -moz-linear-gradient(90deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
-                background: -webkit-linear-gradient(90deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
-                background: -o-linear-gradient(90deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
-                background: -ms-linear-gradient(90deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
-                background: linear-gradient(180deg, rgb(243, 253, 255) 27%, rgb(178, 240, 255) 98%);
-                background-size: 20px 1200px;
+                background-color: #404040;
         }
     </style>
 
@@ -219,7 +213,7 @@
     </script>
 
     <hgroup class="title">
-        <h1> Käyttäjän <%=userFullName%> työpyynnöt</h1>
+        <h1 style="color:#ffffff; padding-top: 20px;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
     </hgroup>
 
     <div id="gridcontainer">
