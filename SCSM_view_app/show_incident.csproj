@@ -313,7 +313,6 @@
     <Content Include="bin\show_incident.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\show_incident.csprojResolveAssemblyReference.cache" />
-    <Content Include="MailHandler.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\core.js" />
     <Content Include="Scripts\grid.addons.js" />
@@ -646,9 +645,6 @@
     </Compile>
     <Compile Include="incidentGrid.aspx.designer.cs">
       <DependentUpon>incidentGrid.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MailHandler.ashx.cs">
-      <DependentUpon>MailHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />

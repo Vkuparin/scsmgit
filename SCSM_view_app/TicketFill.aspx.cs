@@ -51,6 +51,7 @@ public partial class TicketFill : System.Web.UI.Page
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Debug.Write("LOADED!!");
             MailButton.Click += new EventHandler(this.SendButton_Click);
 
             using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
@@ -149,10 +150,9 @@ public partial class TicketFill : System.Web.UI.Page
             }
 
         }
-        /*
         protected void SendButton_Click(Object sender, EventArgs e)            
         {
-
+            Debug.Write("CLICKED!!");
             MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi"); //l‰hett‰j‰, vastaanottaja
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.turku.fi";
@@ -164,7 +164,6 @@ public partial class TicketFill : System.Web.UI.Page
             mail.Body = "this is my test email body"; //maildata, t‰ss‰ testiss‰ ei viel‰ anneta parametreja vaan l‰hete‰‰n valmis testi maili
             client.Send(mail);
         }
-        */
         //Send mail
         /*[WebMethod]
         public static string sendMail(string maildata)

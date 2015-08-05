@@ -299,36 +299,6 @@
             $.ajax(options);
             console.log("lähetetty");
         }*/
-
-        //Kolmas yritys mailin lähettämiseen
-        function loadJsonData() {
-            var postdata = JSON.stringify(
-                {
-                    "From": $lähettäjä,
-                    "To": $vastaanottaja,
-                    "Subject:": $otsikko,
-                    "Body": $viesti
-                });
-            try {
-                $.ajax({
-                    type: "POST",
-                    url: "MailHandler.ashx",
-                    cache: false,
-                    data: postdata,
-                    dataType: "json",
-                    success: getSuccess,
-                    error: getFail
-                });
-            } catch (e) {
-                alert(e);
-            }
-            function getSuccess(data, textStatus, jqXHR) {
-                alert(data.Response);
-            };
-            function getFail(jqXHR, textStatus, errorThrown) {
-                alert(jqXHR.status);
-            };
-        };
     </script>
 
     </head>
@@ -430,8 +400,8 @@
              <h3 class="fs-subtitle" style="color:white">Yhteenveto</h3>
              <textarea id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-             <input type="button" name="next" class="next action-button" onclick="loadJsonData()" value="Lähetä" />
-             <!--<asp:Button id="MailButton" class="next action-button" onclick="SendButton_Click" Text="Lähetä" runat="server" />  -->
+             <!--<input type="button" name="next" class="next action-button" onclick="sendmail()" value="Lähetä" />-->
+             <asp:Button id="MailButton" class="next action-button" OnClick="SendButton_Click" Text="Lähetä" runat="server" />
          </fieldset>
         </form>
         </div>
