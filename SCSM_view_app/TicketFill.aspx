@@ -181,7 +181,10 @@
             }, function () {
                 $("div.tooltip").remove();
             });
-            //Tämä tapahtuu, kun painetaan 2. "seuraava" -nappia lomakkeessa
+            /*
+            *Seuraavat asiat tapahtuvat, kun painetaan 2. "seuraava" -nappia lomakkeessa.
+            *Kootaan tiedot viimeisen sivun tekstikenttään ja annetaan arvot muuttujille mailin lähetystä varten
+            */
             $('#tokanappi').on('click', function () {
                 //muuttuja koontikentälle
                 var koonti = $('#koonti');
@@ -401,11 +404,6 @@
          <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle" style="color:white">Yhteenveto</h3>
-             <script>
-                 $(function () {
-
-                 });
-             </script>
              <textarea id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <!--<input type="button" name="next" class="next action-button" onclick="sendMail()" value="Lähetä" />-->
