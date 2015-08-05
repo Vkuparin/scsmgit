@@ -7,7 +7,7 @@
     <title><%: Page.Title %> Työpyynnöt</title>  
     <link rel="stylesheet" type="text/css" media="screen" href="Content/Site.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/ui.jqgrid.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-form-theme.css" />
     <style type="text/css">
         html, body { font-size: 75%; }
