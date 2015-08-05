@@ -36,6 +36,12 @@
      <script src="Scripts/core.js" type="text/javascript"></script>
      <script src="Scripts/upload.js" type="text/javascript"></script>
      <script>
+         //Muuttujat sähköpostin lähetystä varten
+         var $lähettäjä;
+         var $vastaanottaja;
+         var $otsikko;
+         var $viesti;
+         var $maililiitteet;
         //muuttujat drag-n-drop upload kentälle
         var $filequeue,
 		$filelist;
@@ -174,7 +180,57 @@
                 $(this).append('<div class="tooltip"><p>' + tooltipText2 + '</p></div>');
             }, function () {
                 $("div.tooltip").remove();
-            }); 
+            });
+            //Tämä tapahtuu, kun painetaan 2. "seuraava" -nappia lomakkeessa
+            $('#tokanappi').on('click', function () {
+                //muuttuja koontikentälle
+                var koonti = $('#koonti');
+                //Päivitetään koontikentän arvoa
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + '---------- Ongelman tiedot ----------');
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Asiani koskee: ' + document.getElementById("tukiryhmä").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Ongelman otsikko: ' + document.getElementById("ongelmaotsikko").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Ongelman kuvaus: ' + document.getElementById("ongelmakuvaus").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Liitetty/liitetyt tiedostot:' + document.getElementById("liite").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Käyttöjärjestelmän nimi: <%=osName%> \n');
+                koonti.val(koonti.val() + '---------- Perustiedot ----------');
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Toimiala: ' + document.getElementById("toimiala").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Osasto: ' + document.getElementById("osasto").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Toimipisteen nimi: ' + document.getElementById("yksikkö").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Toimipisteen osoite: ' + document.getElementById("osoite").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Henkilö, jota työpyyntö koskee: ' + document.getElementById("nimi").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Sähköpostiosoite: ' + document.getElementById("sähköposti").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Puhelinnumero: ' + document.getElementById("puhelinnumero").value);
+                koonti.val(koonti.val() + '\n\n');
+                koonti.val(koonti.val() + 'Tietokone, jota työpyyntö koskee: ' + document.getElementById("tietokoneenNimi").value);
+
+                //Sijoitetaan koontikentän tiedot koontidata-muuttujaan
+                $koontidata = koonti.val();
+
+                //Sijoitetaan sähköpostin lähetykseen liittyvät arvot
+                $lähettäjä = document.getElementById("sähköposti").value;
+                $vastaanottaja = document.getElementById("tukiryhmä").value;
+                $otsikko = document.getElementById("ongelmaotsikko").value;
+                $viesti = $koontidata;
+                $maililiitteet = document.getElementById("liite").value;
+                console.log($lähettäjä)
+                console.log($vastaanottaja)
+                console.log($otsikko)
+                console.log($viesti)
+                console.log($maililiitteet)
+            });
         });
        /*
         * Funktiot drag-n-drop upload kentän
@@ -347,43 +403,7 @@
              <h3 class="fs-subtitle" style="color:white">Yhteenveto</h3>
              <script>
                  $(function () {
-                     $('#tokanappi').on('click', function () {
-                         //muuttuja koontikentälle
-                         var koonti = $('#koonti');
-                         //Päivitetään koontikentän arvoa
-                         koonti.val(koonti.val() + '---------- Perustiedot ----------');
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Toimiala: ' + document.getElementById("toimiala").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Osasto: ' + document.getElementById("osasto").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Toimipisteen nimi: ' + document.getElementById("yksikkö").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Toimipisteen osoite: ' + document.getElementById("osoite").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Henkilö, jota työpyyntö koskee: ' + document.getElementById("nimi").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Sähköpostiosoite: ' + document.getElementById("sähköposti").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Puhelinnumero: ' + document.getElementById("puhelinnumero").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Tietokone, jota työpyyntö koskee: ' + document.getElementById("tietokoneenNimi").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + '---------- Ongelman tiedot ----------');
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Asiani koskee: ' + document.getElementById("tukiryhmä").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Ongelman otsikko: ' + document.getElementById("ongelmaotsikko").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Ongelman kuvaus: ' + document.getElementById("ongelmakuvaus").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Liitetty/liitetyt tiedostot:' + document.getElementById("liite").value);
-                         koonti.val(koonti.val() + '\n\n');
-                         koonti.val(koonti.val() + 'Käyttöjärjestelmän nimi: <%=osName%> \n');
 
-                         //Sijoitetaan koontikentän tiedot koontidata-muuttujaan
-                         $koontidata = koonti.val();
-                     });
                  });
              </script>
              <textarea id ="koonti"></textarea>
