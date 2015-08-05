@@ -20,21 +20,21 @@
             margin: 0 auto;
         }
 
-        a:link {
+        #linkki:link {
             color: #ffffff;
             display: inline;
             font-size:x-large;
             text-align: center;
         }
 
-        a:visited {
+        #linkki:visited {
             color: #c3c4b7;
             display: inline;
             font-size:x-large;
             text-align: center;
         }
 
-        a {
+        #linkki {
             color: #c3c4b7;
             font-size:x-large;
             text-align: center;
@@ -111,11 +111,11 @@
                     </asp:LoginView> 
                 </section> -->
                <div id="linkit">
-                   <a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
-                   <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-                   <a href="incidentGrid.aspx">Omat työpyynnöt</a>
-                   <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-                   <a href="TicketFill.aspx">Luo työpyyntö</a>
+                   <a id="linkki" href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
+                   <a id="linkki">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                   <a id="linkki" href="incidentGrid.aspx">Omat työpyynnöt</a>
+                   <a id="linkki">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                   <a id="linkki" href="TicketFill.aspx">Luo työpyyntö</a>
                </div>
         </div>
     </header>
@@ -132,3 +132,4 @@
 </html>
 
             
+
