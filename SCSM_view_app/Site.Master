@@ -15,29 +15,31 @@
         .ui-jqgrid .ui-userdata div { margin: .1em .5em .2em;}
         .ui-jqgrid .ui-userdata div>* { vertical-align: middle; }
         /*linkkien muotoilut*/
-
-        html, body {
-            padding: 10px;
-            text-align: center;
+        #linkit {
+            width: 800px; 
+            margin: 0 auto;
         }
 
         a:link {
             color: #ffffff;
             display: inline;
             font-size:x-large;
+            text-align: center;
         }
 
         a:visited {
             color: #c3c4b7;
             display: inline;
             font-size:x-large;
+            text-align: center;
         }
 
         a {
             color: #c3c4b7;
             font-size:x-large;
+            text-align: center;
         }
-                }
+
     </style>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="Scripts/jquery.json.min.js" type="text/javascript"></script>
@@ -108,13 +110,13 @@
                         </LoggedInTemplate>
                     </asp:LoginView> 
                 </section> -->
-               <nav>
+               <div id="linkit">
                    <a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
                    <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
                    <a href="incidentGrid.aspx">Omat työpyynnöt</a>
                    <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
                    <a href="TicketFill.aspx">Luo työpyyntö</a>
-               </nav>
+               </div>
         </div>
     </header>
     <div id="body">
