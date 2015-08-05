@@ -19,7 +19,7 @@ namespace show_incident
 {
     public partial class incidentGrid : System.Web.UI.Page
     {
-        private static string _userAccountName = Environment.UserName;
+        private static string _userAccountName = HttpContext.Current.User.Identity.Name.ToString().Substring(8);
         public static string userAccountName { get { return _userAccountName; } }
 
         private string[] _userInfoAD = null;
@@ -40,8 +40,8 @@ namespace show_incident
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
+            // Täytä tähän oma käyttäjätunnus - slahdeti 082015 
+            using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi","mmobiili",""))
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
                 {
@@ -76,8 +76,8 @@ namespace show_incident
             int endindex = page;
             string sql = @"SELECT IncidentDim.Title, 
                                IncidentDim.Id, 
-                               IncidentDim.ClosedDate, 
-                               IncidentDim.CreatedDate,
+                               cast (IncidentDim.ClosedDate as date) as ClosedDate, 
+                               cast (IncidentDim.CreatedDate as date) as CreatedDate,
                                WorkItemDimvw.Id, 
                                WorkItemDimvw.WorkItemDimKey, 
                                WorkItemAffectedUserFactvw.WorkItemDimKey, 

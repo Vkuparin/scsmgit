@@ -117,13 +117,14 @@
                  //Milloin tiketti on suljettu. Piilotettu
                 {
                     name: 'ClosedDate', index: 'ClosedDate', width: 100, align: "center", sorttype: "date",
-                    formatter: "date", formatoptions: { newformat: "d.m / Y" },
+                    formatter: "date",
+                    //TODO: ei toimi  - formatter: "date", formatoptions: { newformat: "d.m / Y" },                  
                     search: false, hidden:true
                 },
                 //Milloin tiketi on luotu
                 {
                     name: 'CreatedDate', index: 'CreatedDate', width: 100, align: "center", sorttype: "date",
-                    formatter: "date", formatoptions: { newformat: "d.m / Y" },
+                    //TODO: ei toimi  - formatter: "date", formatoptions: { newformat: "d.m / Y" },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
                 //Taas tiketin ID. Turha? Piilotettu
