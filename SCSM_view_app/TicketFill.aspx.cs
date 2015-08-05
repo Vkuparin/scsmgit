@@ -150,6 +150,50 @@ public partial class TicketFill : System.Web.UI.Page
 
         }
 
+        //Kolmas yritys mailin l‰hett‰miseen
+        public void ProcessRequest(HttpContext context)
+        {
+            string jsonString = String.Empty;
+            HttpContext.Current.Request.InputStream.Position = 0;
+            using (System.IO.StreamReader inputStream =
+            new System.IO.StreamReader(HttpContext.Current.Request.InputStream))
+            {
+                jsonString = inputStream.ReadToEnd();
+                System.Web.Script.Serialization.JavaScriptSerializer jSerialize =
+                    new System.Web.Script.Serialization.JavaScriptSerializer();
+                var email = jSerialize.Deserialize<Mail>(jsonString);
+
+                if (email != null)
+                {
+                    string from = email.From;
+                    string to = email.To;
+                    string subject = email.Subject;
+                    string body = email.Body;
+                    using (SmtpClient client = new SmtpClient("smtp.turku.fi"))
+                    {
+                        client.UseDefaultCredentials = false;
+                        client.Port = 25;
+
+                        using (MailMessage mail = new MailMessage())
+                        {
+                            mail.Subject = subject;
+                            mail.Body = body;
+
+                            mail.From = new MailAddress(from);
+                            mail.To.Add(to);
+
+                            client.Send(mail);
+                        }
+                    }
+                    context.Response.Write(jSerialize.Serialize(
+                         new
+                         {
+                             Response = "Message Has been sent successfully"
+                         }));
+                }
+            }
+        }
+        /*
         protected void SendButton_Click(Object sender, EventArgs e)            
         {
 
@@ -164,7 +208,7 @@ public partial class TicketFill : System.Web.UI.Page
             mail.Body = "this is my test email body"; //maildata, t‰ss‰ testiss‰ ei viel‰ anneta parametreja vaan l‰hete‰‰n valmis testi maili
             client.Send(mail);
         }
-
+        */
         //Send mail
         /*[WebMethod]
         public static string sendMail(string maildata)

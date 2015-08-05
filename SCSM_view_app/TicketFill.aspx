@@ -41,7 +41,6 @@
          var $vastaanottaja;
          var $otsikko;
          var $viesti;
-         var $maililiitteet;
         //muuttujat drag-n-drop upload kentälle
         var $filequeue,
 		$filelist;
@@ -227,12 +226,6 @@
                 $vastaanottaja = document.getElementById("tukiryhmä").value;
                 $otsikko = document.getElementById("ongelmaotsikko").value;
                 $viesti = $koontidata;
-                $maililiitteet = document.getElementById("liite").value;
-                console.log($lähettäjä)
-                console.log($vastaanottaja)
-                console.log($otsikko)
-                console.log($viesti)
-                console.log($maililiitteet)
             });
         });
        /*
@@ -283,7 +276,7 @@
             $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
                       .find(".progress").text("Error: " + error);
         }
-        //Kutsuu mailin lähetysfunktiota
+        /*Kutsuu mailin lähetysfunktiota
         function sendMail() {
             var dataToSend = $koontidata;
             console.log(dataToSend)
@@ -305,7 +298,37 @@
                        }
             $.ajax(options);
             console.log("lähetetty");
-        }
+        }*/
+
+        //Kolmas yritys mailin lähettämiseen
+        function loadJsonData() {
+            var postdata = JSON.stringify(
+                {
+                    "From": $lähettäjä,
+                    "To": $vastaanottaja,
+                    "Subject:": $otsikko,
+                    "Body": $viesti
+                });
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: "TicketFill.aspx/ProcessRequest",
+                    cache: false,
+                    data: postdata,
+                    dataType: "json",
+                    success: getSuccess,
+                    error: getFail
+                });
+            } catch (e) {
+                alert(e);
+            }
+            function getSuccess(data, textStatus, jqXHR) {
+                alert(data.Response);
+            };
+            function getFail(jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.status);
+            };
+        };
     </script>
 
     </head>
