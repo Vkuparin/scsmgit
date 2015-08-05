@@ -145,20 +145,25 @@ public partial class TicketFill : System.Web.UI.Page
                     _userInfoAD[4] = info[4];
                 }
             }
-
+            //Asetetaan käyttäjän sähköposti täältä koodin puolelta paikalleen, koska emailin lähetyksessä käytetään
+            //asp net tekstikenttää, joka saattaa saada uuden arvon lomaketta täytettäessä
+            sähköposti.Text = userEmail;
         }
         protected void SendButton_Click(Object sender, EventArgs e)            
         {
-            
-            MailMessage mail = new MailMessage("noreply@turku.fi", "ville.kuparinen@turku.fi"); //lähettäjä, vastaanottaja
+            string from = sähköposti.Text;
+            string to = tukiryhmä.SelectedValue;
+            string otsikko = ongelmaotsikko.Text;
+            string viesti = koonti.InnerText; 
+            MailMessage mail = new MailMessage(from, to); //lähettäjä, vastaanottaja
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.turku.fi";
             client.Port = 25;
             client.UseDefaultCredentials = false;
             client.EnableSsl = false;
             client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-            mail.Subject = "this is a test email.";
-            mail.Body = "this is my test email body"; //maildata, tässä testissä ei vielä anneta parametreja vaan läheteään valmis testi maili
+            mail.Subject = otsikko;
+            mail.Body = viesti; 
             client.Send(mail);
             Debug.Write("MAIL LÄHETETTY!!");
         }

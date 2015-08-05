@@ -188,7 +188,6 @@
                 //muuttuja koontikentälle
                 var koonti = $('#koonti');
                 //Päivitetään koontikentän arvoa
-                koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + '---------- Ongelman tiedot ----------');
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + 'Asiani koskee: ' + document.getElementById("tukiryhmä").value);
@@ -200,6 +199,7 @@
                 koonti.val(koonti.val() + 'Liitetty/liitetyt tiedostot:' + document.getElementById("liite").value);
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + 'Käyttöjärjestelmän nimi: <%=osName%> \n');
+                koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + '---------- Perustiedot ----------');
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + 'Toimiala: ' + document.getElementById("toimiala").value);
@@ -302,7 +302,7 @@
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle" style="color:white">Ongelman kuvaus</h3>
              <h4 class="formheader1" style="color:white">Asiani koskee<span style="color:#ed0c6e">&ast;</span></h4>
-             <select id="tukiryhmä" required>
+             <!--<select id="tukiryhmä" required>
                  <option selected="selected" disabled="disabled">-Valitse sopiva vaihtoehto-</option>
                  <option value="servicedesk.dotku@turku.fi">Dotku-tuki</option>
                  <option value="servicedesk.hpk@turku.fi">Henkilöstöpalvelukeskus</option>
@@ -311,10 +311,20 @@
                  <option value="servicedesk.pegasos@turku.fi">Pegasos-tuki</option>
                  <option value="servicedesk.trimble@turku.fi">Trimble-tuki</option>
                  <option value="ville.kuparinen@turku.fi">Testihassutus</option>
-             </select>
+             </select>-->
+             <asp:DropDownList ID="tukiryhmä" runat="server">
+                 <asp:ListItem Text ="Valitse sopiva vaihtoehto" Value="" />
+                 <asp:ListItem value="servicedesk.dotku@turku.fi" Text = "Dotku-tuki" />
+                 <asp:ListItem value="servicedesk.hpk@turku.fi" Text = "Henkilöstöpalvelukeskus" />
+                 <asp:ListItem value="servicedesk@turku.fi" Text ="IT-palvelut" />
+                 <asp:ListItem value="servicedesk.joutsenet@turku.fi" Text="JoutseNet-tuki" />
+                 <asp:ListItem value="servicedesk.pegasos@turku.fi" Text="Pegasos-tuki" />
+                 <asp:ListItem value="servicedesk.trimble@turku.fi" Text="Trimble-tuki" />
+                 <asp:ListItem value="ville.kuparinen@turku.fi" Text="Testihassutus" />
+             </asp:DropDownList>
              <span class="question" value="Valitse asiaasi koskeva tukiryhmä">?</span>
              <h4 class="formheader1">Ongelman otsikko<span style="color:#ed0c6e">&ast;</span></h4>
-             <input type="text" name="ongelmanOtsikko" id="ongelmaotsikko" placeholder="Otsikko" required />
+             <asp:TextBox runat="server" ID="ongelmaotsikko" Text ="Otsikko" />
              <span class="question" value="Anna ongelmallesi kuvaava nimi. Malli: Tietokoneeni ei saa yhteyttä verkkoon">?</span>
              <h4 class="formheader1">Ongelman kuvaus</h4>
              <textarea name="kuvaus" id="ongelmakuvaus" placeholder="Kuvaus"></textarea>
@@ -332,7 +342,7 @@
 		        </ol>
 	        </div>
             </div>
-             <input type="submit" name="next" class="next action-button" value="Seuraava" />
+             <input type="submit" id="ekanappi" name="next" class="next action-button" value="Seuraava" />
          </fieldset>
          <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
@@ -361,7 +371,7 @@
              <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" required />
              <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee. Oletuksena on, että pyyntö koskee kirjautuneena olevaa käyttäjää">?</span>
              <h4 class="formheader1">Sähköpostiosoite<span style="color:#ed0c6e">&ast;</span></h4>
-             <input type="text" name="sähköposti" id="sähköposti" value="<%=userEmail%>" />
+             <asp:TextBox runat="server" ID="sähköposti" Text ="" />
              <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä sähköpostiosoite. Oletuksena käytetään kirjautuneena olevan käyttäjän sähköpostiosoitetta">?</span>
              <h4 class="formheader1">Puhelinnumero</h4>
              <input type="text" name="puhelinnumero" id="puhelinnumero" value="<%=userPhone%>" />
@@ -375,7 +385,7 @@
          <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle" style="color:white">Yhteenveto</h3>
-             <textarea id ="koonti"></textarea>
+             <textarea runat="server" id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <asp:Button id="SendButton" class="next action-button" OnClick="SendButton_Click" Text="Lähetä" runat="server" />
          </fieldset>
