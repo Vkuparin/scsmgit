@@ -312,7 +312,7 @@
             try {
                 $.ajax({
                     type: "POST",
-                    url: "TicketFill.aspx/ProcessRequest",
+                    url: "MailHandler.ashx",
                     cache: false,
                     data: postdata,
                     dataType: "json",
@@ -363,6 +363,7 @@
                  <option value="servicedesk.joutsenet@turku.fi">JoutseNet-tuki</option>
                  <option value="servicedesk.pegasos@turku.fi">Pegasos-tuki</option>
                  <option value="servicedesk.trimble@turku.fi">Trimble-tuki</option>
+                 <option value="ville.kuparinen@turku.fi">Testihassutus</option>
              </select>
              <span class="question" value="Valitse asiaasi koskeva tukiryhmä">?</span>
              <h4 class="formheader1">Ongelman otsikko<span style="color:#ed0c6e">&ast;</span></h4>
@@ -429,8 +430,8 @@
              <h3 class="fs-subtitle" style="color:white">Yhteenveto</h3>
              <textarea id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-             <!--<input type="button" name="next" class="next action-button" onclick="sendMail()" value="Lähetä" />-->
-             <asp:Button id="MailButton" class="next action-button" onclick="SendButton_Click" Text="Lähetä" runat="server" />  
+             <input type="button" name="next" class="next action-button" onclick="loadJsonData()" value="Lähetä" />
+             <!--<asp:Button id="MailButton" class="next action-button" onclick="SendButton_Click" Text="Lähetä" runat="server" />  -->
          </fieldset>
         </form>
         </div>
