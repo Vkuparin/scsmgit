@@ -17,6 +17,8 @@ using System.DirectoryServices.AccountManagement;
 using System.Management;
 using System.Net;
 using System.Net.Mail;
+using System.Windows.Forms;
+using System.IO;
 
 
 
@@ -31,8 +33,8 @@ public partial class TicketFill : System.Web.UI.Page
         private string _testi = "";
         protected string testi { get { return this._testi; } }
 
-        private string _osName = getOsName() + ", Käyttöjärjestelmän versio: "+Environment.OSVersion.ToString();
-        protected string osName { get { return this._osName; } }
+        /*private string _osName = getOsName() + ", Käyttöjärjestelmän versio: "+Environment.OSVersion.ToString();
+        protected string osName { get { return this._osName; } }*/
 
         private string[] _userInfoAD = null;
         protected string userFullName { get { return this._userInfoAD[0]; }}
@@ -43,12 +45,12 @@ public partial class TicketFill : System.Web.UI.Page
         protected string userOffice { get { return this._userInfoAD[5]; } }
         protected string userCity { get { return this._userInfoAD[6]; } }
 
-        private static string getOsName()
+        /*private static string getOsName()
         {
             var name = (from x in new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem").Get().OfType<ManagementObject>()
                         select x.GetPropertyValue("Caption")).FirstOrDefault();
             return name != null ? name.ToString() : "Unknown";
-        }
+        }*/
         protected void Page_Load(object sender, EventArgs e)
         {
             using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
@@ -148,13 +150,16 @@ public partial class TicketFill : System.Web.UI.Page
             //Asetetaan käyttäjän sähköposti täältä koodin puolelta paikalleen, koska emailin lähetyksessä käytetään
             //asp net tekstikenttää, joka saattaa saada uuden arvon lomaketta täytettäessä
             sähköposti.Text = userEmail;
+            //Muuttaan dropdown-listan testiosoite käyttäjän omaksi emailiksi
+            testiosoite.Value = userEmail;
         }
+
         protected void SendButton_Click(Object sender, EventArgs e)            
         {
             string from = sähköposti.Text;
             string to = tukiryhmä.SelectedValue;
             string otsikko = ongelmaotsikko.Text;
-            string viesti = koonti.InnerText; 
+            
             MailMessage mail = new MailMessage(from, to); //lähettäjä, vastaanottaja
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.turku.fi";
@@ -163,10 +168,24 @@ public partial class TicketFill : System.Web.UI.Page
             client.EnableSsl = false;
             client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
             mail.Subject = otsikko;
-            mail.Body = viesti; 
+            //Liite
+            Debug.WriteLine("PAINETTU LÄHETYSNAPPIA");
+            if (liite1.HasFiles){
+                liite1teksti.Text += ("Liitteet: \n");
+                foreach (HttpPostedFile uploadedFile in liite1.PostedFiles)
+                {
+                    string FileName = Path.GetFileName(uploadedFile.FileName);
+                    liite1teksti.Text += (FileName + "\n");
+                    mail.Attachments.Add(new Attachment(uploadedFile.InputStream, FileName));
+                    Debug.WriteLine("LISÄTTY TIEDOSTONIMI " + FileName + " MAILIIN LIITTEEKSI");
+                }
+                koonti.InnerText += liite1teksti.Text;
+            }
+            //Luodaan viestin body vasta täällä, koska siihen tehdään mahdollisia lisäyksiä (liitteet) edellä
+            string viesti = koonti.InnerText;
+            mail.Body = viesti;
             client.Send(mail);
-            Debug.Write("MAIL LÄHETETTY!!");
-        }
-
+            Debug.WriteLine("MAIL LÄHETETTY!!");
+    }
 
 }

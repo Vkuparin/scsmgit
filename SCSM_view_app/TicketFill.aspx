@@ -6,21 +6,6 @@
     <title>Uuden työpyynnön luominen</title>
     <!-- main css -->
     <link rel="stylesheet" type="text/css" media="screen" href="Content/TicketFill.css" />
-    <!-- drag-n-drop upload css -->
-    <link rel="stylesheet" type="text/css" media="screen" href="Content/upload.css" />
-    <!-- drag-n-drop upload muotoilut tiedostolistalle -->
-	<style type="text/css">
-        .filelists { margin: 20px 0; }
-	    .filelists h5 { margin: 10px 0 0; text-align: left; font-size: 12px; padding-left: 10px }
-	    .filelist { margin: 0; padding: 10px 0; }
-	    .filelist li { background: #fff; border-bottom: 1px solid #eee; font-size: 14px; list-style: none; padding: 5px; }
-	    .filelist li:before { display: none; }
-	    .filelist li .file { color: #333; }
-	    .filelist li .progress { color: #666; float: right; font-size: 10px; text-transform: uppercase; }
-	    .filelist li .delete { color: red; cursor: pointer; float: right; font-size: 10px; text-transform: uppercase; }
-	    .filelist li.complete .progress { color: green; }
-	    .filelist li.error .progress { color: red; }
-    </style>
     <style type="text/css">
         html, body {
             color: white;
@@ -32,9 +17,6 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
      <script src="Scripts/jquery.json.min.js" type="text/javascript"></script>
      <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
-     <!--scripti drag-n-drop upload kentälle -->
-     <script src="Scripts/core.js" type="text/javascript"></script>
-     <script src="Scripts/upload.js" type="text/javascript"></script>
      <script>
          //Muuttujat sähköpostin lähetystä varten
          var $lähettäjä;
@@ -61,26 +43,6 @@
                 }
             });
 
-            /*
-            * Drag-n-drop upload kenttää
-            * 
-            */
-            $.upload("defaults", {
-
-                label: "Pudota tiedostot tähän tai napsauta tästä valitaksesi tiedostot tietokoneeltasi"
-            });
-
-            $filequeue = $(".filelist.queue");
-            $filelist = $(".filelist.complete");
-
-            $(".liite").upload({
-                maxSize: 1048576
-            }).on("start.upload", onStart)
-              .on("complete.upload", onComplete)
-              .on("filestart.upload", onFileStart)
-              .on("fileprogress.upload", onFileProgress)
-              .on("filecomplete.upload", onFileComplete)
-              .on("fileerror.upload", onFileError);
 
             /*
             * Funktiot lomakkeen toiminnallisuudelle, navigoimiselle ja
@@ -196,10 +158,6 @@
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + 'Ongelman kuvaus: ' + document.getElementById("ongelmakuvaus").value);
                 koonti.val(koonti.val() + '\n\n');
-                koonti.val(koonti.val() + 'Liitetty/liitetyt tiedostot:' + document.getElementById("liite").value);
-                koonti.val(koonti.val() + '\n\n');
-                koonti.val(koonti.val() + 'Käyttöjärjestelmän nimi: <%=osName%> \n');
-                koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + '---------- Perustiedot ----------');
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + 'Toimiala: ' + document.getElementById("toimiala").value);
@@ -217,6 +175,7 @@
                 koonti.val(koonti.val() + 'Puhelinnumero: ' + document.getElementById("puhelinnumero").value);
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + 'Tietokone, jota työpyyntö koskee: ' + document.getElementById("tietokoneenNimi").value);
+                koonti.val(koonti.val() + '\n\n');
 
                 //Sijoitetaan koontikentän tiedot koontidata-muuttujaan
                 $koontidata = koonti.val();
@@ -228,54 +187,7 @@
                 $viesti = $koontidata;
             });
         });
-       /*
-        * Funktiot drag-n-drop upload kentän
-        * toiminnallisuudelle
-        */
-        function onStart(e, files) {
-            console.log("Start");
-            var html = '';
-            for (var i = 0; i < files.length; i++) {
-                html += '<li data-index="' + files[i].index + '"><span class="file">' + files[i].name + '</span><span class="progress">Queued</span></li>';
-            }
-            $filequeue.append(html);
-        }
-
-        function onComplete(e) {
-            console.log("Complete");
-            // All done!
-        }
-
-        function onFileStart(e, file) {
-            console.log("File Start");
-            $filequeue.find("li[data-index=" + file.index + "]")
-                      .find(".progress").text("0%");
-        }
-
-        function onFileProgress(e, file, percent) {
-            console.log("File Progress");
-            $filequeue.find("li[data-index=" + file.index + "]")
-                      .find(".progress").text(percent + "%");
-        }
-
-        function onFileComplete(e, file, response) {
-            console.log("File Complete");
-            if (response.trim() === "" || response.toLowerCase().indexOf("error") > -1) {
-                $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
-                          .find(".progress").text(response.trim());
-            } else {
-                var $target = $filequeue.find("li[data-index=" + file.index + "]");
-                $target.find(".file").text(file.name);
-                $target.find(".progress").remove();
-                $target.appendTo($filelist);
-            }
-        }
-
-        function onFileError(e, file, error) {
-            console.log("File Error");
-            $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
-                      .find(".progress").text("Error: " + error);
-        }
+      
     </script>
 
     </head>
@@ -298,29 +210,19 @@
         		<li style="color:white">Yhteenveto</li>
         	</ul>
         	<!-- fieldsets -->
-          <fieldset>
+           <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle" style="color:white">Ongelman kuvaus</h3>
              <h4 class="formheader1" style="color:white">Asiani koskee<span style="color:#ed0c6e">&ast;</span></h4>
-             <!--<select id="tukiryhmä" required>
-                 <option selected="selected" disabled="disabled">-Valitse sopiva vaihtoehto-</option>
-                 <option value="servicedesk.dotku@turku.fi">Dotku-tuki</option>
-                 <option value="servicedesk.hpk@turku.fi">Henkilöstöpalvelukeskus</option>
-                 <option value="servicedesk@turku.fi">IT-palvelut</option>
-                 <option value="servicedesk.joutsenet@turku.fi">JoutseNet-tuki</option>
-                 <option value="servicedesk.pegasos@turku.fi">Pegasos-tuki</option>
-                 <option value="servicedesk.trimble@turku.fi">Trimble-tuki</option>
-                 <option value="ville.kuparinen@turku.fi">Testihassutus</option>
-             </select>-->
              <asp:DropDownList ID="tukiryhmä" runat="server">
-                 <asp:ListItem Text ="Valitse sopiva vaihtoehto" Value="" />
+                 <asp:ListItem Text ="Valitse sopiva vaihtoehto" />
                  <asp:ListItem value="servicedesk.dotku@turku.fi" Text = "Dotku-tuki" />
                  <asp:ListItem value="servicedesk.hpk@turku.fi" Text = "Henkilöstöpalvelukeskus" />
                  <asp:ListItem value="servicedesk@turku.fi" Text ="IT-palvelut" />
                  <asp:ListItem value="servicedesk.joutsenet@turku.fi" Text="JoutseNet-tuki" />
                  <asp:ListItem value="servicedesk.pegasos@turku.fi" Text="Pegasos-tuki" />
                  <asp:ListItem value="servicedesk.trimble@turku.fi" Text="Trimble-tuki" />
-                 <asp:ListItem value="ville.kuparinen@turku.fi" Text="Testihassutus" />
+                 <asp:ListItem value="" id="testiosoite" Text="Testiosoite (oma sähköpostisi)" />
              </asp:DropDownList>
              <span class="question" value="Valitse asiaasi koskeva tukiryhmä">?</span>
              <h4 class="formheader1">Ongelman otsikko<span style="color:#ed0c6e">&ast;</span></h4>
@@ -332,17 +234,11 @@
              <h4 class="formheader1">Liitteet</h4>
              <input type="button" name="liitenappi" class="liitenappi" id="liitenappi" value="+" />
              <div class ="liiteshowdiv">
-             <div class="liite" id="liite"></div>
-             <div class="filelists">
-		        <h5>Valmiina</h5><hr />
-		        <ol class="filelist complete">
-		        </ol>
-		        <h5>Jonossa</h5><hr />
-		        <ol class="filelist queue">
-		        </ol>
-	        </div>
+                <asp:FileUpload runat="server" AllowMultiple="true" ID ="liite1" />
+                <span class="question" value="Lisää tarvittavat liitteet tietokoneeltasi. Voit valita useamman kuin yhden tiedoston">?</span>
+                <asp:TextBox runat="server" hidden="true" ID="liite1teksti"></asp:TextBox>
             </div>
-             <input type="submit" id="ekanappi" name="next" class="next action-button" value="Seuraava" />
+             <input type="button" id="ekanappi" name="next" class="next action-button" value="Seuraava" />
          </fieldset>
          <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
@@ -359,16 +255,16 @@
              </select>
              <span class="question" value="Valitse oma toimialasi kuuden vaihtoehdon joukosta, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Osasto<span style="color:#ed0c6e">&ast;</span></h4>
-             <input type="text" name="osasto" id="osasto" value="<%=userDepartment%>" required />
+             <input type="text" name="osasto" id="osasto" value="<%=userDepartment%>" />
              <span class="question" value="Kirjoita tähän osastosi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Toimipisteen nimi<span style="color:#ed0c6e">&ast;</span></h4>
-             <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" required />
+             <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" />
              <span class="question" value="Kirjoita tähän yksikkösi nimi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Toimipisteen osoite</h4>
-             <input type="text" name="osoite" id="osoite" placeholder="Toimipisteen osoite" required />
+             <input type="text" name="osoite" id="osoite" placeholder="Toimipisteen osoite" />
              <span class="question" value="Kirjoita tähän toimipisteesi osoite. Malli: Ruukinkatu 4">?</span>
              <h4 class="formheader1">Henkilö, jota työpyyntö koskee<span style="color:#ed0c6e">&ast;</span></h4>
-             <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" required />
+             <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" />
              <span class="question" value="Kirjoita tähän sen henkilön etu- ja sukunimi, jota työpyyntö koskee. Oletuksena on, että pyyntö koskee kirjautuneena olevaa käyttäjää">?</span>
              <h4 class="formheader1">Sähköpostiosoite<span style="color:#ed0c6e">&ast;</span></h4>
              <asp:TextBox runat="server" ID="sähköposti" Text ="" />
@@ -380,7 +276,7 @@
              <input type="text" name="tietokoneenNimi" id="tietokoneenNimi" value="<%=computerName%>" />
              <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikkoa painaessa Ohjauspaneeli-valinnan yläpuolelta. Tietokoneet on myös nimetty tarroilla, jotka löytyvät useimmiten näppäimistön yläpäästä. Malli: VARA11">?</span>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-             <input type="button" name="next" id ="tokanappi" class="next action-button" value="Seuraava" />
+             <input type="button" id ="tokanappi" name="next" class="next action-button" Value="Seuraava" />
          </fieldset>
          <fieldset>
              <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>

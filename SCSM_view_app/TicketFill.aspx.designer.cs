@@ -30,6 +30,15 @@ public partial class TicketFill {
     protected global::System.Web.UI.WebControls.DropDownList tukiryhmä;
     
     /// <summary>
+    /// testiosoite control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.ListItem testiosoite;
+    
+    /// <summary>
     /// ongelmaotsikko control.
     /// </summary>
     /// <remarks>
@@ -37,6 +46,24 @@ public partial class TicketFill {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox ongelmaotsikko;
+    
+    /// <summary>
+    /// liite1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.FileUpload liite1;
+    
+    /// <summary>
+    /// liite1teksti control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox liite1teksti;
     
     /// <summary>
     /// sähköposti control.
