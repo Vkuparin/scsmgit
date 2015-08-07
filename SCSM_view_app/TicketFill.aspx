@@ -152,7 +152,7 @@
                 //Päivitetään koontikentän arvoa
                 koonti.val(koonti.val() + '---------- Ongelman tiedot ----------');
                 koonti.val(koonti.val() + '\n\n');
-                koonti.val(koonti.val() + 'Asiani koskee: ' + document.getElementById("tukiryhmä").value);
+                koonti.val(koonti.val() + 'Asiani koskee: ' + $( "#tukiryhmä option:selected" ).text());
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + 'Ongelman otsikko: ' + document.getElementById("ongelmaotsikko").value);
                 koonti.val(koonti.val() + '\n\n');
