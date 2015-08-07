@@ -28,9 +28,6 @@ public partial class TicketFill : System.Web.UI.Page
         private string _computerName = null;
        protected string computerName { get { return this._computerName; } }
 
-        private string _testi = "";
-        protected string testi { get { return this._testi; } }
-
         /*private string _osName = getOsName() + ", Käyttöjärjestelmän versio: "+Environment.OSVersion.ToString();
         protected string osName { get { return this._osName; } }*/
 
@@ -64,8 +61,8 @@ public partial class TicketFill : System.Web.UI.Page
                     adSearch.PropertiesToLoad.Add("cn");  // Kokonimi
                     adSearch.PropertiesToLoad.Add("mail");  // Sähköposti
                     adSearch.PropertiesToLoad.Add("telephoneNumber");  // Puhelinnumero
-                    //adSearch.PropertiesToLoad.Add("Company");  // Toimiala
-                    //adSearch.PropertiesToLoad.Add("Department");  // Yksikkö
+                    adSearch.PropertiesToLoad.Add("Company");  // Toimiala
+                    adSearch.PropertiesToLoad.Add("Department");  // Yksikkö
                     adSearch.PropertiesToLoad.Add("streetaddress");  // Toimipiste
                     //adSearch.PropertiesToLoad.Add("City");  // kaupunki
                     adSearch.Filter = "(sAMAccountName="+ userAccountName+")"; //haku käyttäjänimellä
@@ -75,8 +72,7 @@ public partial class TicketFill : System.Web.UI.Page
                     int infoRivi = 0;
                     foreach (string tulos in searchPropCollection.PropertyNames)
                     {
-
-                        _testi += tulos + " | ";
+                        Debug.WriteLine(tulos);
                         if (tulos.Equals("cn"))
                         {
                             infoRivi = 0;
@@ -101,57 +97,23 @@ public partial class TicketFill : System.Web.UI.Page
                         {
                             infoRivi = 5;
                         }
+                        if (tulos.Equals("adspath"))
+                        {
+                            continue;
+                        }
                         
                         foreach (Object myCollection in searchPropCollection[tulos])
                         {
+                            Debug.WriteLine("tokan kerra tulos = " + tulos);
+                            Debug.WriteLine("mycollection.tostring = " + myCollection.ToString());
                             info[infoRivi] = myCollection.ToString();
+                            Debug.WriteLine("info[inforivi] = " + info[infoRivi]);
                         }
                     }
                     _userInfoAD = info;
                 }
             }
-
-            using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
-            {
-                using (DirectorySearcher adSearch = new DirectorySearcher(de))
-                {
-                    adSearch.PropertiesToLoad.Add("telephoneNumber");  // Puhelinnumero
-                    adSearch.PropertiesToLoad.Add("Company");  // Toimiala
-                    adSearch.PropertiesToLoad.Add("Department");  // Yksikkö
-                    //adSearch.PropertiesToLoad.Add("Office");  // Toimipiste
-                    //adSearch.PropertiesToLoad.Add("City");  // kaupunki
-                    adSearch.Filter = "(sAMAccountName="+userAccountName+")"; //+ userAccountName+
-                    SearchResult adSearchResult = adSearch.FindOne();
-                    var searchPropCollection = adSearchResult.Properties;
-                    string[] info = new string[15];
-                    int infoRivi = 0;
-                    foreach (string tulos in searchPropCollection.PropertyNames)
-                    {
-
-                        Debug.WriteLine(tulos);
-                        if (tulos.Equals("telephonenumber"))
-                        {
-                            infoRivi = 2;
-                        }
-                        if (tulos.Equals("company"))
-                        {
-                            infoRivi = 3;
-                        }
-                        if (tulos.Equals("department"))
-                        {
-                            infoRivi = 4;
-                        }
-
-                        foreach (Object myCollection in searchPropCollection[tulos])
-                        {
-                            info[infoRivi] = myCollection.ToString();
-                        }
-                    }
-                    _userInfoAD[3] = info[2];
-                    _userInfoAD[3] = info[3];
-                    _userInfoAD[4] = info[4];
-                }
-            }
+           
             //Asetetaan käyttäjän sähköposti täältä koodin puolelta paikalleen, koska emailin lähetyksessä käytetään
             //asp net tekstikenttää, joka saattaa saada uuden arvon lomaketta täytettäessä
             sähköposti.Text = userEmail;
