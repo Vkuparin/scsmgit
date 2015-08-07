@@ -85,7 +85,7 @@ public partial class TicketFill : System.Web.UI.Page
                         {
                             infoRivi = 1;
                         }
-                        if (tulos.Equals("telephoneNumber"))
+                        if (tulos.Equals("telephonenumber"))
                         {
                             infoRivi = 2;
                         }
@@ -115,7 +115,7 @@ public partial class TicketFill : System.Web.UI.Page
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
                 {
-                    //adSearch.PropertiesToLoad.Add("telephoneNumber");  // Puhelinnumero
+                    adSearch.PropertiesToLoad.Add("telephoneNumber");  // Puhelinnumero
                     adSearch.PropertiesToLoad.Add("Company");  // Toimiala
                     adSearch.PropertiesToLoad.Add("Department");  // Yksikkö
                     //adSearch.PropertiesToLoad.Add("Office");  // Toimipiste
@@ -128,8 +128,8 @@ public partial class TicketFill : System.Web.UI.Page
                     foreach (string tulos in searchPropCollection.PropertyNames)
                     {
 
-
-                        if (tulos.Equals("telephoneNumber"))
+                        Debug.WriteLine(tulos);
+                        if (tulos.Equals("telephonenumber"))
                         {
                             infoRivi = 2;
                         }
@@ -147,6 +147,7 @@ public partial class TicketFill : System.Web.UI.Page
                             info[infoRivi] = myCollection.ToString();
                         }
                     }
+                    _userInfoAD[3] = info[2];
                     _userInfoAD[3] = info[3];
                     _userInfoAD[4] = info[4];
                 }
