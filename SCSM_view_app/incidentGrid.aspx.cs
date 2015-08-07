@@ -47,7 +47,7 @@ namespace show_incident
 
 
             // Täytä tähän oma käyttäjätunnus - slahdeti 082015 
-            using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi","mmobiili","Verkk00ni!"))
+            using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
                 {

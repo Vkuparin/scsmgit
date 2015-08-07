@@ -27,7 +27,6 @@ public partial class TicketFill : System.Web.UI.Page
 
         private string _computerName = null;
        protected string computerName { get { return this._computerName; } }
-        //protected string computerName = "ITL13dd006";
 
         private string _testi = "";
         protected string testi { get { return this._testi; } }
@@ -86,7 +85,7 @@ public partial class TicketFill : System.Web.UI.Page
                         {
                             infoRivi = 1;
                         }
-                        if (tulos.Equals("telephonenumber"))
+                        if (tulos.Equals("telephoneNumber"))
                         {
                             infoRivi = 2;
                         }
@@ -121,7 +120,7 @@ public partial class TicketFill : System.Web.UI.Page
                     adSearch.PropertiesToLoad.Add("Department");  // Yksikkö
                     //adSearch.PropertiesToLoad.Add("Office");  // Toimipiste
                     //adSearch.PropertiesToLoad.Add("City");  // kaupunki
-                    adSearch.Filter = "(sAMAccountName=kkolima)"; //+ userAccountName+
+                    adSearch.Filter = "(sAMAccountName="+userAccountName+")"; //+ userAccountName+
                     SearchResult adSearchResult = adSearch.FindOne();
                     var searchPropCollection = adSearchResult.Properties;
                     string[] info = new string[15];
@@ -130,7 +129,7 @@ public partial class TicketFill : System.Web.UI.Page
                     {
 
 
-                        if (tulos.Equals("telephonenumber"))
+                        if (tulos.Equals("telephoneNumber"))
                         {
                             infoRivi = 2;
                         }
