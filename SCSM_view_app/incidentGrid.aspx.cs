@@ -14,16 +14,19 @@ using System.Diagnostics;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
 using System.DirectoryServices.AccountManagement;
+using System.Web.Providers.Entities;
+using System.Web.Security;
 
 namespace show_incident
 {
     public partial class incidentGrid : System.Web.UI.Page
     {
-        private static string _userAccountName = HttpContext.Current.User.Identity.Name.ToString().Substring(8);
-        public static string userAccountName { get { return _userAccountName; } }
-
         private string[] _userInfoAD = null;
-        protected string userFullName { get { return this._userInfoAD[0]; } }
+
+
+        private static string _userAccountName = null;
+        protected static string userAccountName { get { return _userAccountName; } }
+
 
         public struct s_GridResult
         {
@@ -40,8 +43,11 @@ namespace show_incident
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+                _userAccountName = User.Identity.Name.ToString().Substring(8);
+
+
             // Täytä tähän oma käyttäjätunnus - slahdeti 082015 
-            using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi","mmobiili",""))
+            using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi","mmobiili","Verkk00ni!"))
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
                 {
@@ -71,7 +77,9 @@ namespace show_incident
         [WebMethod]
         public static s_GridResult GetDataTable(string _search, string nd, int rows, int page, string sidx, string sord)
         {
+
             string user = userAccountName;
+            Debug.Write(user);
             int startindex = (page - 1);
             int endindex = page;
             string sql = @"SELECT IncidentDim.Title, 

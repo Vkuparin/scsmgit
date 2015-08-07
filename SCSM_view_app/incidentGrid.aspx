@@ -214,7 +214,7 @@
     </script>
 
     <hgroup class="title">
-        <h1 style="color:#ffffff; padding-top: 20px;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
+        <h1 style="color:#ffffff; padding-top: 20px;"> Käyttäjän <%=userAccountName%> työpyynnöt</h1>
     </hgroup>
 
     <div id="gridcontainer">

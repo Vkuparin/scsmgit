@@ -24,11 +24,10 @@ using System.IO;
 
 public partial class TicketFill : System.Web.UI.Page
 {
-        private string _userAccountName = Environment.UserName;
-        protected string userAccountName { get { return this._userAccountName; } }
 
-        private string _computerName = Environment.MachineName;
-        protected string computerName { get { return this._computerName; } }
+        private string _computerName = null;
+       protected string computerName { get { return this._computerName; } }
+        //protected string computerName = "ITL13dd006";
 
         private string _testi = "";
         protected string testi { get { return this._testi; } }
@@ -53,6 +52,12 @@ public partial class TicketFill : System.Web.UI.Page
         }*/
         protected void Page_Load(object sender, EventArgs e)
         {
+            string userAccountName = User.Identity.Name.ToString().Substring(8);
+
+            string[] computer_name = System.Net.Dns.GetHostEntry(Request.ServerVariables["remote_addr"]).HostName.Split(new Char[] { '.' });
+            String ecn = System.Environment.MachineName;
+            _computerName = computer_name[0].ToString();
+
             using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
