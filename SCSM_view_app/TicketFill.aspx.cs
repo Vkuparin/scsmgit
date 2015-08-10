@@ -26,7 +26,7 @@ public partial class TicketFill : System.Web.UI.Page
 {
 
         private string _computerName = null;
-       protected string computerName { get { return this._computerName; } }
+        protected string computerName { get { return this._computerName; } }
 
         /*private string _osName = getOsName() + ", Käyttöjärjestelmän versio: "+Environment.OSVersion.ToString();
         protected string osName { get { return this._osName; } }*/
@@ -48,12 +48,15 @@ public partial class TicketFill : System.Web.UI.Page
         }*/
         protected void Page_Load(object sender, EventArgs e)
         {
-            string userAccountName = User.Identity.Name.ToString().Substring(8);
+            //Lokaalin käyttäjän käyttäjänimi.
+            string userAccountName = User.Identity.Name.ToString().Substring(8); 
 
+            //Lokaalin tietokoneen nimi
             string[] computer_name = System.Net.Dns.GetHostEntry(Request.ServerVariables["remote_addr"]).HostName.Split(new Char[] { '.' });
             String ecn = System.Environment.MachineName;
             _computerName = computer_name[0].ToString();
 
+            //Hakee AD:sta tarvittavat tiedot käyttäjälle
             using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
             {
                 using (DirectorySearcher adSearch = new DirectorySearcher(de))
@@ -70,9 +73,9 @@ public partial class TicketFill : System.Web.UI.Page
                     var searchPropCollection = adSearchResult.Properties;
                     string[] info = new string[15];
                     int infoRivi = 0;
+                    //Noutaa AD-haun tulokset ja sijoittaa ne tietyille paikoilleen tulostaulukkoon (_userInfoAD). Skippaa adspathin, jota ei tässä tarvita.
                     foreach (string tulos in searchPropCollection.PropertyNames)
                     {
-                        Debug.WriteLine(tulos);
                         if (tulos.Equals("cn"))
                         {
                             infoRivi = 0;
@@ -104,10 +107,7 @@ public partial class TicketFill : System.Web.UI.Page
                         
                         foreach (Object myCollection in searchPropCollection[tulos])
                         {
-                            Debug.WriteLine("tokan kerra tulos = " + tulos);
-                            Debug.WriteLine("mycollection.tostring = " + myCollection.ToString());
                             info[infoRivi] = myCollection.ToString();
-                            Debug.WriteLine("info[inforivi] = " + info[infoRivi]);
                         }
                     }
                     _userInfoAD = info;
@@ -120,7 +120,9 @@ public partial class TicketFill : System.Web.UI.Page
             //Muuttaan dropdown-listan testiosoite käyttäjän omaksi emailiksi
             testiosoite.Value = userEmail;
         }
-
+        //Tapahtuu, kun käyttäjä painaa "Lähetä" nappia lomakkeessa.
+        //Kokoaa lomakkeen tiedot sähköpostiin, joka lähetetään valitulle servicedeskille (id=tukiryhmä)
+        //"Lähettäjänä" toimii käyttäjän oma sähköpostiosoite smtp:n kautta
         protected void SendButton_Click(Object sender, EventArgs e)            
         {
             string from = sähköposti.Text;
