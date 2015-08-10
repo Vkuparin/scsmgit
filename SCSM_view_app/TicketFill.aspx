@@ -215,7 +215,7 @@
              <h3 class="fs-subtitle" style="color:white">Ongelman kuvaus</h3>
              <h4 class="formheader1" style="color:white">Asiani koskee<span style="color:#ed0c6e">&ast;</span></h4>
              <asp:DropDownList ID="tukiryhmä" runat="server">
-                 <asp:ListItem Text ="Valitse sopiva vaihtoehto" />
+                 <asp:ListItem Text ="Valitse sopiva vaihtoehto" disabled ="disabled" selected="true"/>
                  <asp:ListItem value="servicedesk.dotku@turku.fi" Text = "Dotku-tuki" />
                  <asp:ListItem value="servicedesk.hpk@turku.fi" Text = "Henkilöstöpalvelukeskus" />
                  <asp:ListItem value="servicedesk@turku.fi" Text ="IT-palvelut" />
@@ -226,7 +226,7 @@
              </asp:DropDownList>
              <span class="question" value="Valitse asiaasi koskeva tukiryhmä">?</span>
              <h4 class="formheader1">Ongelman otsikko<span style="color:#ed0c6e">&ast;</span></h4>
-             <asp:TextBox runat="server" ID="ongelmaotsikko" Text ="Otsikko" />
+             <asp:TextBox runat="server" ID="ongelmaotsikko" placeholder ="Otsikko" />
              <span class="question" value="Anna ongelmallesi kuvaava nimi. Malli: Tietokoneeni ei saa yhteyttä verkkoon">?</span>
              <h4 class="formheader1">Ongelman kuvaus</h4>
              <textarea name="kuvaus" id="ongelmakuvaus" placeholder="Kuvaus"></textarea>
