@@ -311,11 +311,11 @@ div.tooltip p {
     background: url(images/tkulogo2.svg) no-repeat, #404040;
     height:5em; 
     width:200em;
-    padding-bottom: 10em;
-    padding-left:5em; 
+    padding-bottom:8em;
+    padding-left:5em;
 }
 .nav{
     width:100em;
     height:5em;
-    padding-left: 80em;
+    padding-left: 140em;
 }
