@@ -11,7 +11,19 @@
                 background-color: #404040;
         }
     </style>
-
+    <style type="text/css">
+    .ui-jqgrid tr.jqgrow td {
+        /*white-space: normal !important;*/
+        height: auto;
+        vertical-align: middle;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        max-height: 50px;
+    }
+    .ui-jqgrid tr.jqgrow {
+        max-height: 50px;
+    }
+    </style>
     <script type="text/javascript">
         $(function () {
             //Määritetään gridi viittaamaan vastaavaan html-taulukkoon (id: Grid1)
@@ -63,10 +75,10 @@
             $.extend($.jgrid.defaults,
                 {
                     datatype: 'json',
-                    height: 'auto',
                     autowidth: true,
                     shrinkToFit: true,
                     altRows: true,
+                    height: '100%',
                     sortable: true,
                     altclass: 'myAltRowClass',
                     toolbar: ['true', "top"]
@@ -113,13 +125,27 @@
                      },
                  },
                  //Tiketin otsikko
-                 { name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, height: 50, sorttype: 'string' },
+                 {
+                     name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, sorttype: 'string',
+                     formatter: function (v) {
+                         return '<div style="max-height: 75px">' + v + '</div>';
+                     }
+                 },
                 //Tiketin kuvaus
-                { name: 'IncidentDim.Description', index: 'IncidentDim.Description', width: 250, height: 50 },
+                {
+                    name: 'IncidentDim.Description', index: 'IncidentDim.Description', width: 250, formatter: function (v) {
+                        return '<div style="max-height: 75px">' + v + '</div>';
+                    }
+                },
                 //Tiketin ratkaisun kuvaus
-                { name: 'IncidentDim.ResolutionDescription', index: 'IncidentDim.ResolutionDescription', width: 250, height: 50 },
+                {
+                    name: 'IncidentDim.ResolutionDescription', index: 'IncidentDim.ResolutionDescription', width: 250,
+                    formatter: function (v) {
+                        return '<div style="max-height: 75px">' + v + '</div>';
+                    }
+                },
                 //Tiketin tila eli onko suljettu vai auki
-                { name: 'IncidentStatusvw.Incidentstatusvalue', index: 'IncidentStatusvw.Incidentstatusvalue', width: 40, height: 50 },
+                { name: 'IncidentStatusvw.Incidentstatusvalue', index: 'IncidentStatusvw.Incidentstatusvalue', width: 40 },
                  //Milloin tiketti on suljettu. Piilotettu
                 {
                     name: 'ClosedDate', index: 'ClosedDate', width: 95, align: "center", sorttype: "date",

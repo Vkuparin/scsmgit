@@ -11,10 +11,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-form-theme.css" />
     <style type="text/css">
-        html, body { font-size: 75%; }
-        .ui-jqgrid .ui-userdata { height: auto; }
-        .ui-jqgrid .ui-userdata div { margin: .1em .5em .2em;}
-        .ui-jqgrid .ui-userdata div>* { vertical-align: middle; }
+
         /*linkkien muotoilut*/
 
         #linkki:link {
