@@ -5,7 +5,7 @@
     <!-- Kaikki koodi asp-sivun Content (body) kohdassa. Ks. Site.Master perityt tiedot -->
     <style type="text/css">
         /*CSS-muotoilua: tekee taulukon riveille vuorotellen vaihtelevat taustat (sininen ja valkoinen)*/
-        .myAltRowClass { background-color: #00aeef; background-image: none; color: #ffffff; }
+        .myAltRowClass { background-color: #ffffff; background-image: none; color: #404040; }
         body {
                 font-family: montserrat, arial, verdana;
                 background-color: #404040;
