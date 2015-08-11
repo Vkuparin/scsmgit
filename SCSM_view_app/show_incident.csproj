@@ -168,6 +168,7 @@
     <Content Include="bin\System.Web.Providers.dll" />
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\images\tkulogo.png" />
+    <Content Include="Content\images\tkulogo2.svg" />
     <Content Include="Content\images\ui-bg_flat_0_00aeef_40x100.png" />
     <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\images\ui-bg_flat_100_006bb6_40x100.png" />

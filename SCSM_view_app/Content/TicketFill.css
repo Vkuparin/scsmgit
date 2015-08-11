@@ -307,3 +307,15 @@ div.tooltip p {
 #msform .liitenappi#liitenappi:hover{
         background-color: #00aeef; border: 0px solid  #00aeef;
 }
+.logo{
+    background: url(images/tkulogo2.svg) no-repeat, #404040;
+    height:5em; 
+    width:200em;
+    padding-bottom: 10em;
+    padding-left:5em; 
+}
+.nav{
+    width:100em;
+    height:5em;
+    padding-left: 80em;
+}
