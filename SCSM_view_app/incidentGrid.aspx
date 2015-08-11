@@ -139,7 +139,7 @@
                 { name: 'UserDimvw.DisplayName', index: 'UserDimvw.DisplayName', width: 80, search: false, hidden:true }],
                 //Lisää gridin määrittelyä
                 pager: '#pager',
-                sortname: 'CreatedDate',
+                sortname: 'IncidentDim.Id',
                 sortorder: 'desc',
                 rowNum: 25,
                 rowTotal: 10000,

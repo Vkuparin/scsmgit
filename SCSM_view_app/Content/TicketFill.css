@@ -4,13 +4,17 @@
 /*basic reset*/
 * {margin: 0; padding: 0;}
 
-html {
-   
-}
+html, body {
+            color: #404040;
+            font-size: 75%;
+            padding: 10px;
+            text-align: center;
+            
+    }
 
-body {
-    font-family: montserrat, arial, verdana;
-    background-color: #404040;
+body{
+            font-family: montserrat, arial, verdana;
+            background-color: #404040;
 }
 
 /*linkkien muotoilut*/
@@ -66,7 +70,7 @@ a {
 	width: 90%;
 	box-sizing: border-box;
 	font-family: montserrat;
-	color: #2C3E50;
+	color: #404040;
 	font-size: 14px;
 }
 /*hoverit kenttiin*/
@@ -93,7 +97,7 @@ textarea#ongelmakuvaus {
 	height: 180px;
 	box-sizing: border-box;
 	font-family: montserrat;
-	color: #2C3E50;
+	color: #404040;
 	font-size: 14px;
 }
 textarea#koonti {
@@ -105,7 +109,7 @@ textarea#koonti {
 	height: 380px;
 	box-sizing: border-box;
 	font-family: montserrat;
-	color: #2C3E50;
+	color: #404040;
 	font-size: 14px;
 }
 /*buttons*/
@@ -130,13 +134,13 @@ textarea#koonti {
 .fs-title {
 	font-size: 16px;
 	text-transform: uppercase;
-	color: #2C3E50;
+	color: #404040;
 	margin-bottom: 10px;
 }
 .fs-subtitle {
 	font-weight: normal;
 	font-size: 14px;
-	color: #666;
+	color: #404040;
 	margin-bottom: 20px;
 }
 /* Lomakkeen headereiden muotoilua*/

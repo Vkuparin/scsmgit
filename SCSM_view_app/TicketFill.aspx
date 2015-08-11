@@ -6,14 +6,6 @@
     <title>Uuden työpyynnön luominen</title>
     <!-- main css -->
     <link rel="stylesheet" type="text/css" media="screen" href="Content/TicketFill.css" />
-    <style type="text/css">
-        html, body {
-            color: white;
-            font-size: 75%;
-            padding: 10px;
-            text-align: center;
-        }
-     </style>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
      <script src="Scripts/jquery.json.min.js" type="text/javascript"></script>
      <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
@@ -204,9 +196,9 @@
         	</ul>
         	<!-- fieldsets -->
            <fieldset>
-             <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle" style="color:white">Ongelman kuvaus</h3>
-             <h4 class="formheader1" style="color:white">Asiani koskee<span style="color:#ed0c6e">&ast;</span></h4>
+             <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle">Ongelman kuvaus</h3>
+             <h4 class="formheader1">Asiani koskee<span style="color:#ed0c6e">&ast;</span></h4>
              <asp:DropDownList ID="tukiryhmä" runat="server">
                  <asp:ListItem Text ="Valitse sopiva vaihtoehto" disabled ="disabled" selected="true"/>
                  <asp:ListItem value="servicedesk.dotku@turku.fi" Text = "Dotku-tuki" />
@@ -234,9 +226,9 @@
              <input type="button" id="ekanappi" name="next" class="next action-button" value="Seuraava" />
          </fieldset>
          <fieldset>
-             <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle" style="color:white">Perustiedot</h3>
-             <h4 class="formheader1" style="color:white">Toimiala<span style="color:#ed0c6e">&ast;</span></h4>
+             <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle">Perustiedot</h3>
+             <h4 class="formheader1">Toimiala<span style="color:#ed0c6e">&ast;</span></h4>
              <select name="toimiala" id="toimiala" />
                  <option value="<%=userCompany%>" selected><%=userCompany%></option>
                  <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
@@ -272,8 +264,8 @@
              <input type="button" id ="tokanappi" name="next" class="next action-button" Value="Seuraava" />
          </fieldset>
          <fieldset>
-             <h2 class="fs-title" style="color:white">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle" style="color:white">Yhteenveto</h3>
+             <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
+             <h3 class="fs-subtitle">Yhteenveto</h3>
              <textarea runat="server" id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <asp:Button id="SendButton" class="next action-button" OnClick="SendButton_Click" Text="Lähetä" runat="server" />
