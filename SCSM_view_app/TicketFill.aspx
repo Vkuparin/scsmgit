@@ -18,14 +18,6 @@
      <script src="Scripts/jquery.json.min.js" type="text/javascript"></script>
      <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
      <script>
-         //Muuttujat sähköpostin lähetystä varten
-         var $lähettäjä;
-         var $vastaanottaja;
-         var $otsikko;
-         var $viesti;
-        //muuttujat drag-n-drop upload kentälle
-        var $filequeue,
-		$filelist;
         //muuttuja koontikentälle
         var $koontidata;
          //document.ready
@@ -180,11 +172,6 @@
                 //Sijoitetaan koontikentän tiedot koontidata-muuttujaan
                 $koontidata = koonti.val();
 
-                //Sijoitetaan sähköpostin lähetykseen liittyvät arvot
-                $lähettäjä = document.getElementById("sähköposti").value;
-                $vastaanottaja = document.getElementById("tukiryhmä").value;
-                $otsikko = document.getElementById("ongelmaotsikko").value;
-                $viesti = $koontidata;
             });
         });
       

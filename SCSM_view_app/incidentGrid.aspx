@@ -113,13 +113,13 @@
                      },
                  },
                  //Tiketin otsikko
-                 { name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, sorttype: 'string' },
+                 { name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, height: 50, sorttype: 'string' },
                 //Tiketin kuvaus
-                { name: 'IncidentDim.Description', index: 'IncidentDim.Description', width: 250 },
+                { name: 'IncidentDim.Description', index: 'IncidentDim.Description', width: 250, height: 50 },
                 //Tiketin ratkaisun kuvaus
-                { name: 'IncidentDim.ResolutionDescription', index: 'IncidentDim.ResolutionDescription', width: 250},
+                { name: 'IncidentDim.ResolutionDescription', index: 'IncidentDim.ResolutionDescription', width: 250, height: 50 },
                 //Tiketin tila eli onko suljettu vai auki
-                { name: 'IncidentStatusvw.Incidentstatusvalue', index: 'IncidentStatusvw.Incidentstatusvalue', width: 40 },
+                { name: 'IncidentStatusvw.Incidentstatusvalue', index: 'IncidentStatusvw.Incidentstatusvalue', width: 40, height: 50 },
                  //Milloin tiketti on suljettu. Piilotettu
                 {
                     name: 'ClosedDate', index: 'ClosedDate', width: 95, align: "center", sorttype: "date",
