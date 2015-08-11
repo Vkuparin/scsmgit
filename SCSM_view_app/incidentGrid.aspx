@@ -103,42 +103,40 @@
                 url: 'incidentGrid.aspx/GetDataTable', //kutsuu funktiota GetDataTable tiedostossa incidentGrid.aspx.cs, joka hakee SQL:llä serveriltä käyttäjän tikettien tiedot
                 datatype: 'json',
                 mtype: 'POST',
-                colNames: ['Otsikko', 'ID / Linkki', 'Suljettu', 'Luotu', 'Id1', 'Työavain', 'WorkItemDimKey1', 'Vaikuttaa käyttäjään (nro)', 'Käyttäjänimi', 'Käyttäjänumero'],
-                colModel:
-                 //Tiketin otsikko
-                 [{ name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 300, sorttype: 'string' },
-                 //Tiketin ID. Custom formatter, joka luo linkin yksittäisen tiketin incident-sivulle
+                colNames: ['ID / Linkki', 'Otsikko', 'Kuvaus','Ratkaisu','Tila', 'Suljettu', 'Luotu', 'Id1', 'Käyttäjän nimi'],
+                colModel: 
+                 [//Tiketin ID. Custom formatter, joka luo linkin yksittäisen tiketin incident-sivulle
                  {
-                     name: 'Id', index: 'Id', width: 100, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
+                     name: 'IncidentDim.Id', index: 'IncidentDim.Id', width: 75, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
                          var val = '<a href = "https://it-itsepalvelu.turku.fi/SMportal/SitePages/My%20Requests.aspx?RequestId=' + cellvalue + '">' + cellvalue + '</a>';
                          return val;
                      },
                  },
+                 //Tiketin otsikko
+                 { name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, sorttype: 'string' },
+                //Tiketin kuvaus
+                { name: 'IncidentDim.Description', index: 'IncidentDim.Description', width: 250 },
+                //Tiketin ratkaisun kuvaus
+                { name: 'IncidentDim.ResolutionDescription', index: 'IncidentDim.ResolutionDescription', width: 250},
+                //Tiketin tila eli onko suljettu vai auki
+                { name: 'IncidentStatusvw.Incidentstatusvalue', index: 'IncidentStatusvw.Incidentstatusvalue', width: 40 },
                  //Milloin tiketti on suljettu. Piilotettu
                 {
-                    name: 'ClosedDate', index: 'ClosedDate', width: 100, align: "center", sorttype: "date",
+                    name: 'ClosedDate', index: 'ClosedDate', width: 95, align: "center", sorttype: "date",
                     formatter: "date",
                     //TODO: ei toimi  - formatter: "date", formatoptions: { newformat: "d.m / Y" },                  
                     search: false, hidden:true
                 },
                 //Milloin tiketi on luotu
                 {
-                    name: 'CreatedDate', index: 'CreatedDate', width: 100, align: "center", sorttype: "date",
+                    name: 'CreatedDate', index: 'CreatedDate', width: 95, align: "center", sorttype: "date",
                     //TODO: ei toimi  - formatter: "date", formatoptions: { newformat: "d.m / Y" },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
                 //Taas tiketin ID. Turha? Piilotettu
-                { name: 'Id1', index: 'Id1', width: 150, hidden: true, search: false },
-                //Työavain, ei oleellinen käyttäjälle, piilotettu
-                { name: 'WorkItemDimKey', index: 'WorkItemDimKey', width: 80, hidden: true, search: false },
-                //Työavain, ei oleellinen käyttäjälle, piilotettu
-                { name: 'WorkItemDimKey1', index: 'WorkItemDimKey1', hidden: true, search: false },
-                //Ketä tiketti koskee. Ei oleellinen käyttäjälle, piilotettu.
-                { name: 'WorkItemAffectedUser_UserDimKey', index: 'WorkItemAffectedUser_UserDimKey', hidden: true, search: false },
-                //Käyttäjänimi. Ei oleellinen käyttäjälle, piilotettu.
-                { name: 'UserName', index: 'UserName', width: 100, hidden: true, search: false },
-                //Käyttäjäavain. Ei oleellinen käyttäjälle, piilotettu.
-                { name: 'UserDimKey', index: 'UserDimKey', width: 100, hidden: true, search: false }],
+                { name: 'WorkItemDimvw.Id', index: 'WorkItemDimvw.Id', width: 150, search: false, hidden:true },
+                //Käyttäjän nimi, ei oleellinen käyttäjälle, piilotettu
+                { name: 'UserDimvw.DisplayName', index: 'UserDimvw.DisplayName', width: 80, search: false, hidden:true }],
                 //Lisää gridin määrittelyä
                 pager: '#pager',
                 sortname: 'CreatedDate',
@@ -214,7 +212,7 @@
     </script>
 
     <hgroup class="title">
-        <h1 style="color:#ffffff; padding-top: 20px;"> Käyttäjän <%=userAccountName%> työpyynnöt</h1>
+        <h1 style="color:#ffffff; padding-top: 20px;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
     </hgroup>
 
     <div id="gridcontainer">

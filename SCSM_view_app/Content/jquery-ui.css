@@ -884,9 +884,9 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
 	border: 1px solid #ffffff;
-	background: #006bb6 url("images/ui-bg_glass_75_006bb6_1x400.png") 50% 50% repeat-x;
+	background: #ffffff;
 	font-weight: bold;
-	color: #ffffff;
+	color: #404040;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,

@@ -21,7 +21,8 @@ namespace show_incident
 {
     public partial class incidentGrid : System.Web.UI.Page
     {
-        private string[] _userInfoAD = null;
+        private static string[] _userInfoAD = null;
+        protected static string userFullName { get { return _userInfoAD[0]; } }
 
 
         private static string _userAccountName = null;
@@ -43,7 +44,7 @@ namespace show_incident
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-                _userAccountName = User.Identity.Name.ToString().Substring(8);
+            _userAccountName = User.Identity.Name.ToString().Substring(8);
 
 
             // Täytä tähän oma käyttäjätunnus - slahdeti 082015 
@@ -64,6 +65,10 @@ namespace show_incident
                         {
                             infoRivi = 0;
                         }
+                        if (tulos.Equals("adspath"))
+                        {
+                            continue;
+                        }
 
                         foreach (Object myCollection in searchPropCollection[tulos])
                         {
@@ -77,27 +82,29 @@ namespace show_incident
         [WebMethod]
         public static s_GridResult GetDataTable(string _search, string nd, int rows, int page, string sidx, string sord)
         {
-
-            string user = userAccountName;
-            Debug.Write(user);
+            string user = userFullName;
+            Debug.WriteLine(user + " KÄYTTÄJÄN NIMI GRID HAUSSA");
             int startindex = (page - 1);
             int endindex = page;
-            string sql = @"SELECT IncidentDim.Title, 
-                               IncidentDim.Id, 
+            string sql = @"SELECT IncidentDim.Id, 
+                               IncidentDim.Title,
+                               IncidentDim.Description,
+                               IncidentDim.ResolutionDescription,
+                               IncidentStatusvw.Incidentstatusvalue, 
                                cast (IncidentDim.ClosedDate as date) as ClosedDate, 
                                cast (IncidentDim.CreatedDate as date) as CreatedDate,
                                WorkItemDimvw.Id, 
-                               WorkItemDimvw.WorkItemDimKey, 
-                               WorkItemAffectedUserFactvw.WorkItemDimKey, 
-                               WorkItemAffectedUserFactvw.WorkItemAffectedUser_UserDimKey, 
-                               UserDimvw.UserName, UserDimvw.UserDimKey
-                               FROM DWRepository.dbo.IncidentDim IncidentDim, 
+                               UserDimvw.DisplayName
+                               FROM DWRepository.dbo.IncidentDim IncidentDim,
+                               DWRepository.dbo.incidentstatusvw as incidentstatusvw, 
                                DWRepository.dbo.UserDimvw UserDimvw, 
                                DWRepository.dbo.WorkItemAffectedUserFactvw WorkItemAffectedUserFactvw, 
                                DWRepository.dbo.WorkItemDimvw WorkItemDimvw
-                               WHERE WorkItemAffectedUserFactvw.WorkItemAffectedUser_UserDimKey = UserDimvw.UserDimKey AND 
+                               WHERE incidentstatusvw.IncidentStatusId = IncidentDim.Status_IncidentStatusId AND
+                               WorkItemAffectedUserFactvw.WorkItemAffectedUser_UserDimKey = UserDimvw.UserDimKey AND
                                WorkItemAffectedUserFactvw.WorkItemDimKey = WorkItemDimvw.WorkItemDimKey AND 
-                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.UserName='"+user+"')) ORDER BY IncidentDim.CreatedDate DESC;";
+                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.DisplayName='" + user+"')) ORDER BY IncidentDim.CreatedDate DESC;";
+
 
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["tkuscsm-dwsConnectionString"].ConnectionString);
@@ -110,7 +117,7 @@ namespace show_incident
             {
                 s_RowData newrow = new s_RowData();
                 newrow.id = idx++;
-                newrow.cell = new string[10];  //total number of columns  
+                newrow.cell = new string[9];  //total number of columns  
                 newrow.cell[0] = row[0].ToString();
                 newrow.cell[1] = row[1].ToString();
                 newrow.cell[2] = row[2].ToString();
@@ -120,7 +127,6 @@ namespace show_incident
                 newrow.cell[6] = row[6].ToString();
                 newrow.cell[7] = row[7].ToString();
                 newrow.cell[8] = row[8].ToString();
-                newrow.cell[9] = row[9].ToString();
                 rowsadded.Add(newrow);
             }
             result.rows = rowsadded.ToArray();
