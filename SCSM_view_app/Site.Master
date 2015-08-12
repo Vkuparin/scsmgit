@@ -5,7 +5,7 @@
 <div class="pagecontainer">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %> Työpyynnöt</title>  
+    <title></title>  
     <link rel="stylesheet" type="text/css" media="screen" href="Content/Site.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/ui.jqgrid.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="Content/jquery-ui.css" />
@@ -94,6 +94,8 @@
                    <a id="linkki" href="incidentGrid.aspx">Omat työpyynnöt</a>
                    <a id="linkki">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
                    <a id="linkki" href="TicketFill.aspx">Luo työpyyntö</a>
+                   <br /><br /><br /><br /><br />
+                   <a id="linkki" href="AssignedIncidentGrid.aspx" style="padding-left:450px">Minulle osoitetut työpyynnöt</a>
                </span>
                </div>
     </header>

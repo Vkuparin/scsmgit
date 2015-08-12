@@ -19,7 +19,8 @@ using System.Web.Security;
 
 namespace show_incident
 {
-    public partial class incidentGrid : System.Web.UI.Page
+
+    public partial class AssignedIncidentGrid : System.Web.UI.Page
     {
         private static string[] _userInfoAD = null;
         protected static string userFullName { get { return _userInfoAD[0]; } }
@@ -44,12 +45,10 @@ namespace show_incident
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
             //Sivun title
-            this.Title = "Omat työpyyntöni";
-
+            this.Title = "Minulle osoitetut työpyynnöt";
+            //Käyttäjänimi
             _userAccountName = User.Identity.Name.ToString().Substring(8);
-
 
             // Täytä tähän oma käyttäjätunnus - slahdeti 082015 
             using (DirectoryEntry de = new DirectoryEntry("LDAP://adturku.fi"))
@@ -126,7 +125,7 @@ namespace show_incident
                         [ServiceManager].[dbo].[MT_System$WorkItem$Incident].[Status_785407A9_729D_3A74_A383_575DB0CD50ED] = IncidentStatus.LTStringId
                         AND IncidentStatus.LanguageCode = 'ENU'
 
-                        WHERE AffectedUser.[UserName_6AF77E23_669B_123F_B392_323C17097BBD] = '" + user+"' ;";
+                        WHERE AssignedToUser.[UserName_6AF77E23_669B_123F_B392_323C17097BBD] = '" + user + "' ;";
 
 
             DataTable dt = new DataTable();
@@ -166,4 +165,3 @@ namespace show_incident
 
     }
 }
-

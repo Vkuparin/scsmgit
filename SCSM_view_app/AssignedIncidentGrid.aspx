@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="incidentGrid.aspx.cs" Inherits="show_incident.incidentGrid" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="AssignedIncidentGrid.aspx.cs" Inherits="show_incident.AssignedIncidentGrid" %>
 
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
@@ -10,20 +10,18 @@
                 font-family: montserrat, arial, verdana;
                 background-color: #404040;
         }
+
+        .ui-jqgrid .ui-jqgrid-htable th div {
+         height:auto;
+           overflow:hidden;
+           padding-right:4px;
+           padding-top:2px;
+          position:relative;
+          vertical-align:text-top;
+          white-space:normal !important;
+        }
     </style>
-    <style type="text/css">
-    .ui-jqgrid tr.jqgrow td {
-        /*white-space: normal !important;*/
-        height: auto;
-        vertical-align: middle;
-        padding-top: 3px;
-        padding-bottom: 3px;
-        max-height: 50px;
-    }
-    .ui-jqgrid tr.jqgrow {
-        max-height: 50px;
-    }
-    </style>
+
     <script type="text/javascript">
         $(function () {
             //Määritetään gridi viittaamaan vastaavaan html-taulukkoon (id: Grid1)
@@ -112,14 +110,14 @@
             var loaded = false;
             //Itse gridin luonti. 
             $Grid1.jqGrid({
-                url: 'incidentGrid.aspx/GetDataTable', //kutsuu funktiota GetDataTable tiedostossa incidentGrid.aspx.cs, joka hakee SQL:llä serveriltä käyttäjän tikettien tiedot
+                url: 'AssignedIncidentGrid.aspx/GetDataTable', //kutsuu funktiota GetDataTable tiedostossa AssignedIncidentGrid.aspx.cs, joka hakee SQL:llä serveriltä käyttäjän tikettien tiedot
                 datatype: 'json',
                 mtype: 'POST',
-                colNames: ['ID / Linkki', 'Otsikko', 'Kuvaus', 'Ratkaisu', 'Tila', 'Luotu', 'Osoitettu nimi', 'Vaikuttaa knimi', 'Vaikuttaa nimi', 'Osoitettu knimi', 'Luokittelu', 'Prioriteetti', 'Ratkaistu', 'Eskaloitu'],
+                colNames: ['ID / Linkki', 'Otsikko', 'Kuvaus', 'Ratkaisu', 'Tila', 'Luotu', 'Osoitettu nimi', 'Vaikuttaa knimi', 'Vaikuttaa nimi', 'Osoitettu knimi', 'Luokittelu', 'Prio', 'Ratkaistu', 'Eskaloitu'],
                 colModel: 
                  [//Tiketin ID. Custom formatter, joka luo linkin yksittäisen tiketin incident-sivulle
                  {
-                     name: 'Id', index: 'Id', width: 75, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
+                     name: 'Id', index: 'Id', width: 85, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
                          var val = '<a href = "https://it-itsepalvelu.turku.fi/SMportal/SitePages/My%20Requests.aspx?RequestId=' + cellvalue + '">' + cellvalue + '</a>';
                          return val;
                      },
@@ -160,18 +158,18 @@
                 { name: 'AffectedUser', index: 'AffectedUser', width: 150, search: false, hidden: true },
                 //Kenelle tiketti on osoitettu, käyttäjänimi, piilotettu
                 { name: 'AssignedUsername', index: 'AssignedUsername', width: 150, search: false, hidden: true },
-                //Tiketin luokittelu, piilotettu
-                { name: 'IncidentClassification', index: 'IncidentClassification', width: 150, search: false, hidden: true },
-                //Tiketin prioriteetti, piilotettu
-                { name: 'Priority', index: 'Priority', width: 150, search: false, hidden: true },
-                //Milloin tiketi on selvitetty (resolved), piilotettu
+                //Tiketin luokittelu
+                { name: 'IncidentClassification', index: 'IncidentClassification', width: 75 },
+                //Tiketin prioriteetti
+                { name: 'Priority', index: 'Priority', width: 35 },
+                //Milloin tiketi on ratkaistu (resolved)
                 {
-                    name: 'ResolvedDate', index: 'ResolvedDate', hidden: true, search: false, width: 65, align: "center", sorttype: "date",
+                    name: 'ResolvedDate', index: 'ResolvedDate', width: 65, align: "center", sorttype: "date",
                     formatter: 'date', formatoptions: { srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
-                //Onko tiketti eskaloitu servicedeskistä, piilotettu
-                { name: 'Escalated', index: 'Escalated', width: 150, search: false, hidden: true },
+                //Onko tiketti eskaloitu servicedeskistä
+                { name: 'Escalated', index: 'Escalated', width: 50 },
                  ],
                 //Lisää gridin määrittelyä
                 pager: '#pager',
@@ -207,7 +205,7 @@
             jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false }); //pager/sivunkääntäjä
             //Lisätään top bariin hakukenttä ja -nappi
             $('#t_' + $.jgrid.jqID($Grid1[0].id))
-           .append($("<div><label for=\"globalSearchText\">Etsi omista työpyynnöistä:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
+           .append($("<div style=padding-bottom:100px><label for=\"globalSearchText\">Etsi omista työpyynnöistä:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
             $("#globalSearchText").keypress(function (e) {
                 var key = e.charCode || e.keyCode || 0;
                 if (key === $.ui.keyCode.ENTER) { // 13
@@ -247,11 +245,12 @@
         });
     </script>
     <div style ="border:dashed; width:250px; padding: 20px; border-color:#ffffff">
+    <p style="color:#ffffff">Demosivu lähinnä SD:n käyttöön!</p>
     <p style="color:#ffffff">Tuetut selaimet: IE11. Testattu myös Chromella.</p>
     <p style="color:#ffffff">Vinkki: vie hiiri kenttien päälle; tooltipissä lisää tietoa!</p>
     </div>
     <hgroup class="title">
-        <h1 style="color:#ffffff; padding-top: 5em; padding: 1em;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
+        <h1 style="color:#ffffff; padding-top: 5em; padding: 1em;"> Käyttäjälle <%=userFullName%> osoitetut työpyynnöt</h1>
     </hgroup>
     <div id="gridcontainer">
 

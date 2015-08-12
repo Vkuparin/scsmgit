@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace show_incident
 {
+
     public partial class SiteMaster : MasterPage
     {
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
