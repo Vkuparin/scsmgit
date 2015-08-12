@@ -148,15 +148,14 @@
                 { name: 'IncidentStatusvw.Incidentstatusvalue', index: 'IncidentStatusvw.Incidentstatusvalue', width: 40 },
                  //Milloin tiketti on suljettu. Piilotettu
                 {
-                    name: 'ClosedDate', index: 'ClosedDate', width: 95, align: "center", sorttype: "date",
-                    formatter: "date",
-                    //TODO: ei toimi  - formatter: "date", formatoptions: { newformat: "d.m / Y" },                  
+                    name: 'IncidentDim.ClosedDate', index: 'IncidentDim.ClosedDate', width: 95, align: "center", sorttype: "date",
+                    formatter: 'date', formatoptions: { srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     search: false, hidden:true
                 },
                 //Milloin tiketi on luotu
                 {
-                    name: 'CreatedDate', index: 'CreatedDate', width: 95, align: "center", sorttype: "date",
-                    //TODO: ei toimi  - formatter: "date", formatoptions: { newformat: "d.m / Y" },
+                    name: 'IncidentDim.CreatedDate', index: 'IncidentDim.CreatedDate', width: 95, align: "center", sorttype: "date",
+                    formatter: 'date', formatoptions: {srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
                 //Taas tiketin ID. Turha? Piilotettu

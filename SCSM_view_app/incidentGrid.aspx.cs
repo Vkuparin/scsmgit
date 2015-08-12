@@ -91,8 +91,8 @@ namespace show_incident
                                IncidentDim.Description,
                                IncidentDim.ResolutionDescription,
                                IncidentStatusvw.Incidentstatusvalue, 
-                               cast (IncidentDim.ClosedDate as date) as ClosedDate, 
-                               cast (IncidentDim.CreatedDate as date) as CreatedDate,
+                               IncidentDim.ClosedDate, 
+                               IncidentDim.CreatedDate,
                                WorkItemDimvw.Id, 
                                UserDimvw.DisplayName
                                FROM DWRepository.dbo.IncidentDim IncidentDim,
