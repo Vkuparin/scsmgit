@@ -1,7 +1,8 @@
 /*! jQuery UI - v1.11.4 - 2015-08-11
 * http://jqueryui.com
 * Includes: core.css, draggable.css, resizable.css, selectable.css, sortable.css, accordion.css, autocomplete.css, button.css, datepicker.css, dialog.css, menu.css, progressbar.css, selectmenu.css, slider.css, spinner.css, tabs.css, tooltip.css, theme.css
-* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Montserrat&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=%237dcdc8&bgTextureHeader=highlight_soft&bgImgOpacityHeader=0&borderColorHeader=%23ffffff&fcHeader=%23404040&iconColorHeader=%23404040&bgColorContent=%23e3e3de&bgTextureContent=flat&bgImgOpacityContent=25&borderColorContent=%23404040&fcContent=%23404040&iconColorContent=%23404040&bgColorDefault=%237dcdc8&bgTextureDefault=glass&bgImgOpacityDefault=50&borderColorDefault=%23404040&fcDefault=%23404040&iconColorDefault=%23404040&bgColorHover=%23c3c4b7&bgTextureHover=glass&bgImgOpacityHover=100&borderColorHover=%23404040&fcHover=%23404040&iconColorHover=%23404040&bgColorActive=%23c3c4b7&bgTextureActive=glass&bgImgOpacityActive=100&borderColorActive=%23404040&fcActive=%23404040&iconColorActive=%23404040&bgColorHighlight=%23ffc233&bgTextureHighlight=glass&bgImgOpacityHighlight=100&borderColorHighlight=%23404040&fcHighlight=%23404040&iconColorHighlight=%23404040&bgColorError=%23ffc237&bgTextureError=glass&bgImgOpacityError=95&borderColorError=%23cd0a0a&fcError=%23cd0a0a&iconColorError=%23cd0a0a&bgColorOverlay=%23aaaaaa&bgTextureOverlay=flat&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=%23aaaaaa&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Montserrat&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=%237dcdc8&bgTextureHeader=
+    _soft&bgImgOpacityHeader=0&borderColorHeader=%23ffffff&fcHeader=%23404040&iconColorHeader=%23404040&bgColorContent=%23e3e3de&bgTextureContent=flat&bgImgOpacityContent=25&borderColorContent=%23404040&fcContent=%23404040&iconColorContent=%23404040&bgColorDefault=%237dcdc8&bgTextureDefault=glass&bgImgOpacityDefault=50&borderColorDefault=%23404040&fcDefault=%23404040&iconColorDefault=%23404040&bgColorHover=%23c3c4b7&bgTextureHover=glass&bgImgOpacityHover=100&borderColorHover=%23404040&fcHover=%23404040&iconColorHover=%23404040&bgColorActive=%23c3c4b7&bgTextureActive=glass&bgImgOpacityActive=100&borderColorActive=%23404040&fcActive=%23404040&iconColorActive=%23404040&bgColorHighlight=%23ffc233&bgTextureHighlight=glass&bgImgOpacityHighlight=100&borderColorHighlight=%23404040&fcHighlight=%23404040&iconColorHighlight=%23404040&bgColorError=%23ffc237&bgTextureError=glass&bgImgOpacityError=95&borderColorError=%23cd0a0a&fcError=%23cd0a0a&iconColorError=%23cd0a0a&bgColorOverlay=%23aaaaaa&bgTextureOverlay=flat&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=%23aaaaaa&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
 * Copyright 2015 jQuery Foundation and other contributors; Licensed MIT */
 
 /* Layout helpers
@@ -919,8 +920,7 @@ body .ui-tooltip {
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	border: 1px solid #404040;
-	background: #ffc233x;
+	background: #ffc233;
 	color: #404040;
 }
 .ui-state-highlight a,

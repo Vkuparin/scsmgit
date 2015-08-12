@@ -32,7 +32,7 @@
             //Päivänvalitsemisfunktio, tuo esiin kutsuttaessa perus jquery kalenterin
             initDatepicker = function (elem) {
                 $(elem).datepicker({
-                    dateFormat: "dd-M-yy",
+                    dateFormat: "d.m.Y",
                     autoSize: true,
                     changeYear: true,
                     changeMonth: true,
@@ -148,13 +148,13 @@
                 { name: 'IncidentStatusvw.Incidentstatusvalue', index: 'IncidentStatusvw.Incidentstatusvalue', width: 40 },
                  //Milloin tiketti on suljettu. Piilotettu
                 {
-                    name: 'IncidentDim.ClosedDate', index: 'IncidentDim.ClosedDate', width: 95, align: "center", sorttype: "date",
+                    name: 'IncidentDim.ClosedDate', index: 'IncidentDim.ClosedDate', width: 65, align: "center", sorttype: "date",
                     formatter: 'date', formatoptions: { srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     search: false, hidden:true
                 },
                 //Milloin tiketi on luotu
                 {
-                    name: 'IncidentDim.CreatedDate', index: 'IncidentDim.CreatedDate', width: 95, align: "center", sorttype: "date",
+                    name: 'IncidentDim.CreatedDate', index: 'IncidentDim.CreatedDate', width: 65, align: "center", sorttype: "date",
                     formatter: 'date', formatoptions: {srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
@@ -235,11 +235,13 @@
             });
         });
     </script>
-
+    <div style ="border:dashed; width:250px; padding: 20px; border-color:#ffffff">
+    <p style="color:#ffffff">Demoversio. Hakee 1.5.2015 jälkeen luodut tiketit!</p>
+    <p style="color:#ffffff">Tuetut selaimet: IE11. Testattu myös Chromella.</p>
+    </div>
     <hgroup class="title">
-        <h1 style="color:#ffffff; padding-top: 20px;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
+        <h1 style="color:#ffffff; padding-top: 5em; padding: 1em;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
     </hgroup>
-
     <div id="gridcontainer">
 
         <table id="Grid1" class="scroll" align="center" width="100%"></table>

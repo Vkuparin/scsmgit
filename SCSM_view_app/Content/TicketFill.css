@@ -313,14 +313,13 @@ div.tooltip p {
 }
 .logo{
     background: url(images/tkulogo2.svg) no-repeat, #404040;
-    height:5em; 
-    width:200em;
-    padding-bottom:8em;
-    padding-left:5em;
-    padding-top:0.7em;
+    width:200px;
+    padding-bottom:200px;
+    padding-right: 880px;
 }
 .nav{
-    width:100em;
-    height:5em;
-    padding-left: 140em;
+    width:600px;
+    height:5px;
+    padding-bottom: 200px;
+    padding-top:950px;
 }

@@ -172,20 +172,17 @@
     </head>
     
     <body>
-        <div class="navcontainer">
-        <span class="logo">
+        <span class="logo"></span>
         <span class="nav">
-        <nav>
-        <!-- linkit relevantteihin sivuihin -->
-            <a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
-            <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-            <a href="incidentGrid.aspx">Omat työpyynnöt</a>
-        </nav>
+            <nav>
+            <!-- linkit relevantteihin sivuihin -->
+               <a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
+                <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                <a href="incidentGrid.aspx">Omat työpyynnöt</a>
+            </nav>
         </span>
-        </span>
-        </div>
 
-<div id="container" align="center">
+<div id="container" style="align-content:center">
 	    	<!-- multistep form -->
      <form id="msform" runat="server">
 	        <!-- progressbar -->
