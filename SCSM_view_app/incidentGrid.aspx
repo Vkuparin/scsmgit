@@ -115,56 +115,67 @@
                 url: 'incidentGrid.aspx/GetDataTable', //kutsuu funktiota GetDataTable tiedostossa incidentGrid.aspx.cs, joka hakee SQL:llä serveriltä käyttäjän tikettien tiedot
                 datatype: 'json',
                 mtype: 'POST',
-                colNames: ['ID / Linkki', 'Otsikko', 'Kuvaus','Ratkaisu','Tila', 'Suljettu', 'Luotu', 'Id1', 'Käyttäjän nimi'],
+                colNames: ['ID / Linkki', 'Otsikko', 'Kuvaus', 'Ratkaisu', 'Tila', 'Luotu', 'Osoitettu nimi', 'Vaikuttaa knimi', 'Vaikuttaa nimi', 'Osoitettu knimi', 'Luokittelu', 'Prioriteetti', 'Ratkaistu', 'Eskaloitu'],
                 colModel: 
                  [//Tiketin ID. Custom formatter, joka luo linkin yksittäisen tiketin incident-sivulle
                  {
-                     name: 'IncidentDim.Id', index: 'IncidentDim.Id', width: 75, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
+                     name: 'Id', index: 'Id', width: 75, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
                          var val = '<a href = "https://it-itsepalvelu.turku.fi/SMportal/SitePages/My%20Requests.aspx?RequestId=' + cellvalue + '">' + cellvalue + '</a>';
                          return val;
                      },
                  },
                  //Tiketin otsikko
                  {
-                     name: 'IncidentDim.Title', index: 'IncidentDim.Title', width: 250, sorttype: 'string',
+                     name: 'Title', index: 'Title', width: 250, sorttype: 'string',
                      formatter: function (v) {
-                         return '<div style="max-height: 75px">' + v + '</div>';
+                         return '<div style="max-height: 16px">' + v + '</div>';
                      }
                  },
                 //Tiketin kuvaus
                 {
-                    name: 'IncidentDim.Description', index: 'IncidentDim.Description', width: 250, formatter: function (v) {
-                        return '<div style="max-height: 75px">' + v + '</div>';
+                    name: 'Description', index: 'Description', width: 250, formatter: function (v) {
+                        return '<div style="max-height: 16px">' + v + '</div>';
                     }
                 },
                 //Tiketin ratkaisun kuvaus
                 {
-                    name: 'IncidentDim.ResolutionDescription', index: 'IncidentDim.ResolutionDescription', width: 250,
+                    name: 'ResolutionDescription', index: 'ResolutionDescription', width: 250,
                     formatter: function (v) {
-                        return '<div style="max-height: 75px">' + v + '</div>';
+                        return '<div style="max-height: 16px">' + v + '</div>';
                     }
                 },
                 //Tiketin tila eli onko suljettu vai auki
-                { name: 'IncidentStatusvw.Incidentstatusvalue', index: 'IncidentStatusvw.Incidentstatusvalue', width: 40 },
-                 //Milloin tiketti on suljettu. Piilotettu
-                {
-                    name: 'IncidentDim.ClosedDate', index: 'IncidentDim.ClosedDate', width: 65, align: "center", sorttype: "date",
-                    formatter: 'date', formatoptions: { srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
-                    search: false, hidden:true
-                },
+                { name: 'IncidentStatus', index: 'IncidentStatus', width: 40 },
                 //Milloin tiketi on luotu
                 {
-                    name: 'IncidentDim.CreatedDate', index: 'IncidentDim.CreatedDate', width: 65, align: "center", sorttype: "date",
+                    name: 'CreatedDate', index: 'CreatedDate', width: 65, align: "center", sorttype: "date",
                     formatter: 'date', formatoptions: {srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
-                //Taas tiketin ID. Turha? Piilotettu
-                { name: 'WorkItemDimvw.Id', index: 'WorkItemDimvw.Id', width: 150, search: false, hidden:true },
-                //Käyttäjän nimi, ei oleellinen käyttäjälle, piilotettu
-                { name: 'UserDimvw.DisplayName', index: 'UserDimvw.DisplayName', width: 80, search: false, hidden:true }],
+                //Kenelle tiketti on osoitettu, koko nimi, piilotettu
+                { name: 'AssignedToUser', index: 'AssignedToUser', width: 150, search: false, hidden: true },
+                //Ketä tiketti koskee, käyttäjänimi, piilotettu
+                { name: 'AffectedUsername', index: 'AffectedUsername', width: 80, search: false, hidden: true },
+                //Ketä tiketti koskee, koko nimi, piilotettu
+                { name: 'AffectedUser', index: 'AffectedUser', width: 150, search: false, hidden: true },
+                //Kenelle tiketti on osoitettu, käyttäjänimi, piilotettu
+                { name: 'AssignedUsername', index: 'AssignedUsername', width: 150, search: false, hidden: true },
+                //Tiketin luokittelu, piilotettu
+                { name: 'IncidentClassification', index: 'IncidentClassification', width: 150, search: false, hidden: true },
+                //Tiketin prioriteetti, piilotettu
+                { name: 'Priority', index: 'Priority', width: 150, search: false, hidden: true },
+                //Milloin tiketi on selvitetty (resolved), piilotettu
+                {
+                    name: 'ResolvedDate', index: 'ResolvedDate', hidden: true, search: false, width: 65, align: "center", sorttype: "date",
+                    formatter: 'date', formatoptions: { srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
+                    searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
+                },
+                //Onko tiketti eskaloitu servicedeskistä, piilotettu
+                { name: 'Escalated', index: 'Escalated', width: 150, search: false, hidden: true },
+                 ],
                 //Lisää gridin määrittelyä
                 pager: '#pager',
-                sortname: 'IncidentDim.Id',
+                sortname: 'Id',
                 sortorder: 'desc',
                 rowNum: 25,
                 rowTotal: 10000,
@@ -236,8 +247,8 @@
         });
     </script>
     <div style ="border:dashed; width:250px; padding: 20px; border-color:#ffffff">
-    <p style="color:#ffffff">Demoversio. Hakee 1.5.2015 jälkeen luodut tiketit!</p>
     <p style="color:#ffffff">Tuetut selaimet: IE11. Testattu myös Chromella.</p>
+    <p style="color:#ffffff">Vinkki: vie hiiri kenttien päälle; tooltipissä lisää tietoa!</p>
     </div>
     <hgroup class="title">
         <h1 style="color:#ffffff; padding-top: 5em; padding: 1em;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>

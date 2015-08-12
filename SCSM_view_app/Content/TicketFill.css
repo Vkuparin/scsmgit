@@ -124,8 +124,22 @@ textarea#koonti {
 	padding: 10px 5px;
 	margin: 10px 5px;
 }
+#msform .confirmnappi {
+	width: 100px;
+	background: #006bb6;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
 
 #msform .action-button:hover, #msform .action-button:focus {
+        background-color: #00aeef; border: 0px solid  #00aeef;
+}
+#msform .confirmnappi:hover, #msform .confirmnappi:focus {
         background-color: #00aeef; border: 0px solid  #00aeef;
 }
 

@@ -166,6 +166,17 @@
 
             });
         });
+
+        //Tapahtuu painettaessa lähetä-nappia, jos käyttäjä painaa OK niin lähetetään maili, muuten takaisin
+        function confirmFunction() {
+            if (confirm("Lähetä työpyyntö?") == true) {
+                alert("Työpyyntö lähetetty!");
+                document.getElementById("SendButton").click();
+
+            } else {
+                return;
+            }
+        }
       
     </script>
 
@@ -214,9 +225,9 @@
              <textarea name="kuvaus" id="ongelmakuvaus" placeholder="Kuvaus"></textarea>
              <span id="questionHankala" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>
              <h4 class="formheader1">Liitteet</h4>
-             <input type="button" name="liitenappi" class="liitenappi" id="liitenappi" value="+" />
+             <input type="button" name="liitenappi" class="liitenappi" id="liitenappi" value="+"/>
              <div class ="liiteshowdiv">
-                <asp:FileUpload runat="server" AllowMultiple="true" ID ="liite1" />
+                <asp:FileUpload runat="server" AllowMultiple="true" ID ="liite1" BackColor="#00aeef"/>
                 <span class="question" value="Lisää tarvittavat liitteet tietokoneeltasi. Voit valita useamman kuin yhden tiedoston">?</span>
                 <asp:TextBox runat="server" hidden="true" ID="liite1teksti"></asp:TextBox>
             </div>
@@ -265,7 +276,8 @@
              <h3 class="fs-subtitle">Yhteenveto</h3>
              <textarea runat="server" id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
-             <asp:Button id="SendButton" class="next action-button" OnClick="SendButton_Click" Text="Lähetä" runat="server" />
+             <input type="button" class="confirmnappi" onclick="confirmFunction()" value="Seuraava" />
+             <asp:Button id="SendButton" class="next action-button" OnClick="SendButton_Click" Text="Lähetä" runat="server" hidden="true" />
          </fieldset>
         </form>
         </div>

@@ -82,28 +82,47 @@ namespace show_incident
         [WebMethod]
         public static s_GridResult GetDataTable(string _search, string nd, int rows, int page, string sidx, string sord)
         {
-            string user = userFullName;
+            string user = userAccountName;
             Debug.WriteLine(user + " KÄYTTÄJÄN NIMI GRID HAUSSA");
             int startindex = (page - 1);
             int endindex = page;
-            string sql = @"SELECT IncidentDim.Id, 
-                               IncidentDim.Title,
-                               IncidentDim.Description,
-                               IncidentDim.ResolutionDescription,
-                               IncidentStatusvw.Incidentstatusvalue, 
-                               IncidentDim.ClosedDate, 
-                               IncidentDim.CreatedDate,
-                               WorkItemDimvw.Id, 
-                               UserDimvw.DisplayName
-                               FROM DWRepository.dbo.IncidentDim IncidentDim,
-                               DWRepository.dbo.incidentstatusvw as incidentstatusvw, 
-                               DWRepository.dbo.UserDimvw UserDimvw, 
-                               DWRepository.dbo.WorkItemAffectedUserFactvw WorkItemAffectedUserFactvw, 
-                               DWRepository.dbo.WorkItemDimvw WorkItemDimvw
-                               WHERE incidentstatusvw.IncidentStatusId = IncidentDim.Status_IncidentStatusId AND
-                               WorkItemAffectedUserFactvw.WorkItemAffectedUser_UserDimKey = UserDimvw.UserDimKey AND
-                               WorkItemAffectedUserFactvw.WorkItemDimKey = WorkItemDimvw.WorkItemDimKey AND 
-                               IncidentDim.Id = WorkItemDimvw.Id AND ((UserDimvw.DisplayName='" + user+"')) ORDER BY IncidentDim.CreatedDate DESC;";
+            string sql = @"SELECT Id_9A505725_E2F2_447F_271B_9B9F4F0D190C as Id
+                        ,[Title_9691DD10_7211_C835_E3E7_6B38AF8B8104] as Title
+                        ,[Description_59B77FD5_FE0E_D2B5_D541_0EBBD1EC9A2B] as Description
+                        ,[ResolutionDescription_85E8B5FA_3ECB_9B6C_0A02_A8C9EC085A39] as ResolutionDescription
+                        ,IncidentStatus.[DisplayName] as IncidentStatus
+                        ,[CreatedDate_6258638D_B885_AB3C_E316_D00782B8F688] as CreatedDate
+                        ,AssignedToUser.[DisplayName] as AssignedToUser
+                        ,AffectedUser.UserName_6AF77E23_669B_123F_B392_323C17097BBD AffectedUsername
+                        ,AffectedUser.DisplayName as AffectedUser
+                        ,AssignedToUser.UserName_6AF77E23_669B_123F_B392_323C17097BBD as AssignedUsername
+                        ,IncidentClassification.[DisplayName] as IncidentClassification
+                        ,[Priority_B930B964_A1C4_0B5A_B2D1_BFBE9ECDC794] as Priority 
+                        ,[ResolvedDate_D2A4C73F_01B8_29C5_895B_5BE4C3DFAC4E] as ResolvedDate
+                        ,[Escalated_525F1F92_CEB3_079D_C0A5_E7A06AC4D6A5] as Escalated
+
+                        FROM [ServiceManager].[dbo].[MT_System$WorkItem$Incident]
+                        INNER JOIN [ServiceManager].[dbo].[Relationship] AssignedToUserRel ON
+                        [ServiceManager].[dbo].[MT_System$WorkItem$Incident].[BaseManagedEntityId] = AssignedToUserRel.[SourceEntityId]
+                        AND AssignedToUserRel.[RelationshipTypeId] = '15E577A3-6BF9-6713-4EAC-BA5A5B7C4722'
+                        INNER JOIN [ServiceManager].[dbo].[MT_System$Domain$User] AssignedToUser ON
+                        AssignedToUserRel.[TargetEntityId] = AssignedToUser.[BaseManagedEntityId]
+
+                        INNER JOIN [ServiceManager].[dbo].[Relationship] AffectedUserRel ON
+                        [ServiceManager].[dbo].[MT_System$WorkItem$Incident].[BaseManagedEntityId] = AffectedUserRel.[SourceEntityId]
+                        AND AffectedUserRel.[RelationshipTypeId] = 'DFF9BE66-38B0-B6D6-6144-A412A3EBD4CE'
+                        INNER JOIN [ServiceManager].[dbo].[MT_System$Domain$User] AffectedUser ON
+                        AffectedUserRel.[TargetEntityId] = AffectedUser.[BaseManagedEntityId]
+
+                        INNER JOIN [ServiceManager].[dbo].[DisplayStringView] IncidentClassification ON
+                        [ServiceManager].[dbo].[MT_System$WorkItem$Incident].[Classification_00B528BF_FB8F_2ED4_2434_5DF2966EA5FA] = IncidentClassification.LTStringId
+                        AND IncidentClassification.LanguageCode = 'ENU'
+
+                        INNER JOIN [ServiceManager].[dbo].[DisplayStringView] IncidentStatus ON
+                        [ServiceManager].[dbo].[MT_System$WorkItem$Incident].[Status_785407A9_729D_3A74_A383_575DB0CD50ED] = IncidentStatus.LTStringId
+                        AND IncidentStatus.LanguageCode = 'ENU'
+
+                        WHERE AffectedUser.[UserName_6AF77E23_669B_123F_B392_323C17097BBD] = '" + user+"' ;";
 
 
             DataTable dt = new DataTable();
@@ -117,7 +136,7 @@ namespace show_incident
             {
                 s_RowData newrow = new s_RowData();
                 newrow.id = idx++;
-                newrow.cell = new string[9];  //total number of columns  
+                newrow.cell = new string[14];  //total number of columns  
                 newrow.cell[0] = row[0].ToString();
                 newrow.cell[1] = row[1].ToString();
                 newrow.cell[2] = row[2].ToString();
@@ -127,6 +146,11 @@ namespace show_incident
                 newrow.cell[6] = row[6].ToString();
                 newrow.cell[7] = row[7].ToString();
                 newrow.cell[8] = row[8].ToString();
+                newrow.cell[9] = row[9].ToString();
+                newrow.cell[10] = row[10].ToString();
+                newrow.cell[11] = row[11].ToString();
+                newrow.cell[12] = row[12].ToString();
+                newrow.cell[13] = row[13].ToString();
                 rowsadded.Add(newrow);
             }
             result.rows = rowsadded.ToArray();
