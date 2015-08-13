@@ -247,7 +247,8 @@
     <div style ="border:dashed; width:250px; padding: 20px; border-color:#ffffff">
     <p style="color:#ffffff">Demosivu lähinnä SD:n käyttöön!</p>
     <p style="color:#ffffff">Tuetut selaimet: IE11. Testattu myös Chromella.</p>
-    <p style="color:#ffffff">Vinkki: vie hiiri kenttien päälle; tooltipissä lisää tietoa!</p>
+    <p style="color:#ffffff">Vinkki: lisätietoa kentistä viemällä hiiri kenttien päälle</p>
+    <p style="color:#ffffff">Laita palautetta: <a style="color:#c3c4b7" href="mailto:tikettitoveri@turku.fi?Subject=Tikettitoveri%20palaute" target="_top">tikettitoveri@turku.fi</a></p>
     </div>
     <hgroup class="title">
         <h1 style="color:#ffffff; padding-top: 5em; padding: 1em;"> Käyttäjälle <%=userFullName%> osoitetut työpyynnöt</h1>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head runat="server">
-    <title>Uuden työpyynnön luominen</title>
+    <title>Tikettitoveri: Luo työpyyntö</title>
     <!-- main css -->
     <link rel="stylesheet" type="text/css" media="screen" href="Content/TicketFill.css" />
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -182,8 +182,8 @@
 
     </head>
     
-    <body>
-        <span class="logo">
+    <body>        
+            <img src="Content/images/tkulogo2.svg" class="logo" />
             <span class="nav">
                 <nav>
                 <!-- linkit relevantteihin sivuihin -->

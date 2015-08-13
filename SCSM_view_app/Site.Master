@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<div class="pagecontainer">
 <head runat="server">
     <meta charset="utf-8" />
     <title></title>  
@@ -86,17 +85,13 @@
          
                 </p>
             </div>
-               <div class ="linkitjalogo">
-               <span class="logo"/>
-               <span class="linkit">
+               <img src="Content/images/tkulogo2.svg" class="logo"/>
+               <div class="linkit">
                    <a id="linkki" href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
                    <a id="linkki">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
                    <a id="linkki" href="incidentGrid.aspx">Omat työpyynnöt</a>
                    <a id="linkki">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-                   <a id="linkki" href="TicketFill.aspx">Luo työpyyntö</a>
-                   <br /><br /><br /><br /><br />
-                   <a id="linkki" href="AssignedIncidentGrid.aspx" style="padding-left:450px">Minulle osoitetut työpyynnöt</a>
-               </span>
+                   <a id="linkki" href="TicketFill.aspx">Luo työpyyntö</a><br />
                </div>
     </header>
     <div id="body">
@@ -109,7 +104,6 @@
     </footer>
     </form>
 </body>
-</div>
 </html>
 
             

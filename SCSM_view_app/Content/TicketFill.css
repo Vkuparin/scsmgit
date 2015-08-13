@@ -173,7 +173,7 @@ textarea#koonti {
 #progressbar {
 	margin-bottom: 30px;
 	overflow: hidden;
-    border-color: black;
+    border-color: white;
 	/*CSS counters to number the steps*/
 	counter-reset: step;
 }
@@ -326,14 +326,13 @@ div.tooltip p {
         background-color: #00aeef; border: 0px solid  #00aeef;
 }
 .logo{
-    background: url(images/tkulogo2.svg) no-repeat, #404040;
-    width:200px;
-    padding-bottom:200px;
-    padding-right: 880px;
+    position:relative;
+    align-self:flex-start;
+    padding-right:1200px;
 }
 .nav{
     width:600px;
     height:5px;
     padding-bottom: 200px;
-    padding-top:950px;
+    opacity: -1;
 }

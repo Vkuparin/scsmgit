@@ -46,7 +46,7 @@ namespace show_incident
         {
 
             //Sivun title
-            this.Title = "Omat työpyyntöni";
+            this.Title = "Tikettitoveri: Omat työpyyntöni";
 
             _userAccountName = User.Identity.Name.ToString().Substring(8);
 

@@ -11,19 +11,7 @@
                 background-color: #404040;
         }
     </style>
-    <style type="text/css">
-    .ui-jqgrid tr.jqgrow td {
-        /*white-space: normal !important;*/
-        height: auto;
-        vertical-align: middle;
-        padding-top: 3px;
-        padding-bottom: 3px;
-        max-height: 50px;
-    }
-    .ui-jqgrid tr.jqgrow {
-        max-height: 50px;
-    }
-    </style>
+
     <script type="text/javascript">
         $(function () {
             //Määritetään gridi viittaamaan vastaavaan html-taulukkoon (id: Grid1)
@@ -76,9 +64,9 @@
                 {
                     datatype: 'json',
                     autowidth: true,
-                    shrinkToFit: true,
                     altRows: true,
                     height: '100%',
+                    width: '100%',
                     sortable: true,
                     altclass: 'myAltRowClass',
                     toolbar: ['true', "top"]
@@ -248,13 +236,14 @@
     </script>
     <div style ="border:dashed; width:250px; padding: 20px; border-color:#ffffff">
     <p style="color:#ffffff">Tuetut selaimet: IE11. Testattu myös Chromella.</p>
-    <p style="color:#ffffff">Vinkki: vie hiiri kenttien päälle; tooltipissä lisää tietoa!</p>
+    <p style="color:#ffffff">Vinkki: lisätietoa kentistä viemällä hiiri kenttien päälle</p>
+    <p style="color:#ffffff">Laita palautetta: <a style="color:#c3c4b7" href="mailto:tikettitoveri@turku.fi?Subject=Tikettitoveri%20palaute" target="_top">tikettitoveri@turku.fi</a></p>
+    <p style="color:#ffffff"><a style="color:#c3c4b7" href="AssignedIncidentGrid.aspx">Osoitetut työpyynnöt</a>-sivu SD:n käyttöön</p>
     </div>
     <hgroup class="title">
         <h1 style="color:#ffffff; padding-top: 5em; padding: 1em;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
     </hgroup>
     <div id="gridcontainer">
-
         <table id="Grid1" class="scroll" align="center" width="100%"></table>
         <div id="pager" class="scroll" style="text-align:center;">
         </div>
