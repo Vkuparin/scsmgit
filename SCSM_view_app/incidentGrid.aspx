@@ -11,6 +11,12 @@
                 background-color: #404040;
         }
     </style>
+    <style type="text/css">
+        html, body { font-size: 75%; }
+        .ui-jqgrid .ui-userdata { height: auto; }
+        .ui-jqgrid .ui-userdata div { margin: .1em .5em .2em;}
+        .ui-jqgrid .ui-userdata div>* { vertical-align: middle; }
+    </style>
 
     <script type="text/javascript">
         $(function () {
@@ -63,10 +69,8 @@
             $.extend($.jgrid.defaults,
                 {
                     datatype: 'json',
-                    autowidth: true,
                     altRows: true,
-                    height: '100%',
-                    width: '100%',
+                    height: "auto",
                     sortable: true,
                     altclass: 'myAltRowClass',
                     toolbar: ['true', "top"]
@@ -107,36 +111,36 @@
                 colModel: 
                  [//Tiketin ID. Custom formatter, joka luo linkin yksittäisen tiketin incident-sivulle
                  {
-                     name: 'Id', index: 'Id', width: 75, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
+                     name: 'Id', index: 'Id', width: 80, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
                          var val = '<a href = "https://it-itsepalvelu.turku.fi/SMportal/SitePages/My%20Requests.aspx?RequestId=' + cellvalue + '">' + cellvalue + '</a>';
                          return val;
                      },
                  },
                  //Tiketin otsikko
                  {
-                     name: 'Title', index: 'Title', width: 250, sorttype: 'string',
+                     name: 'Title', index: 'Title', width: 270, sorttype: 'string',
                      formatter: function (v) {
                          return '<div style="max-height: 14px">' + v + '</div>';
                      }
                  },
                 //Tiketin kuvaus
                 {
-                    name: 'Description', index: 'Description', width: 250, formatter: function (v) {
+                    name: 'Description', index: 'Description', width: 270, formatter: function (v) {
                         return '<div style="max-height: 14px">' + v + '</div>';
                     }
                 },
                 //Tiketin ratkaisun kuvaus
                 {
-                    name: 'ResolutionDescription', index: 'ResolutionDescription', width: 250,
+                    name: 'ResolutionDescription', index: 'ResolutionDescription', width: 270,
                     formatter: function (v) {
                         return '<div style="max-height: 14px">' + v + '</div>';
                     }
                 },
                 //Tiketin tila eli onko suljettu vai auki
-                { name: 'IncidentStatus', index: 'IncidentStatus', width: 40 },
+                { name: 'IncidentStatus', index: 'IncidentStatus', width: 50 },
                 //Milloin tiketi on luotu
                 {
-                    name: 'CreatedDate', index: 'CreatedDate', width: 65, align: "center", sorttype: "date",
+                    name: 'CreatedDate', index: 'CreatedDate', width: 75, align: "center", sorttype: "date",
                     formatter: 'date', formatoptions: {srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
@@ -232,16 +236,13 @@
                 $Grid1.trigger("reloadGrid", [{ page: 1, current: true }]); //Ladataan grid uudelleen filttereiden kera
                 return false;
             });
+
         });
     </script>
-    <div style ="border:dashed; width:250px; padding: 20px; border-color:#ffffff">
-    <p style="color:#ffffff">Tuetut selaimet: IE11. Testattu myös Chromella.</p>
-    <p style="color:#ffffff">Vinkki: lisätietoa kentistä viemällä hiiri kenttien päälle</p>
-    <p style="color:#ffffff">Laita palautetta: <a style="color:#c3c4b7" href="mailto:tikettitoveri@turku.fi?Subject=Tikettitoveri%20palaute" target="_top">tikettitoveri@turku.fi</a></p>
-    <p style="color:#ffffff"><a style="color:#c3c4b7" href="AssignedIncidentGrid.aspx">Osoitetut työpyynnöt</a>-sivu SD:n käyttöön</p>
-    </div>
     <hgroup class="title">
-        <h1 style="color:#ffffff; padding-top: 5em; padding: 1em;"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
+        <div style="width:1000px; margin-left:auto; margin-right:auto">
+        <h1 style="color:#ffffff; text-align:center; margin-left:auto; margin-right:auto; padding:20px"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
+        </div>
     </hgroup>
     <div id="gridcontainer">
         <table id="Grid1" class="scroll" align="center" width="100%"></table>

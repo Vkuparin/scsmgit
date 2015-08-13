@@ -21,6 +21,12 @@
           white-space:normal !important;
         }
     </style>
+        <style type="text/css">
+        html, body { font-size: 75%; }
+        .ui-jqgrid .ui-userdata { height: auto; }
+        .ui-jqgrid .ui-userdata div { margin: .1em .5em .2em;}
+        .ui-jqgrid .ui-userdata div>* { vertical-align: middle; }
+    </style>
 
     <script type="text/javascript">
         $(function () {
@@ -73,10 +79,8 @@
             $.extend($.jgrid.defaults,
                 {
                     datatype: 'json',
-                    autowidth: true,
-                    shrinkToFit: true,
                     altRows: true,
-                    height: '100%',
+                    height: "auto",
                     sortable: true,
                     altclass: 'myAltRowClass',
                     toolbar: ['true', "top"]
@@ -117,7 +121,7 @@
                 colModel: 
                  [//Tiketin ID. Custom formatter, joka luo linkin yksittäisen tiketin incident-sivulle
                  {
-                     name: 'Id', index: 'Id', width: 85, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
+                     name: 'Id', index: 'Id', width: 95, editable: true, align: "center", formatter: function (cellvalue, options, rowObject) {
                          var val = '<a href = "https://it-itsepalvelu.turku.fi/SMportal/SitePages/My%20Requests.aspx?RequestId=' + cellvalue + '">' + cellvalue + '</a>';
                          return val;
                      },
@@ -143,10 +147,10 @@
                     }
                 },
                 //Tiketin tila eli onko suljettu vai auki
-                { name: 'IncidentStatus', index: 'IncidentStatus', width: 40 },
+                { name: 'IncidentStatus', index: 'IncidentStatus', width: 50 },
                 //Milloin tiketi on luotu
                 {
-                    name: 'CreatedDate', index: 'CreatedDate', width: 65, align: "center", sorttype: "date",
+                    name: 'CreatedDate', index: 'CreatedDate', width: 75, align: "center", sorttype: "date",
                     formatter: 'date', formatoptions: {srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
@@ -164,12 +168,12 @@
                 { name: 'Priority', index: 'Priority', width: 35 },
                 //Milloin tiketi on ratkaistu (resolved)
                 {
-                    name: 'ResolvedDate', index: 'ResolvedDate', width: 65, align: "center", sorttype: "date",
+                    name: 'ResolvedDate', index: 'ResolvedDate', width: 75, align: "center", sorttype: "date",
                     formatter: 'date', formatoptions: { srcformat: 'd.m.Y H:i:s', newformat: 'd.m.Y' },
                     searchoptions: { sopt: ["eq", "ne", "lt", "le", "gt", "ge"], dataInit: initDatepicker }
                 },
                 //Onko tiketti eskaloitu servicedeskistä
-                { name: 'Escalated', index: 'Escalated', width: 50 },
+                { name: 'Escalated', index: 'Escalated', width: 65 },
                  ],
                 //Lisää gridin määrittelyä
                 pager: '#pager',
@@ -205,7 +209,7 @@
             jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false }); //pager/sivunkääntäjä
             //Lisätään top bariin hakukenttä ja -nappi
             $('#t_' + $.jgrid.jqID($Grid1[0].id))
-           .append($("<div style=padding-bottom:100px><label for=\"globalSearchText\">Etsi omista työpyynnöistä:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
+           .append($("<div><label for=\"globalSearchText\">Etsi omista työpyynnöistä:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
             $("#globalSearchText").keypress(function (e) {
                 var key = e.charCode || e.keyCode || 0;
                 if (key === $.ui.keyCode.ENTER) { // 13
@@ -244,14 +248,10 @@
             });
         });
     </script>
-    <div style ="border:dashed; width:250px; padding: 20px; border-color:#ffffff">
-    <p style="color:#ffffff">Demosivu lähinnä SD:n käyttöön!</p>
-    <p style="color:#ffffff">Tuetut selaimet: IE11. Testattu myös Chromella.</p>
-    <p style="color:#ffffff">Vinkki: lisätietoa kentistä viemällä hiiri kenttien päälle</p>
-    <p style="color:#ffffff">Laita palautetta: <a style="color:#c3c4b7" href="mailto:tikettitoveri@turku.fi?Subject=Tikettitoveri%20palaute" target="_top">tikettitoveri@turku.fi</a></p>
-    </div>
     <hgroup class="title">
-        <h1 style="color:#ffffff; padding-top: 5em; padding: 1em;"> Käyttäjälle <%=userFullName%> osoitetut työpyynnöt</h1>
+        <div style="width:1000px; margin-left:auto; margin-right:auto">
+        <h1 style="color:#ffffff; text-align:center; margin-left:auto; margin-right:auto; padding:20px"> Käyttäjälle <%=userFullName%> osoitetut työpyynnöt</h1>
+        </div>
     </hgroup>
     <div id="gridcontainer">
 

@@ -134,13 +134,13 @@
                 //muuttuja koontikentälle
                 var koonti = $('#koonti');
                 //Päivitetään koontikentän arvoa
-                koonti.val(koonti.val() + '---------- Ongelman tiedot ----------');
+                koonti.val(koonti.val() + '---------- Työpyynnön tiedot ----------');
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + 'Asiani koskee: ' + $( "#tukiryhmä option:selected" ).text());
                 koonti.val(koonti.val() + '\n\n');
-                koonti.val(koonti.val() + 'Ongelman otsikko: ' + document.getElementById("ongelmaotsikko").value);
+                koonti.val(koonti.val() + 'Työpyynnön otsikko: ' + document.getElementById("ongelmaotsikko").value);
                 koonti.val(koonti.val() + '\n\n');
-                koonti.val(koonti.val() + 'Ongelman kuvaus: ' + document.getElementById("ongelmakuvaus").value);
+                koonti.val(koonti.val() + 'Työpyynnön kuvaus: ' + document.getElementById("ongelmakuvaus").value);
                 koonti.val(koonti.val() + '\n\n');
                 koonti.val(koonti.val() + '---------- Perustiedot ----------');
                 koonti.val(koonti.val() + '\n\n');
@@ -199,14 +199,14 @@
      <form id="msform" runat="server">
 	        <!-- progressbar -->
 	        <ul id="progressbar">
-	        	<li class="active" style="color:white">Ongelman kuvaus</li>
+	        	<li class="active" style="color:white">Työpyynnön kuvaus</li>
         		<li style="color:white">Perustiedot</li>
         		<li style="color:white">Yhteenveto</li>
         	</ul>
         	<!-- fieldsets -->
            <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
-             <h3 class="fs-subtitle">Ongelman kuvaus</h3>
+             <h3 class="fs-subtitle">Työpyynnön kuvaus</h3>
              <h4 class="formheader1">Asiani koskee<span style="color:#ed0c6e">&ast;</span></h4>
              <asp:DropDownList ID="tukiryhmä" runat="server">
                  <asp:ListItem Text ="Valitse sopiva vaihtoehto" disabled ="disabled" selected="true"/>
@@ -219,12 +219,12 @@
                  <asp:ListItem value="" id="testiosoite" Text="Testiosoite (oma sähköpostisi)" />
              </asp:DropDownList>
              <span class="question" value="Valitse asiaasi koskeva tukiryhmä">?</span>
-             <h4 class="formheader1">Ongelman otsikko<span style="color:#ed0c6e">&ast;</span></h4>
+             <h4 class="formheader1">Työpyynnön otsikko<span style="color:#ed0c6e">&ast;</span></h4>
              <asp:TextBox runat="server" ID="ongelmaotsikko" placeholder ="Otsikko" />
-             <span class="question" value="Anna ongelmallesi kuvaava nimi. Malli: Tietokoneeni ei saa yhteyttä verkkoon">?</span>
-             <h4 class="formheader1">Ongelman kuvaus</h4>
+             <span class="question" value="Anna työpyynnöllesi kuvaava nimi. Malli: Tietokoneeni ei saa yhteyttä verkkoon">?</span>
+             <h4 class="formheader1">Työpyynnön kuvaus</h4>
              <textarea name="kuvaus" id="ongelmakuvaus" placeholder="Kuvaus"></textarea>
-             <span id="questionHankala" value="Kirjoita omin sanoin, mitä ongelmasi koskee">?</span>
+             <span id="questionHankala" value="Kirjoita omin sanoin, mitä työpyyntösi koskee">?</span>
              <h4 class="formheader1">Liitteet</h4>
              <input type="button" name="liitenappi" class="liitenappi" id="liitenappi" value="+"/>
              <div class ="liiteshowdiv">

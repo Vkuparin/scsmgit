@@ -85,11 +85,11 @@ namespace show_incident
         [WebMethod]
         public static s_GridResult GetDataTable(string _search, string nd, int rows, int page, string sidx, string sord)
         {
-            string user = userFullName;
+            string user = userAccountName;
             Debug.WriteLine(user + " KÄYTTÄJÄN NIMI GRID HAUSSA");
             int startindex = (page - 1);
             int endindex = page;
-            string sql = @"SELECT TOP 100 Id_9A505725_E2F2_447F_271B_9B9F4F0D190C as Id
+            string sql = @"SELECT TOP 75 Id_9A505725_E2F2_447F_271B_9B9F4F0D190C as Id
                         ,[Title_9691DD10_7211_C835_E3E7_6B38AF8B8104] as Title
                         ,[Description_59B77FD5_FE0E_D2B5_D541_0EBBD1EC9A2B] as Description
                         ,[ResolutionDescription_85E8B5FA_3ECB_9B6C_0A02_A8C9EC085A39] as ResolutionDescription
@@ -125,7 +125,7 @@ namespace show_incident
                         [ServiceManager].[dbo].[MT_System$WorkItem$Incident].[Status_785407A9_729D_3A74_A383_575DB0CD50ED] = IncidentStatus.LTStringId
                         AND IncidentStatus.LanguageCode = 'ENU'
 
-                        WHERE AssignedToUser.[DisplayName] = '" + user + "' ;";
+                        WHERE AssignedToUser.[UserName_6AF77E23_669B_123F_B392_323C17097BBD] = '" + user + "' ;";
 
 
             DataTable dt = new DataTable();

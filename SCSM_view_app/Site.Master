@@ -79,20 +79,28 @@
         </Scripts>
     </asp:ScriptManager>
     <header>
+     <div style ="border:dashed; width:250px; padding: 20px; border-color:#ffffff; margin-left:auto; margin-right:auto">
+    <p style="color:#ffffff">Tuetut selaimet: IE11. Testattu myös Chromella.</p>
+    <p style="color:#ffffff">Vinkki: lisätietoa kentistä viemällä hiiri kenttien päälle</p>
+    <p style="color:#ffffff">Laita palautetta: <a style="color:#c3c4b7" href="mailto:tikettitoveri@turku.fi?Subject=Tikettitoveri%20palaute" target="_top">tikettitoveri@turku.fi</a></p>
+    <p style="color:#ffffff"><a style="color:#c3c4b7" href="AssignedIncidentGrid.aspx">Osoitetut työpyynnöt</a>-sivu SD:n käyttöön</p>
+    </div>
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
          
                 </p>
             </div>
+            <div class="topcontainer">
                <img src="Content/images/tkulogo2.svg" class="logo"/>
-               <div class="linkit">
+               <span class="linkit">
                    <a id="linkki" href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
                    <a id="linkki">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
                    <a id="linkki" href="incidentGrid.aspx">Omat työpyynnöt</a>
                    <a id="linkki">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
                    <a id="linkki" href="TicketFill.aspx">Luo työpyyntö</a><br />
-               </div>
+               </span>
+            </div>
     </header>
     <div id="body">
         <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
