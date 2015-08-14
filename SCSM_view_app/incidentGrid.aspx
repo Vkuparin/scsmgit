@@ -165,6 +165,7 @@
                 //Onko tiketti eskaloitu servicedeskistä, piilotettu
                 { name: 'Escalated', index: 'Escalated', width: 150, search: false, hidden: true },
                  ],
+
                 //Lisää gridin määrittelyä
                 pager: '#pager',
                 sortname: 'Id',
@@ -199,7 +200,7 @@
             jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false }); //pager/sivunkääntäjä
             //Lisätään top bariin hakukenttä ja -nappi
             $('#t_' + $.jgrid.jqID($Grid1[0].id))
-           .append($("<div><label for=\"globalSearchText\">Etsi omista työpyynnöistä:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
+           .append($("<div><label for=\"globalSearchText\">Etsi omista työpyynnöistä:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Hae taulukosta...</button></div>"));
             $("#globalSearchText").keypress(function (e) {
                 var key = e.charCode || e.keyCode || 0;
                 if (key === $.ui.keyCode.ENTER) { // 13
