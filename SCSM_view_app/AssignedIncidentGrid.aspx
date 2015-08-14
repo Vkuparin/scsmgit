@@ -249,8 +249,8 @@
         });
     </script>
     <hgroup class="title">
-        <div style="width:1000px; margin-left:auto; margin-right:auto">
-        <h1 style="color:#ffffff; text-align:center; margin-left:auto; margin-right:auto; padding:20px"> Käyttäjälle <%=userFullName%> osoitetut työpyynnöt</h1>
+        <div style="width:1000px; margin-left:100px; margin-right:auto">
+        <h1 style="color:#ffffff; text-align:center; margin-left:100px; margin-right:auto; padding:20px"> Käyttäjälle <%=userFullName%> osoitetut työpyynnöt</h1>
         </div>
     </hgroup>
     <div id="gridcontainer">
