@@ -182,17 +182,16 @@
 
     </head>
     
-    <body>        
+    <body>   
+        <div class="topcontainer">     
             <img src="Content/images/tkulogo2.svg" class="logo" />
             <span class="nav">
-                <nav>
                 <!-- linkit relevantteihin sivuihin -->
                    <a href="https://it-itsepalvelu.turku.fi/smportal/SitePages/Service%20Catalog.aspx">Itsepalveluportaali</a>
                     <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
                     <a href="incidentGrid.aspx">Omat työpyynnöt</a>
-                </nav>
             </span>
-        </span>
+        </div>
 
 <div id="container" style="align-content:center">
 	    	<!-- multistep form -->
@@ -220,10 +219,10 @@
              </asp:DropDownList>
              <span class="question" value="Valitse asiaasi koskeva tukiryhmä">?</span>
              <h4 class="formheader1">Työpyynnön otsikko<span style="color:#ed0c6e">&ast;</span></h4>
-             <asp:TextBox runat="server" ID="ongelmaotsikko" placeholder ="Otsikko" />
+             <asp:TextBox runat="server" ID="ongelmaotsikko" placeholder ="--Kirjoita otsikko--" />
              <span class="question" value="Anna työpyynnöllesi kuvaava nimi. Malli: Tietokoneeni ei saa yhteyttä verkkoon">?</span>
              <h4 class="formheader1">Työpyynnön kuvaus</h4>
-             <textarea name="kuvaus" id="ongelmakuvaus" placeholder="Kuvaus"></textarea>
+             <textarea name="kuvaus" id="ongelmakuvaus" placeholder="--Kirjoita kuvaus--"></textarea>
              <span id="questionHankala" value="Kirjoita omin sanoin, mitä työpyyntösi koskee">?</span>
              <h4 class="formheader1">Liitteet</h4>
              <input type="button" name="liitenappi" class="liitenappi" id="liitenappi" value="+"/>
@@ -242,12 +241,13 @@
                  <option value="<%=userCompany%>" selected><%=userCompany%></option>
                  <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
                  <option value="kiinteistötoimiala">Kiinteistötoimiala</option>
+                 <option value="ympäristötoimiala">Palvelukeskukset</option>
                  <option value="sivistystoimiala">Sivistystoimiala</option>
                  <option value="vapaa-aikatoimiala">Vapaa-aikatoimiala</option>
+                 <option value="yhtiöt">Yhtiöt ja yhtymät</option>
                  <option value="ympäristötoimiala">Ympäristötoimiala</option>
-                 <option value="ympäristötoimiala">Palvelukeskukset</option>
              </select>
-             <span class="question" value="Valitse oma toimialasi kuuden vaihtoehdon joukosta, mikäli oletus ei täsmää tietojesi kanssa">?</span>
+             <span class="question" value="Valitse oma toimialasi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Osasto<span style="color:#ed0c6e">&ast;</span></h4>
              <input type="text" name="osasto" id="osasto" value="<%=userDepartment%>" />
              <span class="question" value="Kirjoita tähän osastosi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
@@ -255,7 +255,7 @@
              <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" />
              <span class="question" value="Kirjoita tähän yksikkösi nimi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Toimipisteen osoite</h4>
-             <input type="text" name="osoite" id="osoite" placeholder="Toimipisteen osoite" />
+             <input type="text" name="osoite" id="osoite" placeholder="--Kirjoita toimipisteen osoite--" />
              <span class="question" value="Kirjoita tähän toimipisteesi osoite. Malli: Ruukinkatu 4">?</span>
              <h4 class="formheader1">Henkilö, jota työpyyntö koskee<span style="color:#ed0c6e">&ast;</span></h4>
              <input type="text" name="nimi" id="nimi" value="<%=userFullName%>" />
@@ -264,11 +264,11 @@
              <asp:TextBox runat="server" ID="sähköposti" Text ="" />
              <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä sähköpostiosoite. Oletuksena käytetään kirjautuneena olevan käyttäjän sähköpostiosoitetta">?</span>
              <h4 class="formheader1">Puhelinnumero</h4>
-             <input type="text" name="puhelinnumero" id="puhelinnumero" value="<%=userPhone%>" />
+             <input type="text" name="puhelinnumero" id="puhelinnumero" placeholder="--Syötä puhelinnumerosi--" value="<%=userPhone%>" />
              <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä puhelinnumero">?</span>
              <h4 class="formheader1">Tietokone, jota työpyyntö koskee<span style="color:#ed0c6e">&ast;</span></h4>
              <input type="text" name="tietokoneenNimi" id="tietokoneenNimi" value="<%=computerName%>" />
-             <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikkoa painaessa Ohjauspaneeli-valinnan yläpuolelta. Tietokoneet on myös nimetty tarroilla, jotka löytyvät useimmiten näppäimistön yläpäästä. Malli: VARA11">?</span>
+             <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikon Ohjauspaneeli-valinnan yläpuolelta. Malli: VARA11">?</span>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="button" id ="tokanappi" name="next" class="next action-button" Value="Seuraava" />
          </fieldset>

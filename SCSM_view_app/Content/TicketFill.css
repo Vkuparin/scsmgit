@@ -325,14 +325,4 @@ div.tooltip p {
 #msform .liitenappi#liitenappi:hover{
         background-color: #00aeef; border: 0px solid  #00aeef;
 }
-.logo{
-    position:relative;
-    align-self:flex-start;
-    padding-right:1200px;
-}
-.nav{
-    width:600px;
-    height:5px;
-    padding-bottom: 200px;
-    opacity: -1;
-}
+.topcontainer{width:1000px; height: 100px; margin-left:auto;margin-right:auto; position:relative}
