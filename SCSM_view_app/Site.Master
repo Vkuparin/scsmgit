@@ -47,6 +47,10 @@
     <script src="Scripts/jquery.highlight-4.js" type="text/javascript"></script>
     <script src="Scripts/grid.addons.js" type="text/javascript"></script>
     <script src="Scripts/jquery.searchFilter.js" type="text/javascript"></script>
+
+    <!-- JQGrid Export to Excel -->  
+    <script src="Scripts/jqGridExportToExcel.js" type="text/javascript"></script>
+    
     <!-- JQGrid -->      
     
     <asp:PlaceHolder runat="server">     

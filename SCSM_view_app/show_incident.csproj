@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>show_incident\packages\ExportExcel\Lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -128,6 +132,10 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.0\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>show_incident\packages\ExportExcel\Lib\WindowsBase.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -290,12 +298,14 @@
     <Content Include="bin\show_incident.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\show_incident.csprojResolveAssemblyReference.cache" />
+    <Content Include="Helpers\ExportGridToExcel.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\core.js" />
     <Content Include="Scripts\grid.addons.js" />
     <Content Include="Scripts\grid.locale-en.js" />
     <Content Include="Scripts\grid.postext.js" />
     <Content Include="Scripts\grid.setcolumns.js" />
+    <Content Include="Scripts\jqGridExportToExcel.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
@@ -393,6 +403,8 @@
     <Content Include="show_incident\packages\EntityFramework.5.0.0\tools\EntityFramework.PowerShell.Utility.dll" />
     <Content Include="show_incident\packages\EntityFramework.5.0.0\tools\migrate.exe" />
     <None Include="show_incident\packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2-vsdoc.js" />
+    <Content Include="show_incident\packages\ExportExcel\Lib\DocumentFormat.OpenXml.dll" />
+    <Content Include="show_incident\packages\ExportExcel\Lib\WindowsBase.dll" />
     <Content Include="show_incident\packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2.js" />
     <Content Include="show_incident\packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2.min.js" />
     <None Include="show_incident\packages\jQuery.1.8.2\Tools\jquery-1.8.2.intellisense.js" />
@@ -610,8 +622,12 @@
       <DependentUpon>AssignedIncidentGrid.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CreateExcelFile.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ExportGridToExcel.ashx.cs">
+      <DependentUpon>ExportGridToExcel.ashx</DependentUpon>
     </Compile>
     <Compile Include="incident.aspx.cs">
       <DependentUpon>incident.aspx</DependentUpon>

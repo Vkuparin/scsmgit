@@ -197,7 +197,14 @@
                     }
                 }
             });
-            jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false }); //pager/sivunkääntäjä
+            jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false }).navButtonAdd('#pager', {
+                caption: "Vie taulukon data Exceliin",
+                buttonicon: "ui-icon-disk",
+                onClickButton: function () {
+                    ExportJQGridDataToExcel("#Grid1", "Omat_työpyynnöt.xlsx");
+                },
+                position: "last"
+            });
             //Lisätään top bariin hakukenttä ja -nappi
             $('#t_' + $.jgrid.jqID($Grid1[0].id))
            .append($("<div><label for=\"globalSearchText\">Etsi omista työpyynnöistä:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Hae taulukosta...</button></div>"));
@@ -207,6 +214,7 @@
                     $("#globalSearch").click();
                 }
             });
+
             $("#globalSearch").button({
                 icons: { primary: "ui-icon-search" },
                 text: false
@@ -245,10 +253,12 @@
         <h1 style="color:#ffffff; text-align:center; margin-left:100px; margin-right:auto; padding:20px"> Käyttäjän <%=userFullName%> työpyynnöt</h1>
         </div>
     </hgroup>
+    
     <div id="gridcontainer">
         <table id="Grid1" class="scroll" align="center" width="100%"></table>
         <div id="pager" class="scroll" style="text-align:center;">
         </div>
+        <iframe id="txtArea1" style="display:none"></iframe>
     </div>
         
 </asp:Content>

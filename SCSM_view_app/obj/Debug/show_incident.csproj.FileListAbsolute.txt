@@ -98,3 +98,4 @@ C:\Users\slahdeti\Desktop\GitHub\scsmgit\SCSM_view_app\bin\Microsoft.AspNet.Frie
 C:\Users\slahdeti\Desktop\GitHub\scsmgit\SCSM_view_app\bin\Org.Mentalis.Security.Cryptography.xml
 C:\Users\slahdeti\Desktop\GitHub\scsmgit\SCSM_view_app\bin\Mono.Math.xml
 C:\Users\slahdeti\Desktop\GitHub\scsmgit\SCSM_view_app\obj\Debug\show_incident.pdb
+C:\Users\vkuparin\Desktop\scsmgit\SCSM_view_app\bin\DocumentFormat.OpenXml.dll

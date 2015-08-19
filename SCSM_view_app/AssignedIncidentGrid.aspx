@@ -206,7 +206,14 @@
                     }
                 }
             });
-            jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false }); //pager/sivunkääntäjä
+            jQuery($Grid1).jqGrid("navGrid", "#pager", { add: false, edit: false, del: false, search: false }).navButtonAdd('#pager', {
+                caption: "Vie taulukon data Exceliin",
+                buttonicon: "ui-icon-disk",
+                onClickButton: function () {
+                    ExportJQGridDataToExcel("#Grid1", "Minulle_osoitetut_työpyynnöt.xlsx");
+                },
+                position: "last"
+            });
             //Lisätään top bariin hakukenttä ja -nappi
             $('#t_' + $.jgrid.jqID($Grid1[0].id))
            .append($("<div><label for=\"globalSearchText\">Etsi omista työpyynnöistä:&nbsp;</label><input id=\"globalSearchText\" type=\"text\"></input>&nbsp;<button id=\"globalSearch\" type=\"button\">Search</button></div>"));
