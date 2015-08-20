@@ -9,6 +9,9 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
      <script src="Scripts/jquery.json.min.js" type="text/javascript"></script>
      <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+     <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+     <script src="Scripts/additional-methods.js" type="text/javascript"></script>
+     <script src="Scripts/messages_fi.js" type="text/javascript"></script>
      <script>
         //muuttuja koontikentälle
         var $koontidata;
@@ -32,43 +35,74 @@
             * Funktiot lomakkeen toiminnallisuudelle, navigoimiselle ja
             * animoinnille
             */
+            //Validaation custom metodit
+            $.validator.addMethod("trvalinta", function (value, element) {
+                if (!($("#tukiryhmä option:selected").text() == "Valitse sopiva vaihtoehto")){
+                    return true;
+                }
+            }, "Valitse tukiryhmä, jota työpyyntösi koskee");
+            //Muuttujia formiin
             var current_fs, next_fs, previous_fs; //fieldsets
             var left, opacity, scale; //fieldset properties which we will animate
             var animating; //flag to prevent quick multi-click glitches
 
             $(".next").click(function () {
+
                 if (animating) return false;
                 animating = true;
 
-                current_fs = $(this).parent();
-                next_fs = $(this).parent().next();
-
-                //activate next step on progressbar using the index of next_fs
-                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-                //show the next fieldset
-                next_fs.show();
-                //hide the current fieldset with style
-                current_fs.animate({ opacity: 0 }, {
-                    step: function (now, mx) {
-                        //as the opacity of current_fs reduces to 0 - stored in "now"
-                        //1. scale current_fs down to 80%
-                        scale = 1 - (1 - now) * 0.2;
-                        //2. bring next_fs from the right(50%)
-                        left = (now * 50) + "%";
-                        //3. increase opacity of next_fs to 1 as it moves in
-                        opacity = 1 - now;
-                        current_fs.css({ 'transform': 'scale(' + scale + ')' });
-                        next_fs.css({ 'left': left, 'opacity': opacity });
-                    },
-                    duration: 800,
-                    complete: function () {
-                        current_fs.hide();
-                        animating = false;
-                    },
-                    //this comes from the custom easing plugin
-                    easing: 'easeInOutBack'
+                var form = $("#msform");
+                form.validate({
+                    rules: {
+                        tukiryhmä: {
+                            trvalinta: true,
+                        },
+                        ongelmaotsikko: {
+                            required: true,
+                        },
+                        sähköposti: {
+                            required: true,
+                            email: true,
+                        },
+                        nimi: {
+                            required: true,
+                        },
+                   },
                 });
+                if ((form.valid() == false)) { //animaatiota ei käynnistetty
+                    animating = false;
+                };
+                if (form.valid() == true) {
+                    current_fs = $(this).parent();
+                    next_fs = $(this).parent().next();
+
+                    //activate next step on progressbar using the index of next_fs
+                    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+                    //show the next fieldset
+                    next_fs.show();
+                    //hide the current fieldset with style
+                    current_fs.animate({ opacity: 0 }, {
+                        step: function (now, mx) {
+                            //as the opacity of current_fs reduces to 0 - stored in "now"
+                            //1. scale current_fs down to 80%
+                            scale = 1 - (1 - now) * 0.2;
+                            //2. bring next_fs from the right(50%)
+                            left = (now * 50) + "%";
+                            //3. increase opacity of next_fs to 1 as it moves in
+                            opacity = 1 - now;
+                            current_fs.css({ 'transform': 'scale(' + scale + ')' });
+                            next_fs.css({ 'left': left, 'opacity': opacity });
+                        },
+                        duration: 800,
+                        complete: function () {
+                            current_fs.hide();
+                            animating = false;
+                        },
+                        //this comes from the custom easing plugin
+                        easing: 'easeInOutBack'
+                    });
+                };
             });
 
             $(".previous").click(function () {
@@ -232,11 +266,12 @@
                 <asp:TextBox runat="server" hidden="true" ID="liite1teksti"></asp:TextBox>
             </div>
              <input type="button" id="ekanappi" name="next" class="next action-button" value="Seuraava" />
+            <h3 class="fs-subtitle" style="text-align:left; padding-top:2em"><span style="color:#ed0c6e">&ast;</span> = pakollinen kenttä</h3>
          </fieldset>
          <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Perustiedot</h3>
-             <h4 class="formheader1">Toimiala<span style="color:#ed0c6e">&ast;</span></h4>
+             <h4 class="formheader1">Toimiala</h4>
              <select name="toimiala" id="toimiala" />
                  <option value="<%=userCompany%>" selected><%=userCompany%></option>
                  <option value="hyvinvointitoimiala">Hyvinvointitoimiala</option>
@@ -248,10 +283,10 @@
                  <option value="ympäristötoimiala">Ympäristötoimiala</option>
              </select>
              <span class="question" value="Valitse oma toimialasi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
-             <h4 class="formheader1">Osasto<span style="color:#ed0c6e">&ast;</span></h4>
+             <h4 class="formheader1">Osasto</h4>
              <input type="text" name="osasto" id="osasto" value="<%=userDepartment%>" />
              <span class="question" value="Kirjoita tähän osastosi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
-             <h4 class="formheader1">Toimipisteen nimi<span style="color:#ed0c6e">&ast;</span></h4>
+             <h4 class="formheader1">Toimipisteen nimi</h4>
              <input type="text" name="toimipiste" id="yksikkö" value="<%=userOffice%>" />
              <span class="question" value="Kirjoita tähän yksikkösi nimi, mikäli oletus ei täsmää tietojesi kanssa">?</span>
              <h4 class="formheader1">Toimipisteen osoite</h4>
@@ -266,15 +301,17 @@
              <h4 class="formheader1">Puhelinnumero</h4>
              <input type="text" name="puhelinnumero" id="puhelinnumero" placeholder="--Syötä puhelinnumerosi--" value="<%=userPhone%>" />
              <span class="question" value="Kirjoita tähän yhteydenpidossa käytettävä puhelinnumero">?</span>
-             <h4 class="formheader1">Tietokone, jota työpyyntö koskee<span style="color:#ed0c6e">&ast;</span></h4>
+             <h4 class="formheader1">Tietokone, jota työpyyntö koskee</h4>
              <input type="text" name="tietokoneenNimi" id="tietokoneenNimi" value="<%=computerName%>" />
              <span class="question" value="Tietokoneesi nimi löytyy Käynnistä-valikon Ohjauspaneeli-valinnan yläpuolelta. Malli: VARA11">?</span>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="button" id ="tokanappi" name="next" class="next action-button" Value="Seuraava" />
+             <h3 class="fs-subtitle" style="text-align:left; padding-top:2em"><span style="color:#ed0c6e">&ast;</span> = pakollinen kenttä</h3>
          </fieldset>
          <fieldset>
              <h2 class="fs-title">Uuden työpyynnön lähetys</h2>
              <h3 class="fs-subtitle">Yhteenveto</h3>
+             <h3 class="fs-subtitle"><span style="color:#ed0c6e">&ast;</span> = pakollinen kenttä</h3>
              <textarea runat="server" id ="koonti"></textarea>
              <input type="button" name="previous" class="previous action-button" value="Edellinen" />
              <input type="button" class="confirmnappi" onclick="confirmFunction()" value="Seuraava" />

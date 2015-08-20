@@ -300,6 +300,7 @@
     <Content Include="obj\Debug\show_incident.csprojResolveAssemblyReference.cache" />
     <Content Include="Helpers\ExportGridToExcel.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\additional-methods.js" />
     <Content Include="Scripts\core.js" />
     <Content Include="Scripts\grid.addons.js" />
     <Content Include="Scripts\grid.locale-en.js" />
@@ -320,6 +321,8 @@
     <Content Include="Scripts\jquery.json.min.js" />
     <Content Include="Scripts\jquery.searchFilter.js" />
     <Content Include="Scripts\jquery.tablednd.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\messages_fi.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ui.multiselect.js" />
     <Content Include="Scripts\upload.js" />
